@@ -1,0 +1,51 @@
+--Jogador 1--
+Nome: clarque
+Palavras:
+caixote
+caju
+camarao
+camelo
+caneca
+canela
+caneta
+canoa
+canudo
+careca
+carteira
+cavalo
+cocada
+coco
+cola
+coleira
+comida
+cabelo
+Maior Palavra: 
+carteira
+Letras Iniciais: 
+c -> 18
+
+--Jogador 2--
+Nome: quente
+Palavras:
+cabide
+cacau
+cadeado
+cadeira
+cafe
+cafune
+caixa
+copo
+coroa
+coruja
+couro
+couve
+coxa
+cubo
+cuco
+cueca
+cuica
+cutia
+Maior Palavra: 
+cadeado
+Letras Iniciais: 
+c -> 18

@@ -1,0 +1,36 @@
+--------------
+--- PONTOS ---
+--------------
+
+Renan
+Feitos: 0
+Recebidos: 0
+Total: 0
+
+Thiago
+Feitos: 0
+Recebidos: 0
+Total: 0
+
+---------------------------
+--- PALAVRAS POR PONTOS ---
+---------------------------
+
+|P|     Palavra    | T |
+|-|----------------|---|
+|0|abacate         |000|
+|0|abacaxi         |000|
+|0|baleia          |000|
+|0|banana          |000|
+|0|batata          |000|
+|0|canario         |000|
+|0|elefante        |000|
+|0|girafa          |000|
+|0|graviola        |000|
+|0|laranja         |000|
+|0|macaco          |000|
+|0|manga           |000|
+|0|melancia        |000|
+|0|peixe           |000|
+|0|porco           |000|
+|0|vaca            |000|

@@ -1,0 +1,26 @@
+--------------
+--- PONTOS ---
+--------------
+
+thiago
+Feitos: 2
+Recebidos: 0
+Total: 2
+
+claudia
+Feitos: 0
+Recebidos: 1
+Total: 1
+
+---------------------------
+--- PALAVRAS POR PONTOS ---
+---------------------------
+
+|P|     Palavra    | T |
+|-|----------------|---|
+|2|alface          |001|
+|1|lapis           |007|
+|0|base            |000|
+|0|oleo            |000|
+|0|tela            |000|
+|0|torta           |000|

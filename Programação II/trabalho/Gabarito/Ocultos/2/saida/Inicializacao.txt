@@ -1,0 +1,30 @@
+--Jogador 1--
+Nome: Renan
+Palavras:
+azar
+casa
+panda
+ave
+area
+Maior Palavra: 
+panda
+Letras Iniciais: 
+a -> 3
+c -> 1
+p -> 1
+
+--Jogador 2--
+Nome: Thiago
+Palavras:
+zebra
+mapa
+peru
+reus
+rua
+Maior Palavra: 
+zebra
+Letras Iniciais: 
+m -> 1
+p -> 1
+r -> 2
+z -> 1

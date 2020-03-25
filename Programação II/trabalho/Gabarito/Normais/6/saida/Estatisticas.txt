@@ -1,0 +1,30 @@
+--------------
+--- PONTOS ---
+--------------
+
+guilherme
+Feitos: 8
+Recebidos: 1
+Total: 9
+
+joaquina
+Feitos: 0
+Recebidos: 0
+Total: 0
+
+---------------------------
+--- PALAVRAS POR PONTOS ---
+---------------------------
+
+|P|     Palavra    | T |
+|-|----------------|---|
+|2|bolsa           |003|
+|2|lampada         |001|
+|2|parede          |005|
+|2|vidro           |007|
+|1|computador      |010|
+|0|caixa           |000|
+|0|caneta          |000|
+|0|corda           |000|
+|0|fone            |000|
+|0|papel           |000|

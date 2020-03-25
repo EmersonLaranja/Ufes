@@ -1,0 +1,27 @@
+Nome do Jogador 1:
+Nome do Jogador 2:
+|            Palavras Restantes           |
+|Renan           (00)|Thiago          (00)|
+|--------------------|--------------------|
+|abacate             |laranja             |
+|manga               |macaco              |
+|baleia              |abacaxi             |
+|banana              |melancia            |
+|canario             |peixe               |
+|elefante            |vaca                |
+|porco               |batata              |
+|graviola            |girafa              |
+
+    00 01 02 03 04 05 06 07 08 09
+00| -  -  -  -  -  -  -  -  -  - |
+01| -  -  -  -  -  -  -  -  -  - |
+02| -  -  -  -  -  -  -  -  -  - |
+03| -  -  -  -  -  -  -  -  -  - |
+04| -  -  -  -  -  -  -  -  -  - |
+05| -  -  -  -  -  -  -  -  -  - |
+06| -  -  -  -  -  -  -  -  -  - |
+07| -  -  -  -  -  -  -  -  -  - |
+08| -  -  -  -  -  -  -  -  -  - |
+09| -  -  -  -  -  -  -  -  -  - |
+
+Empate

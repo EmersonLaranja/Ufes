@@ -1,0 +1,127 @@
+Nome do Jogador 1:
+Nome do Jogador 2:
+|            Palavras Restantes           |
+|renan           (00)|pedro           (00)|
+|--------------------|--------------------|
+|faca                |toca                |
+|alfa                |dado                |
+|alga                |rato                |
+
+    00 01 02 03 04 05
+00| -  -  -  -  -  - |
+01| -  -  -  -  -  - |
+02| -  -  -  -  -  - |
+03| -  -  -  -  -  - |
+04| -  -  -  -  -  - |
+05| -  -  -  -  -  - |
+
+renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|renan           (02)|pedro           (00)|
+|--------------------|--------------------|
+|faca                |toca                |
+|alga                |dado                |
+|                    |rato                |
+
+    00 01 02 03 04 05
+00| -  -  -  -  -  - |
+01| -  -  -  -  -  - |
+02| -  -  a  -  -  - |
+03| -  -  -  f  -  - |
+04| -  -  -  -  l  - |
+05| -  -  -  -  -  A |
+
+pedro por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|renan           (02)|pedro           (00)|
+|--------------------|--------------------|
+|faca                |toca                |
+|alga                |dado                |
+|                    |rato                |
+
+    00 01 02 03 04 05
+00| -  -  -  A  -  - |
+01| -  -  -  -  -  - |
+02| -  -  a  -  -  - |
+03| -  -  -  f  -  - |
+04| -  -  -  -  l  - |
+05| -  -  -  -  -  A |
+
+renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|renan           (04)|pedro           (00)|
+|--------------------|--------------------|
+|faca                |toca                |
+|                    |dado                |
+|                    |rato                |
+
+    00 01 02 03 04 05
+00| -  -  -  A  -  - |
+01| -  -  -  -  -  - |
+02| -  -  a  -  -  A |
+03| -  -  -  f  -  l |
+04| -  -  -  -  l  g |
+05| -  -  -  -  -  A |
+
+pedro por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|renan           (04)|pedro           (00)|
+|--------------------|--------------------|
+|faca                |toca                |
+|                    |dado                |
+|                    |rato                |
+
+    00 01 02 03 04 05
+00| -  -  -  A  -  - |
+01| -  -  -  C  -  - |
+02| -  -  a  -  -  A |
+03| -  -  -  f  -  l |
+04| -  -  -  -  l  g |
+05| -  -  -  -  -  A |
+
+renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|renan           (04)|pedro           (01)|
+|--------------------|--------------------|
+|faca                |dado                |
+|                    |rato                |
+
+    00 01 02 03 04 05
+00| -  -  -  A  -  - |
+01| -  -  -  C  -  - |
+02| -  -  a  -  -  A |
+03| -  -  -  f  -  l |
+04| -  -  -  -  l  g |
+05| -  -  T  o  c  A |
+
+pedro por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|renan           (04)|pedro           (01)|
+|--------------------|--------------------|
+|faca                |dado                |
+|                    |rato                |
+
+    00 01 02 03 04 05
+00| -  -  -  A  -  - |
+01| -  -  -  C  -  - |
+02| -  -  a  A  -  A |
+03| -  -  -  f  -  l |
+04| -  -  -  -  l  g |
+05| -  -  T  o  c  A |
+
+renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|renan           (06)|pedro           (01)|
+|--------------------|--------------------|
+|                    |dado                |
+|                    |rato                |
+
+    00 01 02 03 04 05
+00| -  -  -  A  -  - |
+01| -  -  -  C  -  - |
+02| -  -  a  A  -  A |
+03| -  -  -  F  -  l |
+04| -  -  -  -  l  g |
+05| -  -  T  o  c  A |
+
+renan Ganhou!!!

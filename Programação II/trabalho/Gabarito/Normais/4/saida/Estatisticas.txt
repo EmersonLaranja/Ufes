@@ -1,0 +1,30 @@
+--------------
+--- PONTOS ---
+--------------
+
+antonio
+Feitos: 4
+Recebidos: 2
+Total: 6
+
+adalberto
+Feitos: 4
+Recebidos: 3
+Total: 7
+
+---------------------------
+--- PALAVRAS POR PONTOS ---
+---------------------------
+
+|P|     Palavra    | T |
+|-|----------------|---|
+|2|caneca          |003|
+|2|entrada         |008|
+|2|luz             |010|
+|2|papa            |001|
+|1|bebida          |004|
+|1|botao           |009|
+|1|cabo            |006|
+|1|mesa            |007|
+|1|sacola          |011|
+|0|saida           |000|

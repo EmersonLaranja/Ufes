@@ -1,0 +1,30 @@
+--------------
+--- PONTOS ---
+--------------
+
+guilherme
+Feitos: 2
+Recebidos: 0
+Total: 2
+
+joaquina
+Feitos: 2
+Recebidos: 0
+Total: 2
+
+---------------------------
+--- PALAVRAS POR PONTOS ---
+---------------------------
+
+|P|     Palavra    | T |
+|-|----------------|---|
+|2|comida          |001|
+|2|maquina         |006|
+|0|animal          |000|
+|0|bacia           |000|
+|0|bife            |000|
+|0|cartaz          |000|
+|0|colher          |000|
+|0|igreja          |000|
+|0|niobio          |000|
+|0|telefone        |000|

@@ -1,0 +1,313 @@
+Nome do Jogador 1:
+Nome do Jogador 2:
+|            Palavras Restantes           |
+|Renan           (00)|Thiago          (00)|
+|--------------------|--------------------|
+|azar                |zebra               |
+|casa                |mapa                |
+|panda               |peru                |
+|ave                 |reus                |
+|area                |rua                 |
+
+    00 01 02 03 04
+00| -  -  -  -  - |
+01| -  -  -  -  - |
+02| -  -  -  -  - |
+03| -  -  -  -  - |
+04| -  -  -  -  - |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (02)|Thiago          (00)|
+|--------------------|--------------------|
+|casa                |zebra               |
+|panda               |mapa                |
+|ave                 |peru                |
+|area                |reus                |
+|                    |rua                 |
+
+    00 01 02 03 04
+00| A  -  -  -  - |
+01| z  -  -  -  - |
+02| a  -  -  -  - |
+03| r  -  -  -  - |
+04| -  -  -  -  - |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (02)|Thiago          (02)|
+|--------------------|--------------------|
+|casa                |zebra               |
+|panda               |mapa                |
+|ave                 |reus                |
+|area                |rua                 |
+
+    00 01 02 03 04
+00| A  P  -  -  - |
+01| z  e  -  -  - |
+02| a  r  -  -  - |
+03| r  u  -  -  - |
+04| -  -  -  -  - |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (02)|Thiago          (02)|
+|--------------------|--------------------|
+|casa                |zebra               |
+|panda               |mapa                |
+|ave                 |reus                |
+|area                |rua                 |
+
+    00 01 02 03 04
+00| A  P  A  -  - |
+01| z  e  -  -  - |
+02| a  r  -  -  - |
+03| r  u  -  -  - |
+04| -  -  -  -  - |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (02)|Thiago          (04)|
+|--------------------|--------------------|
+|casa                |zebra               |
+|panda               |reus                |
+|ave                 |rua                 |
+|area                |                    |
+
+    00 01 02 03 04
+00| A  P  A  M  - |
+01| z  e  -  -  - |
+02| a  r  -  -  - |
+03| r  u  -  -  - |
+04| -  -  -  -  - |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (04)|Thiago          (04)|
+|--------------------|--------------------|
+|casa                |zebra               |
+|ave                 |reus                |
+|area                |rua                 |
+
+    00 01 02 03 04
+00| A  P  A  M  P |
+01| z  e  -  -  a |
+02| a  r  -  -  n |
+03| r  u  -  -  d |
+04| -  -  -  -  a |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (04)|Thiago          (06)|
+|--------------------|--------------------|
+|casa                |reus                |
+|ave                 |rua                 |
+|area                |                    |
+
+    00 01 02 03 04
+00| A  P  A  M  P |
+01| Z  e  b  r  a |
+02| a  r  -  -  n |
+03| r  u  -  -  d |
+04| -  -  -  -  a |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (04)|Thiago          (06)|
+|--------------------|--------------------|
+|casa                |reus                |
+|ave                 |rua                 |
+|area                |                    |
+
+    00 01 02 03 04
+00| A  P  A  M  P |
+01| Z  E  b  r  a |
+02| a  r  -  -  n |
+03| r  u  -  -  d |
+04| -  -  -  -  a |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (04)|Thiago          (06)|
+|--------------------|--------------------|
+|casa                |reus                |
+|ave                 |rua                 |
+|area                |                    |
+
+    00 01 02 03 04
+00| A  P  A  M  P |
+01| Z  E  B  r  a |
+02| a  r  -  -  n |
+03| r  u  -  -  d |
+04| -  -  -  -  a |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (04)|Thiago          (07)|
+|--------------------|--------------------|
+|casa                |rua                 |
+|ave                 |                    |
+|area                |                    |
+
+    00 01 02 03 04
+00| A  P  A  M  P |
+01| Z  E  B  R  a |
+02| a  r  e  -  n |
+03| r  u  -  -  d |
+04| s  -  -  -  a |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (04)|Thiago          (07)|
+|--------------------|--------------------|
+|casa                |rua                 |
+|ave                 |                    |
+|area                |                    |
+
+    00 01 02 03 04
+00| A  P  A  M  P |
+01| Z  E  B  R  A |
+02| a  r  e  -  n |
+03| r  u  -  -  d |
+04| s  -  -  -  a |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (06)|Thiago          (07)|
+|--------------------|--------------------|
+|casa                |rua                 |
+|ave                 |                    |
+
+    00 01 02 03 04
+00| A  P  A  M  P |
+01| Z  E  B  R  A |
+02| A  r  e  a  n |
+03| r  u  -  -  d |
+04| s  -  -  -  a |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (06)|Thiago          (07)|
+|--------------------|--------------------|
+|casa                |rua                 |
+|ave                 |                    |
+
+    00 01 02 03 04
+00| A  P  A  M  P |
+01| Z  E  B  R  A |
+02| A  R  e  a  n |
+03| r  u  -  -  d |
+04| s  -  -  -  a |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (06)|Thiago          (07)|
+|--------------------|--------------------|
+|casa                |rua                 |
+|ave                 |                    |
+
+    00 01 02 03 04
+00| A  P  A  M  P |
+01| Z  E  B  R  A |
+02| A  R  E  a  n |
+03| r  u  -  -  d |
+04| s  -  -  -  a |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (06)|Thiago          (07)|
+|--------------------|--------------------|
+|casa                |rua                 |
+|ave                 |                    |
+
+    00 01 02 03 04
+00| A  P  A  M  P |
+01| Z  E  B  R  A |
+02| A  R  E  A  n |
+03| r  u  -  -  d |
+04| s  -  -  -  a |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (06)|Thiago          (07)|
+|--------------------|--------------------|
+|casa                |rua                 |
+|ave                 |                    |
+
+    00 01 02 03 04
+00| A  P  A  M  P |
+01| Z  E  B  R  A |
+02| A  R  E  A  N |
+03| r  u  -  -  d |
+04| s  -  -  -  a |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (06)|Thiago          (07)|
+|--------------------|--------------------|
+|casa                |rua                 |
+|ave                 |                    |
+
+    00 01 02 03 04
+00| A  P  A  M  P |
+01| Z  E  B  R  A |
+02| A  R  E  A  N |
+03| r  U  -  -  d |
+04| s  -  -  -  a |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (06)|Thiago          (07)|
+|--------------------|--------------------|
+|casa                |rua                 |
+|ave                 |                    |
+
+    00 01 02 03 04
+00| A  P  A  M  P |
+01| Z  E  B  R  A |
+02| A  R  E  A  N |
+03| r  U  A  -  d |
+04| s  -  -  -  a |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (06)|Thiago          (07)|
+|--------------------|--------------------|
+|casa                |rua                 |
+|ave                 |                    |
+
+    00 01 02 03 04
+00| A  P  A  M  P |
+01| Z  E  B  R  A |
+02| A  R  E  A  N |
+03| r  U  A  V  d |
+04| s  -  -  -  a |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (06)|Thiago          (07)|
+|--------------------|--------------------|
+|casa                |rua                 |
+|ave                 |                    |
+
+    00 01 02 03 04
+00| A  P  A  M  P |
+01| Z  E  B  R  A |
+02| A  R  E  A  N |
+03| r  U  A  V  D |
+04| s  -  -  -  a |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (07)|Thiago          (07)|
+|--------------------|--------------------|
+|casa                |rua                 |
+
+    00 01 02 03 04
+00| A  P  A  M  P |
+01| Z  E  B  R  A |
+02| A  R  E  A  N |
+03| r  U  A  V  D |
+04| s  -  -  -  A |
+
+Empate

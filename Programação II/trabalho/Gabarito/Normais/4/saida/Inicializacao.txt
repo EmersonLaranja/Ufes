@@ -1,0 +1,32 @@
+--Jogador 1--
+Nome: antonio
+Palavras:
+papa
+saida
+caneca
+bebida
+cabo
+Maior Palavra: 
+caneca
+Letras Iniciais: 
+b -> 1
+c -> 2
+p -> 1
+s -> 1
+
+--Jogador 2--
+Nome: adalberto
+Palavras:
+mesa
+entrada
+botao
+luz
+sacola
+Maior Palavra: 
+entrada
+Letras Iniciais: 
+b -> 1
+e -> 1
+l -> 1
+m -> 1
+s -> 1

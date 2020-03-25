@@ -1,0 +1,24 @@
+--------------
+--- PONTOS ---
+--------------
+
+henrique
+Feitos: 0
+Recebidos: 1
+Total: 1
+
+joao
+Feitos: 0
+Recebidos: 2
+Total: 2
+
+---------------------------
+--- PALAVRAS POR PONTOS ---
+---------------------------
+
+|P|     Palavra    | T |
+|-|----------------|---|
+|1|agua            |002|
+|1|arma            |003|
+|1|fila            |001|
+|0|alma            |000|

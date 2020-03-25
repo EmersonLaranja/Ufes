@@ -1,0 +1,28 @@
+--------------
+--- PONTOS ---
+--------------
+
+guilherme
+Feitos: 4
+Recebidos: 1
+Total: 5
+
+joaquina
+Feitos: 4
+Recebidos: 2
+Total: 6
+
+---------------------------
+--- PALAVRAS POR PONTOS ---
+---------------------------
+
+|P|     Palavra    | T |
+|-|----------------|---|
+|2|amores          |006|
+|2|dolores         |003|
+|2|flores          |001|
+|2|sabores         |004|
+|1|cores           |007|
+|1|motores         |002|
+|1|rigores         |005|
+|0|odores          |000|

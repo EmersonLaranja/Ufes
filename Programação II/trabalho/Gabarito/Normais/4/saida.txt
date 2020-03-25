@@ -1,0 +1,300 @@
+Nome do Jogador 1:
+Nome do Jogador 2:
+|            Palavras Restantes           |
+|antonio         (00)|adalberto       (00)|
+|--------------------|--------------------|
+|papa                |mesa                |
+|saida               |entrada             |
+|caneca              |botao               |
+|bebida              |luz                 |
+|cabo                |sacola              |
+
+    00 01 02 03 04 05 06 07 08 09 10 11
+00| -  -  -  -  -  -  -  -  -  -  -  - |
+01| -  -  -  -  -  -  -  -  -  -  -  - |
+02| -  -  -  -  -  -  -  -  -  -  -  - |
+03| -  -  -  -  -  -  -  -  -  -  -  - |
+04| -  -  -  -  -  -  -  -  -  -  -  - |
+05| -  -  -  -  -  -  -  -  -  -  -  - |
+06| -  -  -  -  -  -  -  -  -  -  -  - |
+07| -  -  -  -  -  -  -  -  -  -  -  - |
+08| -  -  -  -  -  -  -  -  -  -  -  - |
+09| -  -  -  -  -  -  -  -  -  -  -  - |
+10| -  -  -  -  -  -  -  -  -  -  -  - |
+11| -  -  -  -  -  -  -  -  -  -  -  - |
+
+antonio por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|antonio         (02)|adalberto       (00)|
+|--------------------|--------------------|
+|saida               |mesa                |
+|caneca              |entrada             |
+|bebida              |botao               |
+|cabo                |luz                 |
+|                    |sacola              |
+
+    00 01 02 03 04 05 06 07 08 09 10 11
+00| -  -  -  -  -  -  -  a  -  -  -  - |
+01| -  -  -  -  -  -  -  p  -  -  -  - |
+02| -  -  -  -  -  -  -  a  -  -  -  - |
+03| -  -  -  -  -  -  -  P  -  -  -  - |
+04| -  -  -  -  -  -  -  -  -  -  -  - |
+05| -  -  -  -  -  -  -  -  -  -  -  - |
+06| -  -  -  -  -  -  -  -  -  -  -  - |
+07| -  -  -  -  -  -  -  -  -  -  -  - |
+08| -  -  -  -  -  -  -  -  -  -  -  - |
+09| -  -  -  -  -  -  -  -  -  -  -  - |
+10| -  -  -  -  -  -  -  -  -  -  -  - |
+11| -  -  -  -  -  -  -  -  -  -  -  - |
+
+adalberto por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|antonio         (02)|adalberto       (00)|
+|--------------------|--------------------|
+|saida               |mesa                |
+|caneca              |entrada             |
+|bebida              |botao               |
+|cabo                |luz                 |
+|                    |sacola              |
+
+    00 01 02 03 04 05 06 07 08 09 10 11
+00| -  -  -  -  -  -  -  a  -  -  -  - |
+01| -  U  -  -  -  -  -  p  -  -  -  - |
+02| -  -  -  -  -  -  -  a  -  -  -  - |
+03| -  -  -  -  -  -  -  P  -  -  -  - |
+04| -  -  -  -  -  -  -  -  -  -  -  - |
+05| -  -  -  -  -  -  -  -  -  -  -  - |
+06| -  -  -  -  -  -  -  -  -  -  -  - |
+07| -  -  -  -  -  -  -  -  -  -  -  - |
+08| -  -  -  -  -  -  -  -  -  -  -  - |
+09| -  -  -  -  -  -  -  -  -  -  -  - |
+10| -  -  -  -  -  -  -  -  -  -  -  - |
+11| -  -  -  -  -  -  -  -  -  -  -  - |
+
+antonio por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|antonio         (04)|adalberto       (00)|
+|--------------------|--------------------|
+|saida               |mesa                |
+|bebida              |entrada             |
+|cabo                |botao               |
+|                    |luz                 |
+|                    |sacola              |
+
+    00 01 02 03 04 05 06 07 08 09 10 11
+00| -  -  -  -  -  -  -  a  -  -  -  - |
+01| a  U  -  -  -  -  -  p  -  -  -  - |
+02| c  -  -  -  -  -  -  a  -  -  -  - |
+03| e  -  -  -  -  -  -  P  -  -  -  - |
+04| n  -  -  -  -  -  -  -  -  -  -  - |
+05| a  -  -  -  -  -  -  -  -  -  -  - |
+06| C  -  -  -  -  -  -  -  -  -  -  - |
+07| -  -  -  -  -  -  -  -  -  -  -  - |
+08| -  -  -  -  -  -  -  -  -  -  -  - |
+09| -  -  -  -  -  -  -  -  -  -  -  - |
+10| -  -  -  -  -  -  -  -  -  -  -  - |
+11| -  -  -  -  -  -  -  -  -  -  -  - |
+
+adalberto por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|antonio         (05)|adalberto       (00)|
+|--------------------|--------------------|
+|saida               |mesa                |
+|cabo                |entrada             |
+|                    |botao               |
+|                    |luz                 |
+|                    |sacola              |
+
+    00 01 02 03 04 05 06 07 08 09 10 11
+00| -  -  -  -  -  -  -  a  -  -  -  - |
+01| a  U  -  -  -  -  -  p  -  -  -  - |
+02| c  -  -  -  -  -  -  a  -  -  -  - |
+03| e  -  -  -  -  -  -  P  -  -  -  - |
+04| n  -  -  -  -  -  -  -  -  -  -  - |
+05| a  -  -  -  -  -  -  -  -  -  -  - |
+06| C  -  -  -  -  -  -  -  -  -  -  - |
+07| -  -  -  -  -  -  -  -  -  -  -  - |
+08| -  -  -  -  -  -  -  -  -  -  -  - |
+09| -  -  -  -  -  -  -  -  -  -  -  - |
+10| -  -  -  -  -  -  -  -  -  -  -  - |
+11| -  -  -  B  e  b  i  d  a  -  -  - |
+
+antonio por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|antonio         (05)|adalberto       (00)|
+|--------------------|--------------------|
+|saida               |mesa                |
+|cabo                |entrada             |
+|                    |botao               |
+|                    |luz                 |
+|                    |sacola              |
+
+    00 01 02 03 04 05 06 07 08 09 10 11
+00| -  -  -  -  -  -  -  a  -  -  -  - |
+01| a  U  -  -  -  -  -  p  -  -  -  - |
+02| c  -  -  -  -  -  -  a  -  -  -  - |
+03| e  -  -  -  -  -  -  P  -  -  -  - |
+04| n  -  -  -  -  -  -  -  -  -  -  - |
+05| a  -  -  -  -  -  -  -  -  -  -  - |
+06| C  -  -  -  -  -  -  -  -  -  -  - |
+07| -  -  -  -  -  -  -  -  -  -  -  - |
+08| -  -  -  -  -  -  -  -  -  -  -  - |
+09| -  -  -  -  -  -  -  -  -  -  -  - |
+10| -  -  -  -  -  -  -  -  -  -  -  - |
+11| -  -  -  B  e  b  i  d  a  -  -  - |
+
+Coordenadas ja jogadas.antonio por favor entre com novas coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|antonio         (05)|adalberto       (00)|
+|--------------------|--------------------|
+|saida               |mesa                |
+|cabo                |entrada             |
+|                    |botao               |
+|                    |luz                 |
+|                    |sacola              |
+
+    00 01 02 03 04 05 06 07 08 09 10 11
+00| -  -  -  -  -  -  -  a  -  -  -  - |
+01| a  U  -  -  -  -  -  p  -  -  -  - |
+02| c  -  -  -  -  -  -  a  -  -  -  - |
+03| e  -  -  -  -  -  -  P  -  -  -  - |
+04| n  -  -  -  -  -  -  -  -  -  -  - |
+05| a  -  -  -  -  -  -  -  -  -  -  - |
+06| C  J  -  -  -  -  -  -  -  -  -  - |
+07| -  -  -  -  -  -  -  -  -  -  -  - |
+08| -  -  -  -  -  -  -  -  -  -  -  - |
+09| -  -  -  -  -  -  -  -  -  -  -  - |
+10| -  -  -  -  -  -  -  -  -  -  -  - |
+11| -  -  -  B  e  b  i  d  a  -  -  - |
+
+adalberto por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|antonio         (06)|adalberto       (00)|
+|--------------------|--------------------|
+|saida               |mesa                |
+|                    |entrada             |
+|                    |botao               |
+|                    |luz                 |
+|                    |sacola              |
+
+    00 01 02 03 04 05 06 07 08 09 10 11
+00| -  -  -  -  -  -  -  a  -  -  -  - |
+01| a  U  -  -  -  -  -  p  -  -  -  - |
+02| c  -  -  -  -  -  -  a  -  -  -  - |
+03| e  -  -  -  -  -  -  P  -  -  -  - |
+04| n  -  -  -  -  -  -  -  -  -  -  - |
+05| a  -  -  -  -  -  -  -  -  -  -  - |
+06| C  J  -  -  -  -  -  -  -  -  -  - |
+07| -  -  -  -  o  -  -  -  -  -  -  - |
+08| -  -  -  -  b  -  -  -  -  -  -  - |
+09| -  -  -  -  a  -  -  -  -  -  -  - |
+10| -  -  -  -  C  -  -  -  -  -  -  - |
+11| -  -  -  B  e  b  i  d  a  -  -  - |
+
+antonio por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|antonio         (06)|adalberto       (01)|
+|--------------------|--------------------|
+|saida               |entrada             |
+|                    |botao               |
+|                    |luz                 |
+|                    |sacola              |
+
+    00 01 02 03 04 05 06 07 08 09 10 11
+00| -  -  -  -  -  -  -  a  -  M  -  - |
+01| a  U  -  -  -  -  -  p  -  e  -  - |
+02| c  -  -  -  -  -  -  a  -  s  -  - |
+03| e  -  -  -  -  -  -  P  -  a  -  - |
+04| n  -  -  -  -  -  -  -  -  -  -  - |
+05| a  -  -  -  -  -  -  -  -  -  -  - |
+06| C  J  -  -  -  -  -  -  -  -  -  - |
+07| -  -  -  -  o  -  -  -  -  -  -  - |
+08| -  -  -  -  b  -  -  -  -  -  -  - |
+09| -  -  -  -  a  -  -  -  -  -  -  - |
+10| -  -  -  -  C  -  -  -  -  -  -  - |
+11| -  -  -  B  e  b  i  d  a  -  -  - |
+
+adalberto por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|antonio         (06)|adalberto       (03)|
+|--------------------|--------------------|
+|saida               |botao               |
+|                    |luz                 |
+|                    |sacola              |
+
+    00 01 02 03 04 05 06 07 08 09 10 11
+00| -  -  -  -  -  -  -  a  -  M  -  - |
+01| a  U  -  -  -  -  -  p  -  e  -  - |
+02| c  -  -  -  -  -  -  a  -  s  -  - |
+03| e  -  -  -  -  -  -  P  -  a  -  - |
+04| n  -  E  -  -  -  -  -  -  -  -  - |
+05| a  -  n  -  -  -  -  -  -  -  -  - |
+06| C  J  t  -  -  -  -  -  -  -  -  - |
+07| -  -  r  -  o  -  -  -  -  -  -  - |
+08| -  -  a  -  b  -  -  -  -  -  -  - |
+09| -  -  d  -  a  -  -  -  -  -  -  - |
+10| -  -  a  -  C  -  -  -  -  -  -  - |
+11| -  -  -  B  e  b  i  d  a  -  -  - |
+
+antonio por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|antonio         (06)|adalberto       (04)|
+|--------------------|--------------------|
+|saida               |luz                 |
+|                    |sacola              |
+
+    00 01 02 03 04 05 06 07 08 09 10 11
+00| -  -  -  -  -  -  -  a  -  M  -  - |
+01| a  U  -  -  -  -  -  p  -  e  -  - |
+02| c  -  -  -  -  -  -  a  -  s  -  - |
+03| e  -  -  -  -  -  -  P  -  a  -  - |
+04| n  -  E  -  -  -  -  -  -  -  -  - |
+05| a  -  n  -  -  -  -  -  -  -  -  - |
+06| C  J  t  -  -  -  -  -  -  -  -  - |
+07| -  -  r  -  o  o  -  -  -  -  -  - |
+08| -  -  a  -  b  a  -  -  -  -  -  - |
+09| -  -  d  -  a  t  -  -  -  -  -  - |
+10| -  -  a  -  C  o  -  -  -  -  -  - |
+11| -  -  -  B  e  B  i  d  a  -  -  - |
+
+adalberto por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|antonio         (06)|adalberto       (06)|
+|--------------------|--------------------|
+|saida               |sacola              |
+
+    00 01 02 03 04 05 06 07 08 09 10 11
+00| -  -  -  -  -  -  -  a  -  M  -  - |
+01| a  U  -  -  -  -  -  p  -  e  z  - |
+02| c  -  -  -  -  -  -  a  -  s  u  - |
+03| e  -  -  -  -  -  -  P  -  a  L  - |
+04| n  -  E  -  -  -  -  -  -  -  -  - |
+05| a  -  n  -  -  -  -  -  -  -  -  - |
+06| C  J  t  -  -  -  -  -  -  -  -  - |
+07| -  -  r  -  o  o  -  -  -  -  -  - |
+08| -  -  a  -  b  a  -  -  -  -  -  - |
+09| -  -  d  -  a  t  -  -  -  -  -  - |
+10| -  -  a  -  C  o  -  -  -  -  -  - |
+11| -  -  -  B  e  B  i  d  a  -  -  - |
+
+antonio por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|antonio         (06)|adalberto       (07)|
+|--------------------|--------------------|
+|saida               |                    |
+
+    00 01 02 03 04 05 06 07 08 09 10 11
+00| -  -  -  a  l  o  c  a  S  M  -  - |
+01| a  U  -  -  -  -  -  p  -  e  z  - |
+02| c  -  -  -  -  -  -  a  -  s  u  - |
+03| e  -  -  -  -  -  -  P  -  a  L  - |
+04| n  -  E  -  -  -  -  -  -  -  -  - |
+05| a  -  n  -  -  -  -  -  -  -  -  - |
+06| C  J  t  -  -  -  -  -  -  -  -  - |
+07| -  -  r  -  o  o  -  -  -  -  -  - |
+08| -  -  a  -  b  a  -  -  -  -  -  - |
+09| -  -  d  -  a  t  -  -  -  -  -  - |
+10| -  -  a  -  C  o  -  -  -  -  -  - |
+11| -  -  -  B  e  B  i  d  a  -  -  - |
+
+adalberto Ganhou!!!

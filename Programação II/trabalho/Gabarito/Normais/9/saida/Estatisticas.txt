@@ -1,0 +1,56 @@
+--------------
+--- PONTOS ---
+--------------
+
+clarque
+Feitos: 0
+Recebidos: 0
+Total: 0
+
+quente
+Feitos: 0
+Recebidos: 0
+Total: 0
+
+---------------------------
+--- PALAVRAS POR PONTOS ---
+---------------------------
+
+|P|     Palavra    | T |
+|-|----------------|---|
+|0|cabelo          |000|
+|0|cabide          |000|
+|0|cacau           |000|
+|0|cadeado         |000|
+|0|cadeira         |000|
+|0|cafe            |000|
+|0|cafune          |000|
+|0|caixa           |000|
+|0|caixote         |000|
+|0|caju            |000|
+|0|camarao         |000|
+|0|camelo          |000|
+|0|caneca          |000|
+|0|canela          |000|
+|0|caneta          |000|
+|0|canoa           |000|
+|0|canudo          |000|
+|0|careca          |000|
+|0|carteira        |000|
+|0|cavalo          |000|
+|0|cocada          |000|
+|0|coco            |000|
+|0|cola            |000|
+|0|coleira         |000|
+|0|comida          |000|
+|0|copo            |000|
+|0|coroa           |000|
+|0|coruja          |000|
+|0|couro           |000|
+|0|couve           |000|
+|0|coxa            |000|
+|0|cubo            |000|
+|0|cuco            |000|
+|0|cueca           |000|
+|0|cuica           |000|
+|0|cutia           |000|

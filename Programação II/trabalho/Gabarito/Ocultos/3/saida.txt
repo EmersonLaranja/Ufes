@@ -1,0 +1,268 @@
+Nome do Jogador 1:
+Nome do Jogador 2:
+|            Palavras Restantes           |
+|Renan           (00)|Thiago          (00)|
+|--------------------|--------------------|
+|azar                |zebra               |
+|casa                |mapa                |
+|panda               |peru                |
+|ave                 |reus                |
+|area                |rua                 |
+
+    00 01 02 03 04
+00| -  -  -  -  - |
+01| -  -  -  -  - |
+02| -  -  -  -  - |
+03| -  -  -  -  - |
+04| -  -  -  -  - |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (02)|Thiago          (00)|
+|--------------------|--------------------|
+|casa                |zebra               |
+|panda               |mapa                |
+|ave                 |peru                |
+|area                |reus                |
+|                    |rua                 |
+
+    00 01 02 03 04
+00| A  -  -  -  - |
+01| z  -  -  -  - |
+02| a  -  -  -  - |
+03| r  -  -  -  - |
+04| -  -  -  -  - |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (03)|Thiago          (00)|
+|--------------------|--------------------|
+|panda               |zebra               |
+|ave                 |mapa                |
+|area                |peru                |
+|                    |reus                |
+|                    |rua                 |
+
+    00 01 02 03 04
+00| A  -  -  -  - |
+01| z  -  -  -  - |
+02| a  -  -  -  - |
+03| r  -  -  -  - |
+04| -  C  a  s  a |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (03)|Thiago          (00)|
+|--------------------|--------------------|
+|panda               |zebra               |
+|ave                 |mapa                |
+|area                |peru                |
+|                    |reus                |
+|                    |rua                 |
+
+    00 01 02 03 04
+00| A  -  -  -  - |
+01| z  -  -  -  - |
+02| a  -  -  -  - |
+03| r  -  -  -  - |
+04| -  C  a  s  a |
+
+Coordenadas fora do tabuleiro.Renan por favor entre com novas coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (03)|Thiago          (00)|
+|--------------------|--------------------|
+|panda               |zebra               |
+|ave                 |mapa                |
+|area                |peru                |
+|                    |reus                |
+|                    |rua                 |
+
+    00 01 02 03 04
+00| A  -  -  -  - |
+01| z  -  B  -  - |
+02| a  -  -  -  - |
+03| r  -  -  -  - |
+04| -  C  a  s  a |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (03)|Thiago          (00)|
+|--------------------|--------------------|
+|panda               |zebra               |
+|ave                 |mapa                |
+|area                |peru                |
+|                    |reus                |
+|                    |rua                 |
+
+    00 01 02 03 04
+00| A  -  -  -  - |
+01| z  -  B  -  - |
+02| a  -  -  -  - |
+03| r  -  -  -  - |
+04| -  C  a  s  a |
+
+Coordenadas fora do tabuleiro.Thiago por favor entre com novas coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (03)|Thiago          (02)|
+|--------------------|--------------------|
+|panda               |zebra               |
+|ave                 |peru                |
+|area                |reus                |
+|                    |rua                 |
+
+    00 01 02 03 04
+00| A  p  a  M  - |
+01| z  -  B  -  - |
+02| a  -  -  -  - |
+03| r  -  -  -  - |
+04| -  C  a  s  a |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (03)|Thiago          (03)|
+|--------------------|--------------------|
+|panda               |zebra               |
+|ave                 |peru                |
+|area                |rua                 |
+
+    00 01 02 03 04
+00| A  p  a  M  - |
+01| z  -  B  R  - |
+02| a  -  e  -  - |
+03| r  u  -  -  - |
+04| s  C  a  s  a |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (03)|Thiago          (03)|
+|--------------------|--------------------|
+|panda               |zebra               |
+|ave                 |peru                |
+|area                |rua                 |
+
+    00 01 02 03 04
+00| A  p  a  M  - |
+01| z  -  B  R  - |
+02| a  -  e  -  - |
+03| r  u  -  -  - |
+04| s  C  a  s  a |
+
+Coordenadas fora do tabuleiro.Thiago por favor entre com novas coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (03)|Thiago          (05)|
+|--------------------|--------------------|
+|panda               |peru                |
+|ave                 |rua                 |
+|area                |                    |
+
+    00 01 02 03 04
+00| A  p  a  M  - |
+01| Z  e  B  R  a |
+02| a  -  e  -  - |
+03| r  u  -  -  - |
+04| s  C  a  s  a |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (03)|Thiago          (05)|
+|--------------------|--------------------|
+|panda               |peru                |
+|ave                 |rua                 |
+|area                |                    |
+
+    00 01 02 03 04
+00| A  p  a  M  - |
+01| Z  e  B  R  a |
+02| a  -  e  -  - |
+03| r  u  -  -  - |
+04| s  C  a  s  a |
+
+Coordenadas ja jogadas.Renan por favor entre com novas coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (03)|Thiago          (05)|
+|--------------------|--------------------|
+|panda               |peru                |
+|ave                 |rua                 |
+|area                |                    |
+
+    00 01 02 03 04
+00| A  p  a  M  - |
+01| Z  e  B  R  a |
+02| a  -  e  -  - |
+03| r  u  -  -  - |
+04| s  C  a  S  a |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (03)|Thiago          (07)|
+|--------------------|--------------------|
+|panda               |rua                 |
+|ave                 |                    |
+|area                |                    |
+
+    00 01 02 03 04
+00| A  P  a  M  - |
+01| Z  e  B  R  a |
+02| a  r  e  -  - |
+03| r  u  -  -  - |
+04| s  C  a  S  a |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (03)|Thiago          (07)|
+|--------------------|--------------------|
+|panda               |rua                 |
+|ave                 |                    |
+|area                |                    |
+
+    00 01 02 03 04
+00| A  P  a  M  - |
+01| Z  e  B  R  a |
+02| a  r  e  -  N |
+03| r  u  -  -  - |
+04| s  C  a  S  a |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (03)|Thiago          (07)|
+|--------------------|--------------------|
+|panda               |rua                 |
+|ave                 |                    |
+|area                |                    |
+
+    00 01 02 03 04
+00| A  P  a  M  - |
+01| Z  e  B  R  a |
+02| a  r  e  -  N |
+03| r  u  -  -  - |
+04| s  C  a  S  a |
+
+Coordenadas fora do tabuleiro.Thiago por favor entre com novas coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (04)|Thiago          (07)|
+|--------------------|--------------------|
+|panda               |rua                 |
+|area                |                    |
+
+    00 01 02 03 04
+00| A  P  a  M  - |
+01| Z  e  B  R  a |
+02| a  r  e  -  N |
+03| r  u  -  v  - |
+04| s  C  a  S  A |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (04)|Thiago          (08)|
+|--------------------|--------------------|
+|panda               |                    |
+|area                |                    |
+
+    00 01 02 03 04
+00| A  P  a  M  - |
+01| Z  e  B  R  a |
+02| a  r  e  -  N |
+03| R  u  a  v  - |
+04| s  C  a  S  A |
+
+Thiago Ganhou!!!

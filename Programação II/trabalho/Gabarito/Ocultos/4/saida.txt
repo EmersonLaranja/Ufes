@@ -1,0 +1,81 @@
+Nome do Jogador 1:
+Nome do Jogador 2:
+|            Palavras Restantes           |
+|Renan           (00)|Thiago          (00)|
+|--------------------|--------------------|
+|sol                 |dor                 |
+|elo                 |voo                 |
+
+    00 01 02
+00| -  -  - |
+01| -  -  - |
+02| -  -  - |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (00)|Thiago          (01)|
+|--------------------|--------------------|
+|sol                 |dor                 |
+|elo                 |                    |
+
+    00 01 02
+00| V  -  - |
+01| -  o  - |
+02| -  -  o |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (01)|Thiago          (01)|
+|--------------------|--------------------|
+|elo                 |dor                 |
+
+    00 01 02
+00| V  S  - |
+01| -  o  - |
+02| -  l  o |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (01)|Thiago          (01)|
+|--------------------|--------------------|
+|elo                 |dor                 |
+
+    00 01 02
+00| V  S  Z |
+01| -  o  - |
+02| -  l  o |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (01)|Thiago          (01)|
+|--------------------|--------------------|
+|elo                 |dor                 |
+
+    00 01 02
+00| V  S  Z |
+01| R  o  - |
+02| -  l  o |
+
+Renan por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (01)|Thiago          (01)|
+|--------------------|--------------------|
+|elo                 |dor                 |
+
+    00 01 02
+00| V  S  Z |
+01| R  O  - |
+02| -  l  o |
+
+Thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|Renan           (01)|Thiago          (03)|
+|--------------------|--------------------|
+|elo                 |                    |
+
+    00 01 02
+00| V  S  Z |
+01| R  O  D |
+02| -  l  o |
+
+Thiago Ganhou!!!

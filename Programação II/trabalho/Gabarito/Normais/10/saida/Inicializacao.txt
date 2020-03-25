@@ -1,0 +1,62 @@
+--Jogador 1--
+Nome: clarque
+Palavras:
+macacao
+macaco
+mala
+maleta
+maluco
+mamae
+mamao
+medico
+medo
+meia
+melao
+menina
+meta
+miado
+mico
+mito
+moeda
+mola
+moleza
+muda
+mulata
+muro
+Maior Palavra: 
+macacao
+Letras Iniciais: 
+m -> 22
+
+--Jogador 2--
+Nome: quente
+Palavras:
+nabo
+nata
+natureza
+nave
+navio
+neta
+neto
+neve
+jabuticaba
+noite
+noiva
+nome
+nota
+novela
+novelo
+novo
+nuca
+nulo
+numero
+limonada
+treze
+laranja
+Maior Palavra: 
+jabuticaba
+Letras Iniciais: 
+j -> 1
+l -> 2
+n -> 18
+t -> 1

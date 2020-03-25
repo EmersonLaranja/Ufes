@@ -1,0 +1,40 @@
+--------------
+--- PONTOS ---
+--------------
+
+Renan
+Feitos: 0
+Recebidos: 0
+Total: 0
+
+Thiago
+Feitos: 0
+Recebidos: 0
+Total: 0
+
+---------------------------
+--- PALAVRAS POR PONTOS ---
+---------------------------
+
+|P|     Palavra    | T |
+|-|----------------|---|
+|0|boiada          |000|
+|0|boiadeiro       |000|
+|0|camera          |000|
+|0|condescendencia |000|
+|0|condescendente  |000|
+|0|contingente     |000|
+|0|entorpecente    |000|
+|0|entorpecido     |000|
+|0|esporadicamente |000|
+|0|estilete        |000|
+|0|intrinsecamente |000|
+|0|medianamente    |000|
+|0|onibus          |000|
+|0|paralelepipedo  |000|
+|0|paulatinamente  |000|
+|0|perseveranca    |000|
+|0|perseverante    |000|
+|0|pretensioso     |000|
+|0|simultaneamente |000|
+|0|veiculo         |000|

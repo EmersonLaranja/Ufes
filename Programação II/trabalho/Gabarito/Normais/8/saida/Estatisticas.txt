@@ -1,0 +1,32 @@
+--------------
+--- PONTOS ---
+--------------
+
+ramoni
+Feitos: 6
+Recebidos: 3
+Total: 9
+
+pedro
+Feitos: 0
+Recebidos: 0
+Total: 0
+
+---------------------------
+--- PALAVRAS POR PONTOS ---
+---------------------------
+
+|P|     Palavra    | T |
+|-|----------------|---|
+|2|algoritmo       |001|
+|2|computacao      |003|
+|2|desenvolvimento |005|
+|1|linguagem       |004|
+|1|matriz          |006|
+|1|programacao     |002|
+|0|grafo           |000|
+|0|heuristica      |000|
+|0|instancia       |000|
+|0|laboratorio     |000|
+|0|metodo          |000|
+|0|processador     |000|

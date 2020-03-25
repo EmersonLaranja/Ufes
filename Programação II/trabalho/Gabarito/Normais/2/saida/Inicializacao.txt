@@ -1,0 +1,24 @@
+--Jogador 1--
+Nome: renan
+Palavras:
+faca
+alfa
+alga
+Maior Palavra: 
+faca
+Letras Iniciais: 
+a -> 2
+f -> 1
+
+--Jogador 2--
+Nome: pedro
+Palavras:
+toca
+dado
+rato
+Maior Palavra: 
+toca
+Letras Iniciais: 
+d -> 1
+r -> 1
+t -> 1

@@ -1,0 +1,26 @@
+--------------
+--- PONTOS ---
+--------------
+
+renan
+Feitos: 6
+Recebidos: 0
+Total: 6
+
+pedro
+Feitos: 0
+Recebidos: 1
+Total: 1
+
+---------------------------
+--- PALAVRAS POR PONTOS ---
+---------------------------
+
+|P|     Palavra    | T |
+|-|----------------|---|
+|2|alfa            |001|
+|2|alga            |003|
+|2|faca            |007|
+|1|toca            |005|
+|0|dado            |000|
+|0|rato            |000|

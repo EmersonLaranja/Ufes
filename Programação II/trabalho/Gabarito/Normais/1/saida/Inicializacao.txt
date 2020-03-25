@@ -1,0 +1,20 @@
+--Jogador 1--
+Nome: henrique
+Palavras:
+alma
+agua
+Maior Palavra: 
+alma
+Letras Iniciais: 
+a -> 2
+
+--Jogador 2--
+Nome: joao
+Palavras:
+arma
+fila
+Maior Palavra: 
+arma
+Letras Iniciais: 
+a -> 1
+f -> 1

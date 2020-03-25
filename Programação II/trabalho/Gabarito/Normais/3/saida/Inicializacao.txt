@@ -1,0 +1,24 @@
+--Jogador 1--
+Nome: thiago
+Palavras:
+alface
+torta
+tela
+Maior Palavra: 
+alface
+Letras Iniciais: 
+a -> 1
+t -> 2
+
+--Jogador 2--
+Nome: claudia
+Palavras:
+oleo
+lapis
+base
+Maior Palavra: 
+lapis
+Letras Iniciais: 
+b -> 1
+l -> 1
+o -> 1

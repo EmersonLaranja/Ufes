@@ -1,0 +1,214 @@
+Nome do Jogador 1:
+Nome do Jogador 2:
+|            Palavras Restantes           |
+|thiago          (00)|claudia         (00)|
+|--------------------|--------------------|
+|alface              |oleo                |
+|torta               |lapis               |
+|tela                |base                |
+
+    00 01 02 03 04 05 06 07
+00| -  -  -  -  -  -  -  - |
+01| -  -  -  -  -  -  -  - |
+02| -  -  -  -  -  -  -  - |
+03| -  -  -  -  -  -  -  - |
+04| -  -  -  -  -  -  -  - |
+05| -  -  -  -  -  -  -  - |
+06| -  -  -  -  -  -  -  - |
+07| -  -  -  -  -  -  -  - |
+
+thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|thiago          (02)|claudia         (00)|
+|--------------------|--------------------|
+|torta               |oleo                |
+|tela                |lapis               |
+|                    |base                |
+
+    00 01 02 03 04 05 06 07
+00| A  -  -  -  -  -  -  - |
+01| -  l  -  -  -  -  -  - |
+02| -  -  f  -  -  -  -  - |
+03| -  -  -  a  -  -  -  - |
+04| -  -  -  -  c  -  -  - |
+05| -  -  -  -  -  e  -  - |
+06| -  -  -  -  -  -  -  - |
+07| -  -  -  -  -  -  -  - |
+
+claudia por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|thiago          (02)|claudia         (00)|
+|--------------------|--------------------|
+|torta               |oleo                |
+|tela                |lapis               |
+|                    |base                |
+
+    00 01 02 03 04 05 06 07
+00| A  -  -  -  -  -  -  - |
+01| -  l  -  -  -  -  -  - |
+02| -  -  f  -  -  -  -  - |
+03| -  -  -  a  -  -  -  B |
+04| -  -  -  -  c  -  -  - |
+05| -  -  -  -  -  e  -  - |
+06| -  -  -  -  -  -  -  - |
+07| -  -  -  -  -  -  -  - |
+
+thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|thiago          (02)|claudia         (00)|
+|--------------------|--------------------|
+|torta               |oleo                |
+|tela                |lapis               |
+|                    |base                |
+
+    00 01 02 03 04 05 06 07
+00| A  -  -  -  -  -  -  - |
+01| -  l  -  -  -  -  -  - |
+02| -  -  F  -  -  -  -  - |
+03| -  -  -  a  -  -  -  B |
+04| -  -  -  -  c  -  -  - |
+05| -  -  -  -  -  e  -  - |
+06| -  -  -  -  -  -  -  - |
+07| -  -  -  -  -  -  -  - |
+
+claudia por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|thiago          (02)|claudia         (00)|
+|--------------------|--------------------|
+|torta               |oleo                |
+|tela                |lapis               |
+|                    |base                |
+
+    00 01 02 03 04 05 06 07
+00| A  -  -  -  -  -  -  - |
+01| -  l  -  -  -  -  -  - |
+02| -  -  F  -  -  -  -  - |
+03| -  -  -  a  -  -  -  B |
+04| -  -  -  -  c  -  -  - |
+05| -  -  -  -  -  e  -  - |
+06| -  -  -  -  -  -  -  - |
+07| -  -  -  -  -  -  -  - |
+
+Coordenadas ja jogadas.claudia por favor entre com novas coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|thiago          (02)|claudia         (00)|
+|--------------------|--------------------|
+|torta               |oleo                |
+|tela                |lapis               |
+|                    |base                |
+
+    00 01 02 03 04 05 06 07
+00| A  -  -  -  -  -  -  - |
+01| -  l  -  -  -  -  -  - |
+02| V  -  F  -  -  -  -  - |
+03| -  -  -  a  -  -  -  B |
+04| -  -  -  -  c  -  -  - |
+05| -  -  -  -  -  e  -  - |
+06| -  -  -  -  -  -  -  - |
+07| -  -  -  -  -  -  -  - |
+
+thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|thiago          (02)|claudia         (00)|
+|--------------------|--------------------|
+|torta               |oleo                |
+|tela                |lapis               |
+|                    |base                |
+
+    00 01 02 03 04 05 06 07
+00| A  -  -  -  -  -  -  - |
+01| -  l  -  -  -  -  -  - |
+02| V  -  F  -  -  -  -  - |
+03| -  -  -  a  -  -  -  B |
+04| Z  -  -  -  c  -  -  - |
+05| -  -  -  -  -  e  -  - |
+06| -  -  -  -  -  -  -  - |
+07| -  -  -  -  -  -  -  - |
+
+claudia por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|thiago          (02)|claudia         (00)|
+|--------------------|--------------------|
+|torta               |oleo                |
+|tela                |lapis               |
+|                    |base                |
+
+    00 01 02 03 04 05 06 07
+00| A  -  -  -  -  -  -  - |
+01| -  l  -  -  -  -  -  - |
+02| V  -  F  -  -  -  -  - |
+03| -  -  -  a  -  -  -  B |
+04| Z  -  -  -  c  -  -  - |
+05| -  -  -  -  -  e  -  J |
+06| -  -  -  -  -  -  -  - |
+07| -  -  -  -  -  -  -  - |
+
+thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|thiago          (02)|claudia         (01)|
+|--------------------|--------------------|
+|torta               |oleo                |
+|tela                |base                |
+
+    00 01 02 03 04 05 06 07
+00| A  -  -  -  -  -  -  - |
+01| -  l  -  -  -  -  -  - |
+02| V  -  F  -  -  -  s  - |
+03| -  -  -  a  -  -  i  B |
+04| Z  -  -  -  c  -  p  - |
+05| -  -  -  -  -  e  a  J |
+06| -  -  -  -  -  -  L  - |
+07| -  -  -  -  -  -  -  - |
+
+claudia por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|thiago          (02)|claudia         (01)|
+|--------------------|--------------------|
+|torta               |oleo                |
+|tela                |base                |
+
+    00 01 02 03 04 05 06 07
+00| A  -  -  -  -  -  -  - |
+01| -  l  -  -  -  -  -  - |
+02| V  -  F  N  -  -  s  - |
+03| -  -  -  a  -  -  i  B |
+04| Z  -  -  -  c  -  p  - |
+05| -  -  -  -  -  e  a  J |
+06| -  -  -  -  -  -  L  - |
+07| -  -  -  -  -  -  -  - |
+
+thiago por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|thiago          (02)|claudia         (01)|
+|--------------------|--------------------|
+|torta               |oleo                |
+|tela                |base                |
+
+    00 01 02 03 04 05 06 07
+00| A  -  -  -  -  -  -  - |
+01| -  l  -  -  -  -  -  - |
+02| V  -  F  N  -  -  s  - |
+03| -  -  -  A  -  -  i  B |
+04| Z  -  -  -  c  -  p  - |
+05| -  -  -  -  -  e  a  J |
+06| -  -  -  -  -  -  L  - |
+07| -  -  -  -  -  -  -  - |
+
+claudia por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|thiago          (02)|claudia         (01)|
+|--------------------|--------------------|
+|torta               |oleo                |
+|tela                |base                |
+
+    00 01 02 03 04 05 06 07
+00| A  -  -  -  -  -  -  - |
+01| -  l  -  -  -  -  -  - |
+02| V  -  F  N  -  -  s  - |
+03| -  E  -  A  -  -  i  B |
+04| Z  -  -  -  c  -  p  - |
+05| -  -  -  -  -  e  a  J |
+06| -  -  -  -  -  -  L  - |
+07| -  -  -  -  -  -  -  - |
+
+thiago Ganhou!!!

@@ -1,0 +1,29 @@
+--Jogador 1--
+Nome: guilherme
+Palavras:
+flores
+motores
+dolores
+odores
+Maior Palavra: 
+motores
+Letras Iniciais: 
+d -> 1
+f -> 1
+m -> 1
+o -> 1
+
+--Jogador 2--
+Nome: joaquina
+Palavras:
+sabores
+rigores
+amores
+cores
+Maior Palavra: 
+sabores
+Letras Iniciais: 
+a -> 1
+c -> 1
+r -> 1
+s -> 1

@@ -1,0 +1,37 @@
+--Jogador 1--
+Nome: ramoni
+Palavras:
+algoritmo
+programacao
+computacao
+linguagem
+desenvolvimento
+matriz
+Maior Palavra: 
+desenvolvimento
+Letras Iniciais: 
+a -> 1
+c -> 1
+d -> 1
+l -> 1
+m -> 1
+p -> 1
+
+--Jogador 2--
+Nome: pedro
+Palavras:
+instancia
+heuristica
+metodo
+laboratorio
+processador
+grafo
+Maior Palavra: 
+laboratorio
+Letras Iniciais: 
+g -> 1
+h -> 1
+i -> 1
+l -> 1
+m -> 1
+p -> 1

@@ -1,0 +1,52 @@
+Nome do Jogador 1:
+Nome do Jogador 2:
+|            Palavras Restantes           |
+|henrique        (00)|joao            (00)|
+|--------------------|--------------------|
+|alma                |arma                |
+|agua                |fila                |
+
+    00 01 02 03
+00| -  -  -  - |
+01| -  -  -  - |
+02| -  -  -  - |
+03| -  -  -  - |
+
+henrique por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|henrique        (00)|joao            (01)|
+|--------------------|--------------------|
+|alma                |arma                |
+|agua                |                    |
+
+    00 01 02 03
+00| -  -  -  F |
+01| -  -  i  - |
+02| -  l  -  - |
+03| a  -  -  - |
+
+joao por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|henrique        (01)|joao            (01)|
+|--------------------|--------------------|
+|alma                |arma                |
+
+    00 01 02 03
+00| A  -  -  F |
+01| -  g  i  - |
+02| -  l  u  - |
+03| a  -  -  a |
+
+henrique por favor entre com as coordenadas para a sua jogada:
+|            Palavras Restantes           |
+|henrique        (01)|joao            (02)|
+|--------------------|--------------------|
+|alma                |                    |
+
+    00 01 02 03
+00| A  -  -  F |
+01| m  g  i  - |
+02| r  l  u  - |
+03| A  -  -  a |
+
+joao Ganhou!!!

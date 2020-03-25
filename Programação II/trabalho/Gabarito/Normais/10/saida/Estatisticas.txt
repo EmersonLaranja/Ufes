@@ -1,0 +1,64 @@
+--------------
+--- PONTOS ---
+--------------
+
+clarque
+Feitos: 0
+Recebidos: 0
+Total: 0
+
+quente
+Feitos: 0
+Recebidos: 0
+Total: 0
+
+---------------------------
+--- PALAVRAS POR PONTOS ---
+---------------------------
+
+|P|     Palavra    | T |
+|-|----------------|---|
+|0|jabuticaba      |000|
+|0|laranja         |000|
+|0|limonada        |000|
+|0|macacao         |000|
+|0|macaco          |000|
+|0|mala            |000|
+|0|maleta          |000|
+|0|maluco          |000|
+|0|mamae           |000|
+|0|mamao           |000|
+|0|medico          |000|
+|0|medo            |000|
+|0|meia            |000|
+|0|melao           |000|
+|0|menina          |000|
+|0|meta            |000|
+|0|miado           |000|
+|0|mico            |000|
+|0|mito            |000|
+|0|moeda           |000|
+|0|mola            |000|
+|0|moleza          |000|
+|0|muda            |000|
+|0|mulata          |000|
+|0|muro            |000|
+|0|nabo            |000|
+|0|nata            |000|
+|0|natureza        |000|
+|0|nave            |000|
+|0|navio           |000|
+|0|neta            |000|
+|0|neto            |000|
+|0|neve            |000|
+|0|noite           |000|
+|0|noiva           |000|
+|0|nome            |000|
+|0|nota            |000|
+|0|novela          |000|
+|0|novelo          |000|
+|0|novo            |000|
+|0|nuca            |000|
+|0|nulo            |000|
+|0|numero          |000|
+|0|treze           |000|

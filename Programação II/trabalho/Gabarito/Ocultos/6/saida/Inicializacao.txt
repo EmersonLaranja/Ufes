@@ -1,0 +1,46 @@
+--Jogador 1--
+Nome: Renan
+Palavras:
+boiada
+paralelepipedo
+paulatinamente
+estilete
+camera
+perseveranca
+esporadicamente
+entorpecido
+medianamente
+condescendente
+Maior Palavra: 
+esporadicamente
+Letras Iniciais: 
+b -> 1
+c -> 2
+e -> 3
+m -> 1
+p -> 3
+
+--Jogador 2--
+Nome: Thiago
+Palavras:
+entorpecente
+veiculo
+perseverante
+contingente
+boiadeiro
+pretensioso
+condescendencia
+intrinsecamente
+simultaneamente
+onibus
+Maior Palavra: 
+condescendencia
+Letras Iniciais: 
+b -> 1
+c -> 2
+e -> 1
+i -> 1
+o -> 1
+p -> 2
+s -> 1
+v -> 1

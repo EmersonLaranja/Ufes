@@ -1,0 +1,30 @@
+--------------
+--- PONTOS ---
+--------------
+
+Renan
+Feitos: 2
+Recebidos: 2
+Total: 4
+
+Thiago
+Feitos: 6
+Recebidos: 2
+Total: 8
+
+---------------------------
+--- PALAVRAS POR PONTOS ---
+---------------------------
+
+|P|     Palavra    | T |
+|-|----------------|---|
+|2|azar            |001|
+|2|mapa            |004|
+|2|peru            |008|
+|2|zebra           |006|
+|1|ave             |010|
+|1|casa            |002|
+|1|reus            |005|
+|1|rua             |011|
+|0|area            |000|
+|0|panda           |000|
