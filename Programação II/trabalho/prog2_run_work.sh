@@ -2,7 +2,6 @@
 
 # set -e # Halt on any error.
 # set -x # Print commands.
-
 # TEST_DIRS="/home/lucaspossatti/projects/GameOfLife/tests /home/lucaspossatti/projects/GameOfLife/secret_tests"
 TEST_DIRS="/home/sarcinellirenan/NetBeansProjects/Testes/"
 DEST_TESTS_DIR="$PWD/__all_tests"
