@@ -1,0 +1,13 @@
+
+# ignore tudo
+*
+# exclua os subdiretórios
+!/**/
+# exclua os arquivos com extensão
+!*.c*
+!*.h*
+!*Makefile*
+!*.sh*
+!*.md*
+!*.pdf*
+!*.gitignore*
