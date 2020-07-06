@@ -38,7 +38,6 @@ void InsereFimLista(Lista *lista, char *fruta)
 {
   Celula *nova = (Celula *)malloc(sizeof(Celula));
   nova->fruta = strdup(fruta);
-  nova->proxima = NULL;
 
   if (lista->primeira == NULL)
   {
@@ -47,6 +46,7 @@ void InsereFimLista(Lista *lista, char *fruta)
   }
   lista->ultima->proxima = nova;
   lista->ultima = nova;
+  nova->proxima = NULL;
 }
 
 void ImprimeLista(Lista *lista)
@@ -158,10 +158,14 @@ void RemoveElementoLista(Lista *lista, char *fruta)
 
 void RemoveLista(Lista *lista)
 {
-  for (Celula *i = lista->primeira; i != NULL; i = i->proxima)
+  Celula *t;
+  Celula *i = lista->primeira;
+  while (i != NULL)
   {
+    t = i->proxima;
     free(i->fruta);
     free(i);
+    i = t;
   }
   free(lista);
 }
