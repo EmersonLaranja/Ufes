@@ -33,7 +33,8 @@ int main(int argc, char **argv)
     InsereLista(listaDeAlunos, brenda);
 
     printf("Imprimindo a lista de Alunos:\n");
-    ImprimeLista(listaDeAlunos);
+    // ImprimeLista(listaDeAlunos);
+    DestroiLista(listaDeAlunos);
 
     return (EXIT_SUCCESS);
 }
