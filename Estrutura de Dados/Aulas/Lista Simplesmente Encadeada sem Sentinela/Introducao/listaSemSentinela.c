@@ -58,11 +58,15 @@ Lista *RetiraLista(Lista *lista, char *chave)
     //se for a primeira celula
     if (anterior == NULL)
     {
+        anterior = lista;
         lista = lista->proxima;
+        free(anterior);
+        anterior = NULL;
     }
     //caso comum
     else
     {
+
         anterior->proxima = listaAuxiliar->proxima;
     }
 
@@ -79,7 +83,7 @@ void DestroiLista(Lista *lista)
     while (p != NULL)
     {
         t = p->proxima;
-        DestroiAluno(p->aluno);
+        // DestroiAluno(p->aluno);
         free(p);
         p = t;
     }
