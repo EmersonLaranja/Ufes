@@ -15,6 +15,7 @@ ED20192:lab3:<nome>*/
 *********************************
 */
 #include <stdio.h>
+#include <stdlib.h>
 #include "lista.h"
 
 int main()
@@ -46,21 +47,19 @@ int main()
   {
 
     Imprime(lista);
-    printf("\n------DEU BOM----\n");
   }
   else
-    printf("Não foi possivel retirar o aluno de matrícula 123");
+    printf("Não foi possivel retirar o aluno de matrícula 123\n");
 
   //Retira o Joao da lista e imprime
-  retirado = Retira(lista, 555);
+  retirado = Retira(lista, 34);
   if (retirado != NULL)
   {
 
     Imprime(lista);
-    printf("\n------DEU BOM----\n");
   }
   else
-    printf("Não foi possivel retirar o aluno de matrícula 34");
+    printf("Não foi possivel retirar o aluno de matrícula 34\n");
 
   //Tenta retirar com um número de matrícula inexistente
   retirado = Retira(lista, 555);
@@ -68,10 +67,10 @@ int main()
   {
 
     Imprime(lista);
-    printf("\n------DEU BOM----\n");
   }
   else
-    printf("Não foi possivel retirar o aluno de matrícula 555");
+    printf("Não foi possivel retirar o aluno de matrícula 555\n");
 
+  free(retirado);
   lista = Libera(lista);
 }

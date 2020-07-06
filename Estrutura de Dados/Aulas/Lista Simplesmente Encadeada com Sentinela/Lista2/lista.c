@@ -72,12 +72,14 @@ TipoItem *Retira(TipoLista *lista, int mat)
         if (lista->inicio == j && lista->fim == j)
         {
           lista->inicio = lista->fim = NULL;
+          DeletaTipoItem(j->aluno);
           free(j);
           return alunoAuxiliar;
         }
         else if (lista->inicio == j)
         {
           i = lista->inicio = j->proxima;
+          DeletaTipoItem(j->aluno);
           free(j);
           j = NULL;
         }
@@ -85,8 +87,16 @@ TipoItem *Retira(TipoLista *lista, int mat)
         {
           lista->fim = anterior;
           anterior->proxima = NULL;
+          DeletaTipoItem(j->aluno);
           free(j);
           j = NULL;
+        }
+        else
+        {
+          anterior->proxima = j->proxima;
+          DeletaTipoItem(j->aluno);
+          free(j);
+          j = anterior->proxima;
         }
       }
       else
@@ -115,6 +125,7 @@ TipoLista *Libera(TipoLista *lista)
   {
     celulaSucessora = celulaAtual->proxima;
     free(celulaAtual->aluno->nome);
+    free(celulaAtual->aluno->endereco);
     free(celulaAtual->aluno);
     free(celulaAtual);
     celulaAtual = celulaSucessora;
@@ -131,4 +142,11 @@ TipoItem *InicializaTipoItem(char *nome, int matricula, char *endereco)
   aluno->matricula = matricula;
   aluno->endereco = strdup(endereco);
   return aluno;
+}
+
+void *DeletaTipoItem(TipoItem *item)
+{
+  free(item->endereco);
+  free(item->nome);
+  free(item);
 }

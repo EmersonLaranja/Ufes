@@ -64,4 +64,6 @@ TipoLista *Libera(TipoLista *lista);
 */
 TipoItem *InicializaTipoItem(char *nome, int matricula, char *endereco);
 
+void *DeletaTipoItem(TipoItem *item);
+
 #endif /* LISTA_H_ */
