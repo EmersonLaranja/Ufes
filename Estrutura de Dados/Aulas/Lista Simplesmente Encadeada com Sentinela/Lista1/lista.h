@@ -11,6 +11,7 @@ void ImprimeLista(Lista *lista);
 void OrdenaListaCrescente(Lista *lista);
 void OrdenaListaDecrescente(Lista *lista);
 void RemoveElementoLista(Lista *lista, char *fruta);
+void RemoveLista(Lista *lista);
 int QntCelulasNumaLista(Lista *lista);
 Lista *CopiaLista(Lista *listaOriginal);
 Lista *CopiaInversoLista(Lista *listaOriginal);

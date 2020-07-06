@@ -50,4 +50,5 @@ int main()
 
   printf("\n    🎈Lista1\n");
   ImprimeLista(lista1);
+  RemoveLista(lista1);
 }

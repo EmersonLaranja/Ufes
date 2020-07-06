@@ -117,6 +117,7 @@ void RemoveElementoLista(Lista *lista, char *fruta)
         if (lista->primeira == j && lista->ultima == j)
         {
           lista->primeira = lista->ultima = NULL;
+          free(j->fruta);
           free(j);
           return;
         }
@@ -125,6 +126,7 @@ void RemoveElementoLista(Lista *lista, char *fruta)
         {
           i = lista->primeira = j->proxima;
 
+          free(j->fruta);
           free(j);
           j = i;
         }
@@ -133,12 +135,14 @@ void RemoveElementoLista(Lista *lista, char *fruta)
         {
           lista->ultima = anterior;
           anterior->proxima = NULL;
+          free(j->fruta);
           free(j);
           j = NULL;
         }
         else
         {
           anterior->proxima = j->proxima;
+          free(j->fruta);
           free(j);
           j = anterior->proxima;
         }
@@ -156,6 +160,7 @@ void RemoveLista(Lista *lista)
 {
   for (Celula *i = lista->primeira; i != NULL; i = i->proxima)
   {
+    free(i->fruta);
     free(i);
   }
   free(lista);
