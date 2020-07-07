@@ -35,7 +35,7 @@ int main(int argc, char **argv)
     printf("Imprimindo a lista de Alunos:\n");
     ImprimeLista(listaDeAlunos);
 
-    // listaDeAlunos = RetiraLista(listaDeAlunos, "Renato");
+    listaDeAlunos = RetiraLista(listaDeAlunos, "Renato");
     printf("Imprimindo a lista de Alunos:\n");
     ImprimeLista(listaDeAlunos);
 
