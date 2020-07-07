@@ -13,7 +13,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "listaSemSentinela.h"
+#include "listaDuplamenteEncadeada.h"
 
 /*
  * 
@@ -25,7 +25,7 @@ int main(int argc, char **argv)
     Aluno *renato = InicializaAluno(4, "Renato", 6.57);
     Aluno *brenda = InicializaAluno(2, "Brenda", 2);
 
-    Lista *listaDeAlunos = IniciaLista();
+    ListaDpl *listaDeAlunos = InicializaLista();
 
     listaDeAlunos = InsereLista(listaDeAlunos, patricia);
     listaDeAlunos = InsereLista(listaDeAlunos, renato);
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
     printf("Imprimindo a lista de Alunos:\n");
     ImprimeLista(listaDeAlunos);
 
-    listaDeAlunos = RetiraLista(listaDeAlunos, "Renato");
+    // listaDeAlunos = RetiraLista(listaDeAlunos, "Renato");
     printf("Imprimindo a lista de Alunos:\n");
     ImprimeLista(listaDeAlunos);
 
