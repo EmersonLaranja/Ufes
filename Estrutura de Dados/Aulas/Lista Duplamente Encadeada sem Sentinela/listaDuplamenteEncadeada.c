@@ -42,7 +42,7 @@ ListaDpl *RetiraLista(ListaDpl *lista, char *chave)
   ListaDpl *p = busca(lista, chave);
   //não encontrou ou lista vazia
   if (p == NULL)
-    return NULL;
+    return lista;
 
   //se não for a primeira celula
   if (p->anterior != NULL)
