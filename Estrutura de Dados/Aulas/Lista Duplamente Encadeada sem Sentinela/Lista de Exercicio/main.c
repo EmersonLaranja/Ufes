@@ -25,7 +25,7 @@ int main(int argc, char **argv)
   TipoItem *renato = InicializaTipoItem("Renato", 67, "la");
   TipoItem *brenda = InicializaTipoItem("Brenda", 2, "ca");
 
-  TipoListaDpl *lista;
+  TipoListaDpl *lista = NULL;
 
   lista = Insere(patricia, lista);
   lista = Insere(renato, lista);
