@@ -78,7 +78,7 @@ void InsereAluno(TLista *lista, TAluno *aluno)
  * pos-condicao: lista nao contem a primeira ocorrencia do aluno de matricula mat */
 TAluno *Retira(TLista *lista, int mat)
 {
-  TAluno *alunoAux;
+  TAluno *alunoAux = NULL;
   Celula *aux = lista->inicio, *ant = NULL;
 
   while (aux != NULL && aux->aluno->matricula != mat)
@@ -111,7 +111,6 @@ TAluno *Retira(TLista *lista, int mat)
   {
     ant->prox = aux->prox;
   }
-
   free(aux);
   return alunoAux;
 }
@@ -156,29 +155,44 @@ void RetiraRepetidos(TLista *lista)
 TLista *Merge(TLista *turma1, TLista *turma2)
 {
   Celula *i = turma1->inicio, *j = turma2->inicio, *aux;
-  TLista *lista = (TLista *)malloc(sizeof(TLista));
+  TLista *lista = CriaLista();
 
-  for (i, j; i != NULL && j != NULL;)
+  while (i != NULL && j != NULL)
   {
-    if (i != NULL)
+    InsereAluno(lista, i->aluno);
+    aux = i;
+    i = i->prox;
+    Retira(turma1, aux->aluno->matricula);
+    InsereAluno(lista, j->aluno);
+    aux = j;
+    j = j->prox;
+    Retira(turma2, aux->aluno->matricula);
+  }
+
+  if (i != NULL)
+  {
+    while (i != NULL)
     {
+
       InsereAluno(lista, i->aluno);
       aux = i;
       i = i->prox;
       Retira(turma1, aux->aluno->matricula);
     }
-
-    if (j != NULL)
+  }
+  if (j != NULL)
+  {
+    while (j != NULL)
     {
+
       InsereAluno(lista, j->aluno);
       aux = j;
       j = j->prox;
       Retira(turma2, aux->aluno->matricula);
     }
   }
-
-  turma1->inicio = turma1->fim = NULL;
-  turma2->inicio = turma2->fim = NULL;
+  // turma1->inicio = turma1->fim = NULL;
+  // turma2->inicio = turma2->fim = NULL;
 
   return lista;
 }
