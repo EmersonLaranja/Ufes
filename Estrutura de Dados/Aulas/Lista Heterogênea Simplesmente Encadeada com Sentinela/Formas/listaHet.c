@@ -41,45 +41,23 @@ TipoListaHet *cria_ret(float b, float h)
   nova->Prox = NULL;
   nova->tipo = RET;
   return nova;
->>>>>>> ee9be8d6c8b5b35f23a4387447ed9fd21a615b96
 }
 TipoListaHet *cria_tri(float b, float h)
 {
   Triangulo *tri = (Triangulo *)malloc(sizeof(Triangulo));
-<<<<<<< HEAD
-
   tri->b = b;
-  tri->h = h;
-
-  TipoListaHet *l = (TipoListaHet *)malloc(sizeof(TipoListaHet));
-  l->tipo = TRI;
-  l->Item = tri;
-  l->Prox = NULL;
-  return l;
-  == == == =
-               tri->b = b;
   tri->h = h;
   TipoListaHet *nova = (TipoListaHet *)malloc(sizeof(TipoListaHet));
   nova->Item = tri;
   nova->Prox = NULL;
   nova->tipo = TRI;
   return nova;
->>>>>>> ee9be8d6c8b5b35f23a4387447ed9fd21a615b96
 }
 TipoListaHet *cria_cir(float r)
 {
   Circulo *cir = (Circulo *)malloc(sizeof(Circulo));
-<<<<<<< HEAD
 
   cir->r = r;
-
-  TipoListaHet *l = (TipoListaHet *)malloc(sizeof(TipoListaHet));
-  l->tipo = CIR;
-  l->Item = cir;
-  l->Prox = NULL;
-  return l;
-  == == == =
-               cir->r = r;
   TipoListaHet *nova = (TipoListaHet *)malloc(sizeof(TipoListaHet));
   nova->Item = cir;
   nova->Prox = NULL;
@@ -131,5 +109,4 @@ float max_area(TipoListaHet *l)
       amax = a;
   }
   return amax;
->>>>>>> ee9be8d6c8b5b35f23a4387447ed9fd21a615b96
 }
