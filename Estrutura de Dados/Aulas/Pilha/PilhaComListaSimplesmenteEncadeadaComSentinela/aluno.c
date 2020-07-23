@@ -42,6 +42,9 @@ float RetornaCR(Aluno *aluno)
 
 void DestroiAluno(Aluno *aluno)
 {
-    free(aluno->nome);
-    free(aluno);
+    if (aluno != NULL)
+    {
+        free(aluno->nome);
+        free(aluno);
+    }
 }

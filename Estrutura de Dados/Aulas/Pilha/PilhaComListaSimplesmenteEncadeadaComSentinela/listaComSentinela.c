@@ -57,6 +57,53 @@ void InsereLista(Lista *lista, Aluno *aluno)
         lista->ultima = nova;
 }
 
+Aluno *RetiraLista(Lista *lista, char *chave)
+{
+    Celula *celulaAuxiliar = lista->primeira;
+    Aluno *alunoAuxiliar;
+    Celula *anterior = NULL;
+
+    //faz a busca
+    while (celulaAuxiliar != NULL && strcmp(RetornaNome(celulaAuxiliar->aluno), chave))
+    {
+        anterior = celulaAuxiliar;
+        celulaAuxiliar = celulaAuxiliar->proxima;
+    }
+
+    //lista vazia ou não encontrou o aluno
+    if (celulaAuxiliar == NULL)
+        return NULL;
+
+    //atribui o aluno de retorno
+    alunoAuxiliar = celulaAuxiliar->aluno;
+
+    //se for uma unica celula
+    if (lista->primeira == celulaAuxiliar && lista->ultima == celulaAuxiliar)
+    { //lista vazia
+        lista->primeira =
+            lista->ultima =
+                NULL;
+    }
+    else if (lista->primeira == celulaAuxiliar)
+    {
+        lista->primeira = celulaAuxiliar->proxima; //se for o primeiro
+    }
+    else if (lista->ultima == celulaAuxiliar)
+    { //se for o ultimo
+        lista->ultima = anterior;
+        lista->ultima->proxima = NULL; //poderia ser anterior->proxima=NULL
+    }
+
+    else
+    { //caso comum, retirar elementos que não são os extremos
+        anterior->proxima = celulaAuxiliar->proxima;
+    }
+
+    free(celulaAuxiliar);
+
+    return alunoAuxiliar;
+}
+
 Aluno *RetiraPosicao(Lista *lista, int posicao)
 {
     Celula *celulaAuxiliar = lista->primeira;
@@ -114,8 +161,11 @@ void DestroiLista(Lista *lista)
     while (p != NULL)
     {
         t = p->proxima;
-        DestroiAluno(p->aluno);
-        free(p);
+        if (p->aluno != NULL)
+        {
+            // DestroiAluno(p->aluno);
+            free(p);
+        }
         p = t;
     }
     //liberando a sentinela

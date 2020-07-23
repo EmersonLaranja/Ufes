@@ -29,6 +29,7 @@ extern "C"
     void InsereLista(Lista *lista, Aluno *aluno);
     void ImprimeLista(Lista *lista);
     Aluno *RetiraPosicao(Lista *lista, int posicao);
+    Aluno *RetiraLista(Lista *lista, char *chave);
     void DestroiLista(Lista *lista);
 
 #ifdef __cplusplus

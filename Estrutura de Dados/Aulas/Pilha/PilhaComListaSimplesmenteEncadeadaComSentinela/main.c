@@ -40,20 +40,17 @@ int main(int argc, char **argv)
     Push(pilha2, Pop(pilha1));
     Push(pilha2, Pop(pilha1));
     Push(pilha2, Pop(pilha1));
-    Push(pilha2, Pop(pilha1));
-
-    Push(pilha2, Pop(pilha1)); //aqui tem que dar um "erro"
 
     printf("Imprimindo a Pilha P2:\n");
     ImprimePilha(pilha2);
 
-    DestroiAluno(patricia);
-    DestroiAluno(patricia);
-    DestroiAluno(renato);
-    DestroiAluno(brenda);
-
     DestroiPilha(pilha1);
     DestroiPilha(pilha2);
+
+    DestroiAluno(patricia);
+    DestroiAluno(emerson);
+    DestroiAluno(renato);
+    DestroiAluno(brenda);
 
     return (EXIT_SUCCESS);
 }

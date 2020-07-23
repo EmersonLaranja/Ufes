@@ -41,5 +41,9 @@ void ImprimePilha(Pilha *pilha)
 
 void DestroiPilha(Pilha *pilha)
 {
-  DestroiLista(pilha->lista);
+  if (pilha)
+  {
+
+    DestroiLista(pilha->lista);
+  }
 }
