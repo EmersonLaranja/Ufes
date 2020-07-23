@@ -34,6 +34,7 @@ Lista *IniciaLista(void)
 void ImprimeLista(Lista *lista)
 {
     Celula *auxiliar;
+    if (lista == NULL)
     {
         printf("Lista vazia");
         exit(1);

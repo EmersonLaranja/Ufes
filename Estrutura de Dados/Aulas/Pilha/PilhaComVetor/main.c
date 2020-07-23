@@ -48,7 +48,7 @@ int main(int argc, char **argv)
     ImprimePilha(pilha2);
 
     DestroiAluno(patricia);
-    DestroiAluno(patricia);
+    DestroiAluno(emerson);
     DestroiAluno(renato);
     DestroiAluno(brenda);
 
