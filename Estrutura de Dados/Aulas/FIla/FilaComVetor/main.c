@@ -25,16 +25,40 @@ int main(int argc, char **argv)
     Aluno *renato = InicializaAluno(4, "Renato", 6.57);
     Aluno *brenda = InicializaAluno(2, "Brenda", 2);
 
-    Lista *listaDeAlunos = IniciaLista();
+    Fila *fila1 = InicializaFila();
+    Fila *fila2 = InicializaFila();
 
-    InsereLista(listaDeAlunos, patricia);
-    InsereLista(listaDeAlunos, emerson);
-    InsereLista(listaDeAlunos, renato);
-    InsereLista(listaDeAlunos, brenda);
+    InsereFila(fila1, patricia);
+    InsereFila(fila1, emerson);
+    InsereFila(fila1, renato);
+    InsereFila(fila1, brenda);
 
-    printf("Imprimindo a lista de Alunos:\n");
-    // ImprimeLista(listaDeAlunos);
-    DestroiLista(listaDeAlunos);
+    printf("\nImprimindo a fila1 de Alunos:\n");
+    ImprimeFila(fila1);
+
+    InsereFila(fila2, RetiraFila(fila1));
+
+    printf("\nImprimindo a fila1 de Alunos:\n");
+    ImprimeFila(fila1);
+
+    printf("\nImprimindo a fila2 de Alunos:\n");
+    ImprimeFila(fila2);
+
+    InsereFila(fila2, RetiraFila(fila1));
+
+    printf("\nImprimindo a fila1 de Alunos:\n");
+    ImprimeFila(fila1);
+
+    printf("\nImprimindo a fila2 de Alunos:\n");
+    ImprimeFila(fila2);
+
+    DestroiAluno(patricia);
+    DestroiAluno(emerson);
+    DestroiAluno(renato);
+    DestroiAluno(brenda);
+
+    DestroiFila(fila1);
+    DestroiFila(fila2);
 
     return (EXIT_SUCCESS);
 }

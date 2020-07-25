@@ -23,7 +23,7 @@ struct fila
 Fila *InicializaFila(void)
 {
   Fila *fila = (Fila *)malloc(sizeof(Fila));
-  fila->inicio = 0;
+  fila->inicio = 0; //poderia ser qualquer indice valido (é uma fila circular)
   fila->n = 0;
   return fila;
 }
@@ -47,7 +47,7 @@ void InsereFila(Fila *fila, Aluno *aluno)
 }
 
 //retira do começo
-Aluno *RetiraFila(Fila *fila, Aluno *aluno)
+Aluno *RetiraFila(Fila *fila)
 {
   if (!fila || fila->n == 0)
   {

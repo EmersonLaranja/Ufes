@@ -24,7 +24,7 @@ extern "C"
   void InsereFila(Fila *fila, Aluno *aluno);
 
   //retira do começo
-  Aluno *RetiraFila(Fila *fila, Aluno *aluno);
+  Aluno *RetiraFila(Fila *fila);
 
   //do inicio ao fim
   void ImprimeFila(Fila *fila);
