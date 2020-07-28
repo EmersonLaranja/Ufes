@@ -13,6 +13,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "aluno.h"
 #include "fila.h"
 
 /*
@@ -25,15 +26,25 @@ int main(int argc, char **argv)
     Aluno *renato = InicializaAluno(4, "Renato", 6.57);
     Aluno *brenda = InicializaAluno(2, "Brenda", 2);
 
-    Lista *listaDeAlunos = IniciaLista();
+    Fila *fila1 = InicializaFila();
+    Fila *fila2 = InicializaFila();
 
-    InsereLista(listaDeAlunos, patricia);
-    InsereLista(listaDeAlunos, emerson);
-    InsereLista(listaDeAlunos, renato);
-    InsereLista(listaDeAlunos, brenda);
+    InsereFila(fila1, patricia);
+    InsereFila(fila1, emerson);
+    InsereFila(fila1, renato);
+    InsereFila(fila1, brenda);
 
-    printf("Imprimindo a lista de Alunos:\n");
-    // ImprimeLista(listaDeAlunos);
+    printf("Imprimindo a fila1 de Alunos:\n");
+    ImprimeLista(fila1);
+
+    InsereFila(fila2, RetiraFila(patricia));
+    InsereFila(fila2, RetiraFila(emerson));
+    InsereFila(fila2, RetiraFila(renato));
+    InsereFila(fila2, RetiraFila(brenda));
+
+    printf("Imprimindo a fila2 de Alunos:\n");
+    ImprimeLista(fila2);
+
     DestroiLista(listaDeAlunos);
 
     return (EXIT_SUCCESS);

@@ -46,4 +46,5 @@ void DestroiPilha(Pilha *pilha)
 
     DestroiLista(pilha->lista);
   }
+  free(pilha);
 }
