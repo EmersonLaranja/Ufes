@@ -17,12 +17,12 @@ char *leNome(void)
 {
   char str[91];
   scanf(" %90[^\n]", str);
-  return strdup(str);
+  return strdup(str); //aqui ocorre uma alocação dinâmica
 }
 
 void ImprimeAluno(Aluno *aluno)
 {
-  printf("Nome:%s Matricula:%d P1:%.2f P2:%.2f P3:%.2f\n",
+  printf("|Nome:%s \tMatricula:%d \tP1:%.2f \tP2:%.2f \tP3:%.2f|\n",
          aluno->nome, aluno->matricula, aluno->p1, aluno->p2, aluno->p3);
 }
 
@@ -88,7 +88,7 @@ int main()
   imprime_aprovados(n, turma);
 
   media = media_turma(n, turma);
-  printf("Media da turma: %.2f\n", media);
+  printf("\n|Media da turma: %.2f|\n", media);
 
   LiberaTurma(n, turma);
   return 0;
