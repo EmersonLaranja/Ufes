@@ -108,9 +108,11 @@ void DestroiMatriz(Matriz *mat)
 {
   for (int i = 0; i < mat->numlinhas; i++)
   {
-    free(mat->inicio[i]);
+    if (mat->inicio[i])
+      free(mat->inicio[i]);
   }
-  free(mat->inicio);
+  if (mat->inicio)
+    free(mat->inicio);
 
   free(mat);
 }

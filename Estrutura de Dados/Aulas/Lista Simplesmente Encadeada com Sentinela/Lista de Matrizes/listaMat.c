@@ -109,16 +109,12 @@ Matriz *RetiraLista(Lista *lista, int posicao)
 
 void DestroiLista(Lista *lista)
 {
-  Celula *p = lista->primeira;
-  Celula *t = NULL;
-
+  Celula *p = lista->primeira, *t;
   while (p != NULL)
   {
     t = p->proxima;
-    DestroiMatriz(p->matriz);
     free(p);
     p = t;
   }
-  //liberando a sentinela
   free(lista);
 }
