@@ -9,14 +9,16 @@ int main()
 {
   int i, j;
   Matriz *mat1, *mat2, *mat3, *transp1, *transp2, *transp3;
+
   //chamando a funcao do TAD Matriz que inicializa a matriz
   mat1 = InicializaMatriz(NLINHAS, NCOLUNAS);
   mat2 = InicializaMatriz(NLINHAS, NCOLUNAS);
   mat3 = InicializaMatriz(NLINHAS, NCOLUNAS);
 
+  //preenchendo as matrizes
   for (i = 0; i < NLINHAS; i++)
     for (j = 0; j < NCOLUNAS; j++)
-      ModificaElemento(mat1, i, j, i + j);
+      ModificaElemento(mat1, i, j, 2 * (i + j));
 
   for (i = 0; i < NLINHAS; i++)
     for (j = 0; j < NCOLUNAS; j++)
@@ -24,7 +26,7 @@ int main()
 
   for (i = 0; i < NLINHAS; i++)
     for (j = 0; j < NCOLUNAS; j++)
-      ModificaElemento(mat3, i, j, i + j);
+      ModificaElemento(mat3, i, j, 5 * (i + j));
 
   Lista *lista1, *lista2;
   lista1 = IniciaLista();
@@ -42,16 +44,20 @@ int main()
   InsereLista(lista2, (transp2));
   InsereLista(lista2, (transp3));
 
+  printf("Lista 1:\n");
   ImprimeLista(lista1);
-  printf("\n");
+  printf("Lista 2:\n");
   ImprimeLista(lista2);
 
-  printf("\nRetirando...\n");
-  RetiraLista(lista1, 0);
-  RetiraLista(lista2, 10);
+  printf("\nRetirando algumas matrizes...\n");
+  RetiraLista(lista1, 0);  //retirando a primeira matriz
+  RetiraLista(lista1, 1);  //retirando a ultima matriz, visto que sobraram 2 matrizes
+  RetiraLista(lista2, 1);  //retirando a matriz do meio
+  RetiraLista(lista2, 10); //testando retirar de uma posição além da lista
 
+  printf("Lista 1:\n");
   ImprimeLista(lista1);
-  printf("\n");
+  printf("Lista 2:\n");
   ImprimeLista(lista2);
 
   InsereLista(lista1, mat1);
