@@ -1,10 +1,4 @@
-// /*
-//  * To change this license header, choose License Headers in Project Properties.
-//  * To change this template file, choose Tools | Templates
-//  * and open the template in the editor.
-//  */
 
-// /*
 //  * File:   main.c
 //  * Author: Emerson
 //  *
@@ -35,11 +29,10 @@ int main(int argc, char **argv)
   printf("Imprimindo a lista :\n");
   Imprime(lista);
 
-  lista = Retira(lista, "Renato");
+  lista = Retira(lista, "Renato"); // ao retirar da defini que o aluno é removido também
   printf("Imprimindo a lista :\n");
   Imprime(lista);
 
-  //para não termos vazamento de memória:
   libera(lista);
 
   return (EXIT_SUCCESS);

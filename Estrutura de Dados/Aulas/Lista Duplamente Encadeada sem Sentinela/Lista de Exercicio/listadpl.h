@@ -25,7 +25,7 @@ TipoListaDpl *Insere(TipoItem *aluno, TipoListaDpl *lista);
 
 /*Retira um aluno de nome "nome" da lista de alunos
 * inputs: a lista e o nome do aluno a ser retirado da lista
-* output: o aluno (do tipo TipoItem) retirado da lista ou NULL, se o aluno não se encontrar na lista
+* output: lista sem o aluno
 * pre-condicao: lista não é nula
 * pos-condicao: lista não contém o aluno de nome "nome"
 */
