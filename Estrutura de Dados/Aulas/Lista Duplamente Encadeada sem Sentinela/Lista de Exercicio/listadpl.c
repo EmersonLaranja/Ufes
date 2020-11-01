@@ -92,6 +92,9 @@ TipoListaDpl *Retira(TipoListaDpl *lista, char *nome)
   {
   }
 
+  free(res->item->nome);
+  free(res->item->endereco);
+  free(res->item);
   free(res);
   return lista;
 }
