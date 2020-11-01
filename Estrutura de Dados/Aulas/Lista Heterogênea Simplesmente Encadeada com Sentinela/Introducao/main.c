@@ -50,5 +50,6 @@ int main(int argc, char **argv)
     DestroiProfessor(roberta);
     DestroiProfessor(flavio);
 
+    DestroiLista(listaChurras);
     return (EXIT_SUCCESS);
 }
