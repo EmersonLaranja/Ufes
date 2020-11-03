@@ -1,1 +1,0 @@
-# Anotações para o PDF
