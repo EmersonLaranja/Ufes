@@ -39,22 +39,22 @@ void InserePaginaListaLinks(ListaLinks *listaLinks, Pagina *pagina)
 //TODO: fazer RetornaPaginaListaLinks
 Pagina *RetornaPaginaListaLinks(ListaLinks *listaLinks, char *chave)
 {
-  for (CelulaLink *nova = listaLinks->primeira; nova != NULL; nova = nova->proxima)
+  for (CelulaLink *auxiliar = listaLinks->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    if (strcmp(RetornaNomePagina(nova->pagina), chave) == 0)
+    if (strcmp(RetornaNomePagina(auxiliar->pagina), chave) == 0)
     {
-      return nova->pagina;
+      return auxiliar->pagina;
     }
-    return NULL;
   }
+  return NULL;
 };
 
 void ImprimeListaLinks(ListaLinks *listaLinks, FILE *arquivo)
 {
-  for (CelulaLink *nova = listaLinks->primeira; nova != NULL; nova = nova->proxima)
+  for (CelulaLink *auxiliar = listaLinks->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    printf("%s %s\n\n", RetornaNomePagina(nova->pagina), RetornaNomeArquivo(nova->pagina)); //! soh pra eu ver, apagar dps
-    fprintf(arquivo, "%s %s\n\n", RetornaNomePagina(nova->pagina), RetornaNomeArquivo(nova->pagina));
+    printf("%s %s\n\n", RetornaNomePagina(auxiliar->pagina), RetornaNomeArquivo(auxiliar->pagina)); //! soh pra eu ver, apagar dps
+    fprintf(arquivo, "%s %s\n\n", RetornaNomePagina(auxiliar->pagina), RetornaNomeArquivo(auxiliar->pagina));
   }
 };
 

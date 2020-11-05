@@ -40,17 +40,84 @@ void InsereListaContribuicoes(ListaContribuicoes *listaContribuicoes, Contribuic
 
 void ImprimeListaContribuicoes(ListaContribuicoes *listaContribuicoes, FILE *arquivo)
 {
-  for (CelulaContribuicao *nova = listaContribuicoes->primeira; nova != NULL; nova = nova->proxima)
+  for (CelulaContribuicao *auxiliar = listaContribuicoes->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    printf("%s %s\n\n", nova->editor, RetornaNomeArquivo(nova->contribuicao)); //! soh pra eu ver, apagar dps
-    fprintf(arquivo, "%s %s\n\n", nova->editor, RetornaNomeArquivo(nova->contribuicao));
+    printf("%s %s\n\n", RetornaNomeEditor(auxiliar->editor), RetornaNomeArquivo(auxiliar->contribuicao)); //! soh pra eu ver, apagar dps
+    fprintf(arquivo, "%s %s\n\n", RetornaNomeEditor(auxiliar->editor), RetornaNomeArquivo(auxiliar->contribuicao));
   }
 };
 
-Contribuicao *RetornaContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *chave){};
+Contribuicao *RetornaContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *chave)
+{
+  for (CelulaContribuicao *auxiliar = listaContribuicoes->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
+  {
+    if (strcmp(RetornaTextoContribuicao(auxiliar->contribuicao), chave) == 0)
+    {
+      return auxiliar->contribuicao;
+    }
+  }
+  return NULL;
+};
 // //
-Editor *RetornaEditorListaContribuicoes(ListaContribuicoes *listaContribuicoes, Contribuicao *contrib){};
+Editor *RetornaEditorListaContribuicoes(ListaContribuicoes *listaContribuicoes, Contribuicao *contribuicao)
+{
+  for (CelulaContribuicao *auxiliar = listaContribuicoes->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
+  {
+    if (auxiliar->contribuicao == contribuicao)
+    {
+      return auxiliar->editor;
+    }
+  }
+  return NULL;
+};
 
-void RetiraListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *chave){};
+void RetiraContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *chave)
+{
+  CelulaContribuicao *auxiliar = listaContribuicoes->primeira, *anterior = NULL;
 
-void DestroiListaContribuicoes(ListaContribuicoes *listaContribuicoes){};
+  while (auxiliar != NULL && strcmp(RetornaTextoContribuicao(auxiliar->contribuicao), chave) == 0)
+  {
+    anterior = auxiliar;
+    auxiliar = auxiliar->proxima;
+  }
+
+  if (auxiliar == NULL)
+  {
+    return;
+  }
+
+  if (auxiliar == listaContribuicoes->primeira && auxiliar == listaContribuicoes->ultima)
+  {
+    listaContribuicoes->primeira = listaContribuicoes->ultima = NULL;
+  }
+  else if (auxiliar == listaContribuicoes->primeira)
+  {
+    listaContribuicoes->primeira = auxiliar->proxima;
+  }
+  else if (auxiliar == listaContribuicoes->ultima)
+  {
+    listaContribuicoes->ultima = anterior;
+    anterior->proxima = NULL;
+  }
+  else
+  {
+    anterior->proxima = auxiliar->proxima;
+  }
+  free(auxiliar);
+};
+
+void DestroiListaContribuicoes(ListaContribuicoes *listaContribuicoes)
+{
+  CelulaContribuicao *t;
+  CelulaContribuicao *p = listaContribuicoes->primeira;
+  while (p != NULL)
+  {
+    t = p->proxima;
+    if (p)
+    {
+      free(p);
+    }
+    p = t;
+  }
+  free(listaContribuicoes);
+};

@@ -20,7 +20,7 @@ Contribuicao *RetornaContribuicaoListaContribuicoes(ListaContribuicoes *listaCon
 // //
 Editor *RetornaEditorListaContribuicoes(ListaContribuicoes *listaContribuicoes, Contribuicao *contrib);
 
-void RetiraListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *chave);
+void RetiraContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *chave);
 
 void DestroiListaContribuicoes(ListaContribuicoes *listaContribuicoes);
 
