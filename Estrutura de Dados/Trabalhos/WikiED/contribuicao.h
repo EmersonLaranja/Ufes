@@ -1,17 +1,26 @@
 #ifndef CONTRIBUICAO_H
 #define CONTRIBUICAO_H
-#include "editor.h"
+
+#include "stdio.h"
+#include "stdlib.h"
+#include "string.h"
 
 typedef struct contribuicao Contribuicao;
 
-Contribuicao *InicializaContribuicao(Editor *editor, char *texto);
+Contribuicao *InicializaContribuicao(char *texto, char *nomeDoArquivo);
 
-// void ImprimeContribuicao(Contribuicao *contribuicao);
+void ImprimeContribuicao(Contribuicao *contribuicao, FILE *arquivo);
 
-Editor *RetornaEditorContribuicao(Contribuicao *contribuicao);
+char *RetornaTextoContribuicao(Contribuicao *contribuicao);
+
+int RetornaFlagContribuicao(Contribuicao *contribuicao);
+
+char *RetornaNomeDoArquivoContribuicao(Contribuicao *contribuicao);
+
+void AlteraEstadoContribuicao(Contribuicao *contribuicao);
 
 int ContribuicaoFoiRetirada(Contribuicao *contribuicao);
 
-// void DestroiContribuicao(Contribuicao *contribuicao);
+void DestroiContribuicao(Contribuicao *contribuicao);
 
 #endif /* CONTRIBUICAO_H */

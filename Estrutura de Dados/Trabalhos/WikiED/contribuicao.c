@@ -21,7 +21,7 @@ void ImprimeContribuicao(Contribuicao *contribuicao, FILE *arquivo)
 {
   if (contribuicao && contribuicao->foiRetirada == NAO)
   {                                      //se tem a contribuicao e ela nao fora retirada
-    printf("%s\n", contribuicao->texto); //! Soh pra eu visualizar, remover depois
+    printf("%s\n", contribuicao->texto); //! Soh pra eu visualizar, Retirar depois
     fprintf(arquivo, "%s\n", contribuicao->texto);
   }
 };
@@ -31,7 +31,7 @@ char *RetornaTextoContribuicao(Contribuicao *contribuicao)
   return contribuicao->texto;
 };
 
-char *RetornaFlagContribuicao(Contribuicao *contribuicao)
+int RetornaFlagContribuicao(Contribuicao *contribuicao)
 {
   return contribuicao->foiRetirada;
 };

@@ -1,11 +1,9 @@
-#include "stdio.h"
-#include "stdlib.h"
-#include "string.h"
+
 #include "editor.h"
 
 struct editor
 {
-  char *nome
+  char *nome;
 };
 
 Editor *InicializaEditor(char *nome)
@@ -18,6 +16,7 @@ Editor *InicializaEditor(char *nome)
 void ImprimeEditor(Editor *editor)
 {
   if (editor)
+
     printf("%s\n", editor->nome);
 };
 
