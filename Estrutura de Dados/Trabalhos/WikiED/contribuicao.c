@@ -1,40 +1,74 @@
-#include "stdio.h"
-#include "stdlib.h"
-#include "string.h"
 #include "contribuicao.h"
-
+#define SIM 1
+#define NAO 0
 struct contribuicao
 {
-  Editor *editor;
+  char *nomeDoArquivo; //nome do arquivo de contribuição: tipo c8.txt
   char *texto;
   int foiRetirada;
 };
 
-Contribuicao *InicializaContribuicao(Editor *editor, char *texto)
+Contribuicao *InicializaContribuicao(char *texto, char *nomeDoArquivo)
 {
   Contribuicao *contribuicao = (Contribuicao *)malloc(sizeof(Contribuicao));
-  contribuicao->editor = editor;
   contribuicao->texto = strdup(texto);
-  contribuicao->foiRetirada = 0;
-  return editor;
+  contribuicao->nomeDoArquivo = strdup(nomeDoArquivo);
+  contribuicao->foiRetirada = NAO; //inicialmente, a contribuicao mesmo vazia eh considerada como nao retirada
+  return contribuicao;
 };
 
-Editor *RetornaEditorContribuicao(Contribuicao *contribuicao)
+void ImprimeContribuicao(Contribuicao *contribuicao, FILE *arquivo)
 {
-  return contribuicao->editor;
+  if (contribuicao && contribuicao->foiRetirada == NAO)
+  {                                      //se tem a contribuicao e ela nao fora retirada
+    printf("%s\n", contribuicao->texto); //! Soh pra eu visualizar, remover depois
+    fprintf(arquivo, "%s\n", contribuicao->texto);
+  }
 };
 
-int ContribuicaoFoiRetirada(Contribuicao *contribuicao)
+char *RetornaTextoContribuicao(Contribuicao *contribuicao)
+{
+  return contribuicao->texto;
+};
+
+char *RetornaFlagContribuicao(Contribuicao *contribuicao)
 {
   return contribuicao->foiRetirada;
 };
 
-// void DestroiContribuicao(Contribuicao *contribuicao)
-// {
+char *RetornaNomeDoArquivoContribuicao(Contribuicao *contribuicao)
+{
+  return contribuicao->nomeDoArquivo;
+};
 
-//   if (contribuicao)
-//   {
-//     contribuicao->foiRetirada = 1;
-//     free(contribuicao);
-//   }
-// };
+void AlteraEstadoContribuicao(Contribuicao *contribuicao)
+{
+  if (contribuicao->foiRetirada == SIM)
+  {
+    contribuicao->foiRetirada = NAO;
+  }
+  else if (contribuicao->foiRetirada == NAO)
+  {
+    contribuicao->foiRetirada = SIM;
+  }
+};
+
+int ContribuicaoFoiRetirada(Contribuicao *contribuicao)
+{
+  if (contribuicao->foiRetirada == SIM)
+  {
+    return 1;
+  }
+
+  return 0;
+}
+
+void DestroiContribuicao(Contribuicao *contribuicao)
+{
+  if (contribuicao)
+  {
+    free(contribuicao->texto);
+    free(contribuicao->nomeDoArquivo);
+    free(contribuicao);
+  }
+};
