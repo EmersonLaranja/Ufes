@@ -22,6 +22,7 @@ void RetiraCelulaPaginaListaPaginas(ListaPaginas *listaPaginas, char *chave);
 // void RetiraPaginaListaPaginas(ListaPaginas *listaPaginas, char *chave);
 // void RetiraListaContribuicoesListaPaginas(ListaPaginas *listaPaginas, char *chave);
 void RetiraLinksListaPaginas(ListaPaginas *listaPaginas, char *chave);
+void ImprimePaginaListaPaginas(ListaPaginas *listaPaginas, Pagina *pagina, ListaContribuicoes *listaContribuicoes, ListaLinks *listaLinks, FILE *arq);
 void ImprimeListaPaginas(ListaPaginas *listaPaginas, FILE *arq);
 void DestroiListaPaginas(ListaPaginas *listaPaginas);
 #endif /* LISTADEPAGINAS_H */

@@ -3,14 +3,14 @@
 
 struct pagina
 {
-  char *nomeDaPagina;
+  char *nomePagina;
   char *nomeArquivo;
 };
 
-Pagina *InicializaPagina(char *nomeDaPagina, char *nomeArquivo)
+Pagina *InicializaPagina(char *nomePagina, char *nomeArquivo)
 {
   Pagina *pagina = (Pagina *)malloc(sizeof(Pagina));
-  pagina->nomeDaPagina = strdup(nomeDaPagina);
+  pagina->nomePagina = strdup(nomePagina);
   pagina->nomeArquivo = strdup(nomeArquivo);
   return pagina;
 }
@@ -19,14 +19,14 @@ void ImprimePagina(Pagina *pagina, FILE *arquivo)
 {
   if (pagina)
   {
-    printf("%s\n\n", pagina->nomeDaPagina); //! Soh pra eu visualizar, Retirar depois
-    fprintf(arquivo, "%s\n\n", pagina->nomeArquivo);
+    printf("%s\n\n", pagina->nomePagina); //! Soh pra eu visualizar, Retirar depois
+    fprintf(arquivo, "%s\n\n", pagina->nomePagina);
   }
 }
 
 char *RetornaNomePagina(Pagina *pagina)
 {
-  return pagina->nomeDaPagina;
+  return pagina->nomePagina;
 }
 
 char *RetornaNomeArquivoPagina(Pagina *pagina)
@@ -38,7 +38,7 @@ void DestroiPagina(Pagina *pagina)
 {
   if (pagina)
   {
-    free(pagina->nomeDaPagina);
+    free(pagina->nomePagina);
     free(pagina->nomeArquivo);
     free(pagina);
   }

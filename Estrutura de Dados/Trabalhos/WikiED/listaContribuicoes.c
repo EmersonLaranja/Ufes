@@ -74,7 +74,7 @@ Editor *RetornaEditorListaContribuicoes(ListaContribuicoes *listaContribuicoes, 
 {
   for (CelulaContribuicao *auxiliar = listaContribuicoes->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    if (strcmp(RetornaNomeArquivoContribuicao(auxiliar->contribuicao), chave) == 0)
+    if (strcmp(RetornaNomeEditor(auxiliar->editor), chave) == 0)
     {
       return auxiliar->editor;
     }
@@ -114,6 +114,7 @@ void RetiraCelulaContribuicaoListaContribuicoes(ListaContribuicoes *listaContrib
   {
     anterior->proxima = auxiliar->proxima;
   }
+  AlteraEstadoContribuicao(auxiliar->contribuicao);
   free(auxiliar);
 };
 void AlteraEstadoContribuicoesListaContribuicoes(ListaContribuicoes *listaContribuicoes)
@@ -133,7 +134,9 @@ void DestroiNosListaContribuicoes(ListaContribuicoes *listaContribuicoes)
     t = p->proxima;
     if (p)
     {
+      AlteraEstadoContribuicao(p->contribuicao);
       free(p);
+      //TODO: ver se aqui nao deveria mudar o estado
     }
     p = t;
   }

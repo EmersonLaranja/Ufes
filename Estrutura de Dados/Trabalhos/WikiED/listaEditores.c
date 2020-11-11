@@ -64,7 +64,7 @@ Editor *RetornaEditorListaEditores(ListaEditores *listaEditores, char *chave)
 {
   for (CelulaEditor *auxiliar = listaEditores->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    if (VerificaEditorExisteListaEditores(listaEditores, RetornaNomeEditor(auxiliar->editor)))
+    if (strcmp(RetornaNomeEditor(auxiliar->editor), chave) == 0)
     {
       return auxiliar->editor;
     }
@@ -114,7 +114,7 @@ void DestroiListaEditores(ListaEditores *listaEditores)
       if (p->editor)
         DestroiEditor(p->editor);
       if (p->listaContribuicoes)
-        DestroiListaContribuicoes(p->listaContribuicoes);
+        DestroiNosListaContribuicoes(p->listaContribuicoes);
       free(p);
     }
     p = t;

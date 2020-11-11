@@ -64,6 +64,9 @@ void ImprimeListaPaginas(ListaPaginas *listaPaginas, FILE *arq)
     ImprimeListaContribuicoes(auxiliar->listaContribuicoes, arq);
   }
 };
+// void ImprimePaginaListaPaginas(ListaPaginas *listaPaginas, Pagina *pagina, ListaContribuicoes *listaContribuicoes, ListaLinks *listaLinks, FILE *arq){
+
+// };
 
 CelulaPagina *RetornaCelulaPaginaListaPaginas(ListaPaginas *listaPaginas, char *nomePagina)
 {
@@ -93,7 +96,7 @@ ListaContribuicoes *RetornaListaContribuicoesListaPaginas(ListaPaginas *listaPag
 {
   for (CelulaPagina *auxiliar = listaPaginas->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    if (strcmp(RetornaNomeArquivoPagina(auxiliar->pagina), chave) == 0)
+    if (strcmp(RetornaNomePagina(auxiliar->pagina), chave) == 0)
     {
       return auxiliar->listaContribuicoes;
     }

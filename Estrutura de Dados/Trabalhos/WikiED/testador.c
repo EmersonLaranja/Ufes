@@ -8,6 +8,8 @@ void RETIRAPAGINA(ListaPaginas *listaPaginas, char *nomePagina, FILE *arquivoLog
 void INSEREEDITOR(ListaEditores *listaEditores, char *nomeEditor);
 void INSERELINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePaginaDestino, FILE *arquivoLog);
 void RETIRALINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePaginaDestino, FILE *arquivoLog);
+void INSERECONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores, char *nomePagina, char *nomeEditor, char *nomeArquivoContribuicao, FILE *arquivoLog);
+void RETIRACONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores, char *nomePagina, char *nomeEditor, char *nomeArquivoContribuicao, FILE *arquivoLog);
 void FIM(ListaPaginas *listaPaginas, ListaEditores *listaEditores);
 
 int main(int argc, char *argv[])
@@ -68,6 +70,8 @@ int main(int argc, char *argv[])
       fscanf(arquivo, "%s", argumento3);
       // fprintf(arquivoLog, "%s %s %s %s\n", comando, argumento1, argumento2, argumento3);
       printf("%s %s %s %s\n", comando, argumento1, argumento2, argumento3);
+      INSERECONTRIBUICAO(listaPaginas, listaEditores, argumento1, argumento2, argumento3, arquivoLog);
+
       continue;
     }
 
@@ -79,6 +83,7 @@ int main(int argc, char *argv[])
       fscanf(arquivo, "%s", argumento3);
       // fprintf(arquivoLog, "%s %s %s %s\n", comando, argumento1, argumento2, argumento3);
       printf("%s %s %s %s\n", comando, argumento1, argumento2, argumento3);
+      RETIRACONTRIBUICAO(listaPaginas, listaEditores, argumento1, argumento2, argumento3, arquivoLog);
       continue;
     }
 
@@ -179,15 +184,68 @@ void INSEREEDITOR(ListaEditores *listaEditores, char *nomeEditor)
   InsereEditorListaEditores(listaEditores, editor);
 }
 
-void INSERECONTRIBUICAO(ListaPaginas *listaPaginas, char *nomePagina, char *nomeEditor, char *nomeArquivoContribuicao){
+void INSERECONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores, char *nomePagina, char *nomeEditor, char *nomeArquivoContribuicao, FILE *arquivoLog)
+{
+  Contribuicao *contribuicao = InicializaContribuicao(nomeArquivoContribuicao);
 
+  if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePagina))
+  {
+    fprintf(arquivoLog, "Pagina nao existe ou lista nao inicializada.ERROR\n");
+    printf("Pagina nao existe ou lista nao inicializada.ERROR\n");
+    DestroiContribuicao(contribuicao);
+    return;
+  };
+  ListaContribuicoes *listaContribuicoesAuxiliar = RetornaListaContribuicoesListaPaginas(listaPaginas, nomePagina);
+
+  if (!VerificaEditorExisteListaEditores(listaEditores, nomeEditor))
+  {
+    fprintf(arquivoLog, "Editor nao existe ou lista nao inicializada.ERROR\n");
+    printf("Editor nao existe ou lista nao inicializada.ERROR\n");
+    DestroiContribuicao(contribuicao);
+    return;
+  }
+  Editor *editorAuxiliar = RetornaEditorListaEditores(listaEditores, nomeEditor);
+
+  InsereContribuicaoListaContribuicoes(listaContribuicoesAuxiliar, contribuicao, editorAuxiliar);
+  InsereContribuicaoListaEditores(listaEditores, contribuicao, nomeEditor);
 };
 
-void RETIRACONTRIBUICAO(){};
+void RETIRACONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores, char *nomePagina, char *nomeEditor, char *nomeArquivoContribuicao, FILE *arquivoLog)
+{
+
+  if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePagina))
+  {
+    fprintf(arquivoLog, "Pagina nao existe ou lista nao inicializada.ERROR\n");
+    printf("Pagina nao existe ou lista nao inicializada.ERROR\n");
+    return;
+  };
+
+  if (!VerificaEditorExisteListaEditores(listaEditores, nomeEditor))
+  {
+    fprintf(arquivoLog, "Editor nao existe ou lista nao inicializada.ERROR\n");
+    printf("Editor nao existe ou lista nao inicializada.ERROR\n");
+    return;
+  }
+
+  ListaContribuicoes *listaContribuicoesAuxiliar = RetornaListaContribuicoesListaEditores(listaEditores, nomeEditor);
+
+  Editor *editorDaListaContribuicoes = RetornaEditorListaContribuicoes(listaContribuicoesAuxiliar, nomeEditor);
+  Editor *editorAuxiliar = RetornaEditorListaEditores(listaEditores, nomeEditor);
+
+  if (strcmp(RetornaNomeEditor(editorDaListaContribuicoes), RetornaNomeEditor(editorAuxiliar)) != 0)
+  {
+    fprintf(arquivoLog, "ERROR: editor não tem direito de excluir esta contribuição\n");
+    printf("ERROR: editor não tem direito de excluir esta contribuição\n");
+    return;
+  }
+  else if (strcmp(RetornaNomeEditor(editorDaListaContribuicoes), RetornaNomeEditor(editorAuxiliar)) == 0)
+  {
+    RetiraCelulaContribuicaoListaContribuicoes(listaContribuicoesAuxiliar, nomeArquivoContribuicao);
+  }
+};
 
 void INSERELINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePaginaDestino, FILE *arquivoLog)
 {
-  //TODO verificar se ambas as paginas existem
   if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePaginaOrigem))
   {
     fprintf(arquivoLog, "A pagina %s nao existe\n", nomePaginaOrigem);
@@ -206,7 +264,6 @@ void INSERELINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePa
 
 void RETIRALINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePaginaDestino, FILE *arquivoLog)
 {
-  //TODO verificar se ambas as paginas existem
   ListaLinks *listaLinkAuxiliar = RetornaListaLinksListaPaginas(listaPaginas, nomePaginaOrigem);
   RetiraPaginaListaLinks(listaLinkAuxiliar, nomePaginaDestino);
 };
