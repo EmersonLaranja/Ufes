@@ -7,15 +7,15 @@
 
 typedef struct contribuicao Contribuicao;
 
-Contribuicao *InicializaContribuicao(char *texto, char *nomeDoArquivo);
+Contribuicao *InicializaContribuicao(char *nomeArquivo);
 
-void ImprimeContribuicao(Contribuicao *contribuicao, FILE *arquivo);
+void ImprimeContribuicao(Contribuicao *contribuicao, char *arquivo);
 
-char *RetornaTextoContribuicao(Contribuicao *contribuicao);
+// char *RetornaTextoContribuicao(Contribuicao *contribuicao);
 
 int RetornaFlagContribuicao(Contribuicao *contribuicao);
 
-char *RetornaNomeDoArquivoContribuicao(Contribuicao *contribuicao);
+char *RetornaNomeArquivoContribuicao(Contribuicao *contribuicao);
 
 void AlteraEstadoContribuicao(Contribuicao *contribuicao);
 

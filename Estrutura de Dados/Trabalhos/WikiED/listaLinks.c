@@ -36,7 +36,6 @@ void InserePaginaListaLinks(ListaLinks *listaLinks, Pagina *pagina)
   nova->proxima = NULL;
 };
 
-//TODO: fazer RetornaPaginaListaLinks
 Pagina *RetornaPaginaListaLinks(ListaLinks *listaLinks, char *chave)
 {
   for (CelulaLink *auxiliar = listaLinks->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
@@ -53,12 +52,12 @@ void ImprimeListaLinks(ListaLinks *listaLinks, FILE *arquivo)
 {
   for (CelulaLink *auxiliar = listaLinks->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    printf("%s %s\n\n", RetornaNomePagina(auxiliar->pagina), RetornaNomeArquivo(auxiliar->pagina)); //! soh pra eu ver, apagar dps
-    fprintf(arquivo, "%s %s\n\n", RetornaNomePagina(auxiliar->pagina), RetornaNomeArquivo(auxiliar->pagina));
+    printf("%s %s\n\n", RetornaNomePagina(auxiliar->pagina), RetornaNomeArquivoPagina(auxiliar->pagina)); //! soh pra eu ver, apagar dps
+    fprintf(arquivo, "%s %s\n\n", RetornaNomePagina(auxiliar->pagina), RetornaNomeArquivoPagina(auxiliar->pagina));
   }
 };
 
-void RetiraLinkListaLinks(ListaLinks *listaLinks, char *chave)
+void RetiraPaginaListaLinks(ListaLinks *listaLinks, char *chave)
 {
   CelulaLink *auxiliar = listaLinks->primeira, *anterior = NULL;
 
@@ -92,6 +91,7 @@ void RetiraLinkListaLinks(ListaLinks *listaLinks, char *chave)
   }
   free(auxiliar);
 };
+
 void DestroiListaLinks(ListaLinks *listaLinks)
 {
   CelulaLink *t;

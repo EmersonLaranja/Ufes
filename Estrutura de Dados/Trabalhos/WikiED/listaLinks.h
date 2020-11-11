@@ -13,7 +13,7 @@ ListaLinks *InicializaListaLinks(void);
 void InserePaginaListaLinks(ListaLinks *listaLinks, Pagina *pagina);
 Pagina *RetornaPaginaListaLinks(ListaLinks *listaLinks, char *chave);
 void ImprimeListaLinks(ListaLinks *listaLinks, FILE *arquivo);
-void RetiraLinkListaLinks(ListaLinks *listaLinks, char *chave);
+void RetiraPaginaListaLinks(ListaLinks *listaLinks, char *chave);
 void DestroiListaLinks(ListaLinks *lista);
 
 #endif /* LISTALINKS_H */

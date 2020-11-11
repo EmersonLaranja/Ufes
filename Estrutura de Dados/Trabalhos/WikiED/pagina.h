@@ -7,13 +7,13 @@
 
 typedef struct pagina Pagina;
 
-Pagina *InicializaPagina(char *nomeDaPagina, char *nomeDoArquivo);
+Pagina *InicializaPagina(char *nomeDaPagina, char *nomeArquivo);
 
 void ImprimePagina(Pagina *pagina, FILE *arquivo);
 
 char *RetornaNomePagina(Pagina *pagina);
 
-char *RetornaNomeArquivo(Pagina *pagina);
+char *RetornaNomeArquivoPagina(Pagina *pagina);
 
 void DestroiPagina(Pagina *pagina);
 
