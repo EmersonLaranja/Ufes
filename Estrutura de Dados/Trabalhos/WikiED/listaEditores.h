@@ -16,7 +16,7 @@ void InsereContribuicaoListaEditores(ListaEditores *listaEditores, Contribuicao 
 CelulaEditor *RetornaCelulaEditorListaEditores(ListaEditores *listaEditores, char *chave);
 Editor *RetornaEditorListaEditores(ListaEditores *listaEditores, char *chave);
 ListaContribuicoes *RetornaListaContribuicoesListaEditores(ListaEditores *listaEditores, char *chave);
-int VerificaNomeEditorExisteListaEditores(ListaEditores *listaEditores, char *nomeEditor);
+int VerificaEditorExisteListaEditores(ListaEditores *listaEditores, char *nomeEditor);
 void ImprimeListaEditores(ListaEditores *listaEditores, FILE *arq);
 void DestroiListaEditores(ListaEditores *listaEditores);
 #endif /* LISTAEDITORES_H */

@@ -23,6 +23,21 @@ ListaPaginas *InicializaListaPaginas(void)
   return listaPaginas;
 };
 
+int VerificaPaginaExisteListaPaginas(ListaPaginas *listaPaginas, char *nomePagina)
+{
+  CelulaPagina *auxiliar = listaPaginas->primeira;
+
+  while (auxiliar != NULL)
+  {
+    if (strcmp(RetornaNomePagina(auxiliar->pagina), nomePagina) == 0)
+    {
+      return 1; //nome do pagina existe
+    }
+    auxiliar = auxiliar->proxima;
+  }
+  return 0; //nao existe pagina com esse nome
+};
+
 void InserePaginaListaPaginas(ListaPaginas *listaPaginas, Pagina *pagina)
 {
   CelulaPagina *nova = (CelulaPagina *)malloc(sizeof(CelulaPagina));
@@ -66,7 +81,7 @@ Pagina *RetornaPaginaListaPaginas(ListaPaginas *listaPaginas, char *chave)
 {
   for (CelulaPagina *auxiliar = listaPaginas->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    if (strcmp(RetornaNomeArquivoPagina(auxiliar->pagina), chave) == 0)
+    if (strcmp(RetornaNomePagina(auxiliar->pagina), chave) == 0)
     {
       return auxiliar->pagina;
     }
@@ -90,7 +105,7 @@ ListaLinks *RetornaListaLinksListaPaginas(ListaPaginas *listaPaginas, char *chav
 {
   for (CelulaPagina *auxiliar = listaPaginas->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    if (strcmp(RetornaNomeArquivoPagina(auxiliar->pagina), chave) == 0)
+    if (strcmp(RetornaNomePagina(auxiliar->pagina), chave) == 0)
     {
       return auxiliar->listaLinks;
     }

@@ -13,6 +13,7 @@ typedef struct celulaPagina CelulaPagina;
 
 ListaPaginas *InicializaListaPaginas(void);
 void InserePaginaListaPaginas(ListaPaginas *listaPaginas, Pagina *pagina);
+int VerificaPaginaExisteListaPaginas(ListaPaginas *listaPaginas, char *nomePagina);
 CelulaPagina *RetornaCelulaPaginaListaPaginas(ListaPaginas *listaPaginas, char *nomePagina);
 Pagina *RetornaPaginaListaPaginas(ListaPaginas *listaPaginas, char *chave);
 ListaContribuicoes *RetornaListaContribuicoesListaPaginas(ListaPaginas *listaPaginas, char *chave);

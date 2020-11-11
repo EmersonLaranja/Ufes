@@ -6,7 +6,10 @@
 void INSEREPAGINA(ListaPaginas *listaPaginas, char *nomePagina, char *nomeArquivo);
 void RETIRAPAGINA(ListaPaginas *listaPaginas, char *nomePagina, FILE *arquivoLog);
 void INSEREEDITOR(ListaEditores *listaEditores, char *nomeEditor);
+void INSERELINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePaginaDestino, FILE *arquivoLog);
+void RETIRALINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePaginaDestino, FILE *arquivoLog);
 void FIM(ListaPaginas *listaPaginas, ListaEditores *listaEditores);
+
 int main(int argc, char *argv[])
 {
   ListaPaginas *listaPaginas = InicializaListaPaginas();
@@ -85,6 +88,7 @@ int main(int argc, char *argv[])
       fscanf(arquivo, "%s", argumento2);
       // fprintf(arquivoLog, "%s %s %s\n", comando, argumento1, argumento2);
       printf("%s %s %s\n", comando, argumento1, argumento2);
+      INSERELINK(listaPaginas, argumento1, argumento2, arquivoLog);
       continue;
     }
 
@@ -94,6 +98,7 @@ int main(int argc, char *argv[])
       fscanf(arquivo, "%s", argumento2);
       // fprintf(arquivoLog, "%s %s %s\n", comando, argumento1, argumento2);
       printf("%s %s %s\n", comando, argumento1, argumento2);
+      RETIRALINK(listaPaginas, argumento1, argumento2, arquivoLog);
       continue;
     }
 
@@ -165,7 +170,7 @@ void RETIRAPAGINA(ListaPaginas *listaPaginas, char *nomePagina, FILE *arquivoLog
 
 void INSEREEDITOR(ListaEditores *listaEditores, char *nomeEditor)
 {
-  if (VerificaNomeEditorExisteListaEditores(listaEditores, nomeEditor))
+  if (VerificaEditorExisteListaEditores(listaEditores, nomeEditor))
   {
     printf("Ja exite um editor com o nome %s\n", nomeEditor);
     return;
@@ -178,9 +183,34 @@ void INSERECONTRIBUICAO(ListaPaginas *listaPaginas, char *nomePagina, char *nome
 
 };
 
-void RETIRACONTRIBUICAO();
-void INSERELINK();
-void RETIRALINK();
+void RETIRACONTRIBUICAO(){};
+
+void INSERELINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePaginaDestino, FILE *arquivoLog)
+{
+  //TODO verificar se ambas as paginas existem
+  if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePaginaOrigem))
+  {
+    fprintf(arquivoLog, "A pagina %s nao existe\n", nomePaginaOrigem);
+    printf("A pagina %s nao existe\n", nomePaginaOrigem);
+    return;
+  }
+  if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePaginaDestino))
+  {
+    fprintf(arquivoLog, "A pagina %s nao existe\n", nomePaginaDestino);
+    printf("A pagina %s nao existe\n", nomePaginaDestino);
+    return;
+  }
+  ListaLinks *listaLinkAuxiliar = RetornaListaLinksListaPaginas(listaPaginas, nomePaginaOrigem);
+  InserePaginaListaLinks(listaLinkAuxiliar, RetornaPaginaListaPaginas(listaPaginas, nomePaginaDestino));
+};
+
+void RETIRALINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePaginaDestino, FILE *arquivoLog)
+{
+  //TODO verificar se ambas as paginas existem
+  ListaLinks *listaLinkAuxiliar = RetornaListaLinksListaPaginas(listaPaginas, nomePaginaOrigem);
+  RetiraPaginaListaLinks(listaLinkAuxiliar, nomePaginaDestino);
+};
+
 void CAMINHO()
 {
   printf("Essa funcao esta disponivel apenas na versao premium\n");

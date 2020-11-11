@@ -64,7 +64,7 @@ Editor *RetornaEditorListaEditores(ListaEditores *listaEditores, char *chave)
 {
   for (CelulaEditor *auxiliar = listaEditores->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    if (VerificaNomeEditorExisteListaEditores(listaEditores, RetornaNomeEditor(auxiliar->editor)))
+    if (VerificaEditorExisteListaEditores(listaEditores, RetornaNomeEditor(auxiliar->editor)))
     {
       return auxiliar->editor;
     }
@@ -78,7 +78,7 @@ ListaContribuicoes *RetornaListaContribuicoesListaEditores(ListaEditores *listaE
   return auxiliar->listaContribuicoes;
 };
 
-int VerificaNomeEditorExisteListaEditores(ListaEditores *listaEditores, char *nomeEditor)
+int VerificaEditorExisteListaEditores(ListaEditores *listaEditores, char *nomeEditor)
 {
   CelulaEditor *auxiliar = listaEditores->primeira;
 
