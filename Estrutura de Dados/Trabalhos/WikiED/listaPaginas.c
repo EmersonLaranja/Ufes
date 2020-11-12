@@ -1,6 +1,7 @@
 
 #include "listaPaginas.h"
-
+#define TAM 50
+#define OUTPUT "outputs/"
 struct celulaPagina
 {
   Pagina *pagina;
@@ -55,18 +56,42 @@ void InserePaginaListaPaginas(ListaPaginas *listaPaginas, Pagina *pagina)
   nova->proxima = NULL;
 };
 
-void ImprimeListaPaginas(ListaPaginas *listaPaginas, FILE *arq)
+void ImprimeListaPaginas(ListaPaginas *listaPaginas)
 {
   for (CelulaPagina *auxiliar = listaPaginas->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    ImprimePagina(auxiliar->pagina, arq);
-    ImprimeListaLinks(auxiliar->listaLinks, arq);
-    ImprimeListaContribuicoes(auxiliar->listaContribuicoes, arq);
+    if (auxiliar->pagina != NULL)
+    {
+      ImprimePaginaListaPaginas(listaPaginas, RetornaNomePagina(auxiliar->pagina));
+    }
   }
 };
-// void ImprimePaginaListaPaginas(ListaPaginas *listaPaginas, Pagina *pagina, ListaContribuicoes *listaContribuicoes, ListaLinks *listaLinks, FILE *arq){
 
-// };
+void ImprimePaginaListaPaginas(ListaPaginas *listaPaginas, char *nomePagina)
+{
+  Pagina *paginaAuxiliar = RetornaPaginaListaPaginas(listaPaginas, nomePagina);
+  ListaContribuicoes *listaContribuicoesAuxiliar = RetornaListaContribuicoesListaPaginas(listaPaginas, nomePagina);
+  ListaLinks *listaLinksAuxiliar = RetornaListaLinksListaPaginas(listaPaginas, nomePagina);
+
+  if (paginaAuxiliar == NULL)
+  {
+    printf("Nao foi possivel imprimir a pagina\n");
+    // fprintf(arquivoLog,"Nao foi possivel imprimir a pagina\n");
+    return;
+  }
+
+  char nomeArquivoSaida[TAM] = OUTPUT;
+  strcat(nomeArquivoSaida, RetornaNomeArquivoPagina(paginaAuxiliar));
+
+  FILE *arquivoSaida = fopen(nomeArquivoSaida, "w");
+
+  ImprimePagina(paginaAuxiliar, arquivoSaida);
+  ImprimeHistoricoContribuicoes(listaContribuicoesAuxiliar, arquivoSaida);
+  ImprimeListaLinks(listaLinksAuxiliar, arquivoSaida);
+  ImprimeListaContribuicoes(listaContribuicoesAuxiliar, arquivoSaida);
+
+  fclose(arquivoSaida);
+};
 
 CelulaPagina *RetornaCelulaPaginaListaPaginas(ListaPaginas *listaPaginas, char *nomePagina)
 {

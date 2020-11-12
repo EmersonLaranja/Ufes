@@ -10,13 +10,12 @@ void INSERELINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePa
 void RETIRALINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePaginaDestino, FILE *arquivoLog);
 void INSERECONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores, char *nomePagina, char *nomeEditor, char *nomeArquivoContribuicao, FILE *arquivoLog);
 void RETIRACONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores, char *nomePagina, char *nomeEditor, char *nomeArquivoContribuicao, FILE *arquivoLog);
+void IMPRIMEPAGINA(ListaPaginas *listaPaginas, char *nomePagina);
+void IMPRIMEWIKED(ListaPaginas *listaPaginas);
 void FIM(ListaPaginas *listaPaginas, ListaEditores *listaEditores);
 
 int main(int argc, char *argv[])
 {
-  ListaPaginas *listaPaginas = InicializaListaPaginas();
-  ListaEditores *listaEditores = InicializaListaEditores();
-
   char comando[50], argumento1[20], argumento2[20], argumento3[20];
 
   FILE *arquivo = fopen(argv[1], "r");
@@ -24,21 +23,20 @@ int main(int argc, char *argv[])
   if (arquivo == NULL)
   {
     printf("Problema na leitura do arquivo, tente novamente\n");
+    fclose(arquivo);
+    fclose(arquivoLog);
     return 0;
   }
+
+  ListaPaginas *listaPaginas = InicializaListaPaginas();
+  ListaEditores *listaEditores = InicializaListaEditores();
+
   while (fscanf(arquivo, "%s", comando) != EOF)
-  // while (!feof(arquivo))
   {
-    // fscanf(arquivo, "%[^\n]\n", comando);
-    // fscanf(arquivo, "%s", comando);
-    // fscanf(arquivo, "%*c\n");
-    // fprintf(arquivoLog, "%s\n", comando);
-    // printf("%s\n", comando);
     if (strcmp(comando, "INSEREPAGINA") == 0)
     {
       fscanf(arquivo, "%s", argumento1);
       fscanf(arquivo, "%s", argumento2);
-      // fprintf(arquivoLog, "%s %s %s\n", comando, argumento1, argumento2);
       printf("%s %s %s\n", comando, argumento1, argumento2);
       INSEREPAGINA(listaPaginas, argumento1, argumento2);
       continue;
@@ -47,7 +45,6 @@ int main(int argc, char *argv[])
     if (strcmp(comando, "RETIRAPAGINA") == 0)
     {
       fscanf(arquivo, "%s", argumento1);
-      // fprintf(arquivoLog, "%s %s\n", comando, argumento1);
       printf("%s %s\n", comando, argumento1);
       RETIRAPAGINA(listaPaginas, argumento1, arquivoLog);
       continue;
@@ -56,7 +53,6 @@ int main(int argc, char *argv[])
     if (strcmp(comando, "INSEREEDITOR") == 0)
     {
       fscanf(arquivo, "%s", argumento1);
-      // fprintf(arquivoLog, "%s %s\n", comando, argumento1);
       printf("%s %s\n", comando, argumento1);
       INSEREEDITOR(listaEditores, argumento1);
 
@@ -68,7 +64,6 @@ int main(int argc, char *argv[])
       fscanf(arquivo, "%s", argumento1);
       fscanf(arquivo, "%s", argumento2);
       fscanf(arquivo, "%s", argumento3);
-      // fprintf(arquivoLog, "%s %s %s %s\n", comando, argumento1, argumento2, argumento3);
       printf("%s %s %s %s\n", comando, argumento1, argumento2, argumento3);
       INSERECONTRIBUICAO(listaPaginas, listaEditores, argumento1, argumento2, argumento3, arquivoLog);
 
@@ -81,7 +76,6 @@ int main(int argc, char *argv[])
       fscanf(arquivo, "%s", argumento1);
       fscanf(arquivo, "%s", argumento2);
       fscanf(arquivo, "%s", argumento3);
-      // fprintf(arquivoLog, "%s %s %s %s\n", comando, argumento1, argumento2, argumento3);
       printf("%s %s %s %s\n", comando, argumento1, argumento2, argumento3);
       RETIRACONTRIBUICAO(listaPaginas, listaEditores, argumento1, argumento2, argumento3, arquivoLog);
       continue;
@@ -91,7 +85,6 @@ int main(int argc, char *argv[])
     {
       fscanf(arquivo, "%s", argumento1);
       fscanf(arquivo, "%s", argumento2);
-      // fprintf(arquivoLog, "%s %s %s\n", comando, argumento1, argumento2);
       printf("%s %s %s\n", comando, argumento1, argumento2);
       INSERELINK(listaPaginas, argumento1, argumento2, arquivoLog);
       continue;
@@ -101,7 +94,6 @@ int main(int argc, char *argv[])
     {
       fscanf(arquivo, "%s", argumento1);
       fscanf(arquivo, "%s", argumento2);
-      // fprintf(arquivoLog, "%s %s %s\n", comando, argumento1, argumento2);
       printf("%s %s %s\n", comando, argumento1, argumento2);
       RETIRALINK(listaPaginas, argumento1, argumento2, arquivoLog);
       continue;
@@ -111,7 +103,6 @@ int main(int argc, char *argv[])
     {
       fscanf(arquivo, "%s", argumento1);
       fscanf(arquivo, "%s", argumento2);
-      // fprintf(arquivoLog, "%s %s %s\n", comando, argumento1, argumento2);
       printf("%s %s %s\n", comando, argumento1, argumento2);
       continue;
     }
@@ -119,24 +110,20 @@ int main(int argc, char *argv[])
     if (strcmp(comando, "IMPRIMEPAGINA") == 0)
     {
       fscanf(arquivo, "%s", argumento1);
-      // fprintf(arquivoLog, "%s %s\n", comando, argumento1);
       printf("%s %s\n", comando, argumento1);
+      IMPRIMEPAGINA(listaPaginas, argumento1);
       continue;
     }
 
     if (strcmp(comando, "IMPRIMEWIKED") == 0)
     {
-      fprintf(arquivoLog, "%s %s %s\n", comando, argumento1, argumento2);
-      // printf("%s %s %s\n", comando, argumento1, argumento2);
-      printf("IMPRIMEWIKED\n");
       // fprintf(arquivoLog, "IMPRIMEWIKED\n");
+      IMPRIMEWIKED(listaPaginas);
       continue;
     }
 
     if (strcmp(comando, "FIM") == 0)
     {
-      printf("FIM");
-      // fprintf(arquivoLog, "FIM");
       FIM(listaPaginas, listaEditores);
       break;
     }
@@ -206,6 +193,7 @@ void INSERECONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores
   }
   Editor *editorAuxiliar = RetornaEditorListaEditores(listaEditores, nomeEditor);
 
+  // DestroiContribuicao(contribuicao);
   InsereContribuicaoListaContribuicoes(listaContribuicoesAuxiliar, contribuicao, editorAuxiliar);
   InsereContribuicaoListaEditores(listaEditores, contribuicao, nomeEditor);
 };
@@ -272,8 +260,16 @@ void CAMINHO()
 {
   printf("Essa funcao esta disponivel apenas na versao premium\n");
 };
-void IMPRIMEPAGINA();
-void IMPRIMEWIKED();
+
+void IMPRIMEPAGINA(ListaPaginas *listaPaginas, char *nomePagina)
+{
+  ImprimePaginaListaPaginas(listaPaginas, nomePagina);
+};
+
+void IMPRIMEWIKED(ListaPaginas *listaPaginas)
+{
+  ImprimeListaPaginas(listaPaginas);
+};
 
 void FIM(ListaPaginas *listaPaginas, ListaEditores *listaEditores)
 {

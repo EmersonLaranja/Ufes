@@ -17,10 +17,11 @@ Pagina *InicializaPagina(char *nomePagina, char *nomeArquivo)
 
 void ImprimePagina(Pagina *pagina, FILE *arquivo)
 {
+
   if (pagina)
   {
-    printf("%s\n\n", pagina->nomePagina); //! Soh pra eu visualizar, Retirar depois
-    fprintf(arquivo, "%s\n\n", pagina->nomePagina);
+    printf("%s\n", pagina->nomePagina); //! Soh pra eu visualizar, Retirar depois
+    fprintf(arquivo, "%s\n", pagina->nomePagina);
   }
 }
 

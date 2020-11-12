@@ -13,6 +13,7 @@ typedef struct celulaContribuicao CelulaContribuicao;
 ListaContribuicoes *InicializaListaContribuicoes(void);
 void InsereContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, Contribuicao *contribuicao, Editor *editor);
 void ImprimeListaContribuicoes(ListaContribuicoes *listaContribuicoes, FILE *arq);
+void ImprimeHistoricoContribuicoes(ListaContribuicoes *listaContribuicoes, FILE *arq);
 CelulaContribuicao *RetornaCelulaContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, Contribuicao *contribuicao);
 Contribuicao *RetornaContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *chave);
 Editor *RetornaEditorListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *chave);

@@ -1,6 +1,7 @@
 
 #include "listaContribuicoes.h"
-
+#define TAM 50
+#define INPUT "inputs/"
 struct celulaContribuicao
 {
   Editor *editor;
@@ -38,14 +39,80 @@ void InsereContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes
   nova->proxima = NULL;
 };
 
+static void GravaArquivo(char *nomeArquivoLido, FILE *arquivoGravacao)
+{
+  char c;
+
+  char caminhoArquivo[TAM] = INPUT;
+  strcat(caminhoArquivo, nomeArquivoLido);
+
+  FILE *arquivo = fopen(caminhoArquivo, "r");
+
+  // FILE *arquivo = fopen(nomeArquivoLido, "r");
+
+  if (arquivo == NULL)
+
+  {
+
+    printf("Problemas na leitura do arquivo %s\n", nomeArquivoLido);
+
+    return;
+  }
+
+  while (1)
+
+  {
+
+    c = fgetc(arquivo);
+
+    if (c == EOF)
+
+    {
+
+      break;
+    }
+
+    fprintf(arquivoGravacao, "%c", c);
+  };
+
+  fclose(arquivo);
+};
+
 void ImprimeListaContribuicoes(ListaContribuicoes *listaContribuicoes, FILE *arquivo)
 {
+  fprintf(arquivo, "\n--> Textos");
+  printf("\n--> Textos");
+
   for (CelulaContribuicao *auxiliar = listaContribuicoes->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    printf("%s %s\n\n", RetornaNomeEditor(auxiliar->editor), RetornaNomeArquivoContribuicao(auxiliar->contribuicao)); //! soh pra eu ver, apagar dps
-    // fprintf(arquivo, "%s %s\n\n", RetornaNomeEditor(auxiliar->editor), RetornaNomeArquivo(auxiliar->contribuicao));
+    if (RetornaFlagContribuicao(auxiliar->contribuicao))
+    {
+      continue;
+    }
+    fprintf(arquivo, "\n\n-------- %s (%s) --------\n\n", RetornaNomeArquivoContribuicao(auxiliar->contribuicao), RetornaNomeEditor(auxiliar->editor));
+    printf("\n\n-------- %s (%s) --------\n\n", RetornaNomeArquivoContribuicao(auxiliar->contribuicao), RetornaNomeEditor(auxiliar->editor)); //! soh pra eu ver, apagar dps
+    char *nomeAuxiliar = RetornaNomeArquivoContribuicao(auxiliar->contribuicao);
+    GravaArquivo(nomeAuxiliar, arquivo);
   }
 };
+void ImprimeHistoricoContribuicoes(ListaContribuicoes *listaContribuicoes, FILE *arquivo)
+{
+  printf("\n-> Historico de contribuicoes\n");
+  fprintf(arquivo, "\n-> Historico de contribuicoes\n");
+  for (CelulaContribuicao *auxiliar = listaContribuicoes->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
+  {
+    fprintf(arquivo, "%s %s", RetornaNomeEditor(auxiliar->editor), RetornaNomeArquivoContribuicao(auxiliar->contribuicao));
+    printf("%s %s", RetornaNomeEditor(auxiliar->editor), RetornaNomeArquivoContribuicao(auxiliar->contribuicao));
+    if (RetornaFlagContribuicao(auxiliar->contribuicao))
+    {
+      fprintf(arquivo, " <<retirada>>");
+      printf(" <<retirada>>");
+    }
+    fprintf(arquivo, "\n");
+    printf("\n");
+  }
+};
+
 CelulaContribuicao *RetornaCelulaContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, Contribuicao *contribuicao)
 {
   for (CelulaContribuicao *auxiliar = listaContribuicoes->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
@@ -136,7 +203,6 @@ void DestroiNosListaContribuicoes(ListaContribuicoes *listaContribuicoes)
     {
       AlteraEstadoContribuicao(p->contribuicao);
       free(p);
-      //TODO: ver se aqui nao deveria mudar o estado
     }
     p = t;
   }

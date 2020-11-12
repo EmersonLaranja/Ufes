@@ -76,10 +76,6 @@ void ImprimeContribuicao(Contribuicao *contribuicao, char *nomeArquivo)
 
 int RetornaFlagContribuicao(Contribuicao *contribuicao)
 {
-  if (contribuicao == NULL)
-  {
-    return 0;
-  }
   return contribuicao->foiRetirada;
 };
 

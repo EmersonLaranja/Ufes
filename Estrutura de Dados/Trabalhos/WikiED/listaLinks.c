@@ -50,10 +50,13 @@ Pagina *RetornaPaginaListaLinks(ListaLinks *listaLinks, char *chave)
 
 void ImprimeListaLinks(ListaLinks *listaLinks, FILE *arquivo)
 {
+  printf("\n--> Links\n");
+  fprintf(arquivo, "\n--> Links\n");
+
   for (CelulaLink *auxiliar = listaLinks->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    printf("%s %s\n\n", RetornaNomePagina(auxiliar->pagina), RetornaNomeArquivoPagina(auxiliar->pagina)); //! soh pra eu ver, apagar dps
-    fprintf(arquivo, "%s %s\n\n", RetornaNomePagina(auxiliar->pagina), RetornaNomeArquivoPagina(auxiliar->pagina));
+    printf("%s %s\n", RetornaNomePagina(auxiliar->pagina), RetornaNomeArquivoPagina(auxiliar->pagina)); //! soh pra eu ver, apagar dps
+    fprintf(arquivo, "%s %s\n", RetornaNomePagina(auxiliar->pagina), RetornaNomeArquivoPagina(auxiliar->pagina));
   }
 };
 
