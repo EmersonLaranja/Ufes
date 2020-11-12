@@ -27,7 +27,6 @@ void ImprimeContribuicao(Contribuicao *contribuicao, char *nomeArquivo)
   }
   if (contribuicao->foiRetirada == NAO)
   {
-    char linha[10000];
     char c;
 
     FILE *arquivoOrigem = fopen(RetornaNomeArquivoContribuicao(contribuicao), "r");

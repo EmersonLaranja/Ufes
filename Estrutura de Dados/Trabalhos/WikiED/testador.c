@@ -2,6 +2,9 @@
 #include "listaEditores.h"
 #include "listaLinks.h"
 #include "listaPaginas.h"
+#define CAMINHO_ARQUIVO_LOG "outputs/log.txt"
+#define TAM_COMANDO 50
+#define TAM_ARGUMENTO 20
 
 void INSEREPAGINA(ListaPaginas *listaPaginas, char *nomePagina, char *nomeArquivo);
 void RETIRAPAGINA(ListaPaginas *listaPaginas, char *nomePagina, FILE *arquivoLog);
@@ -16,10 +19,10 @@ void FIM(ListaPaginas *listaPaginas, ListaEditores *listaEditores);
 
 int main(int argc, char *argv[])
 {
-  char comando[50], argumento1[20], argumento2[20], argumento3[20];
+  char comando[TAM_COMANDO], argumento1[TAM_ARGUMENTO], argumento2[TAM_ARGUMENTO], argumento3[TAM_ARGUMENTO];
 
   FILE *arquivo = fopen(argv[1], "r");
-  FILE *arquivoLog = fopen("outputs/log.txt", "w");
+  FILE *arquivoLog = fopen(CAMINHO_ARQUIVO_LOG, "w");
   if (arquivo == NULL)
   {
     printf("Problema na leitura do arquivo, tente novamente\n");
