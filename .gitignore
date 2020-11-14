@@ -5,6 +5,7 @@
 !/**/
 # exclua os arquivos com extensão
 !*.c*
+!*.txt*
 !*.h*
 !*Makefile*
 !*.sh*
