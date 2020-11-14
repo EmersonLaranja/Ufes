@@ -1,0 +1,14 @@
+﻿Mec‰nica cl‡ssica
+
+
+Anima�‹o mostrando um objeto em rota�‹o intermitente. As flechas representam os vetores for�a, momento linear, posi�‹o, momento angular e torque. A mec‰nica cl‡ssica preocupa-se com a descri�‹o do movimento e suas causas
+A mec‰nica cl‡ssica descreve o movimento de objetos macrosc—picos, desde projŽteis a partes de m‡quinas, alŽm de corpos celestes, como espa�onaves, planetas, estrelas e gal‡xias. A mec‰nica cl‡ssica em si tambŽm Ž muito ampla e v‡rias especializa�›es s‹o derivadas dela. Referente aos conceitos abordados, pode ser dividida em Cinem‡tica, que estuda os movimentos sem se preocupar com suas causas, a Est‡tica, que aborda sistemas sob a�‹o de for�as que se equilibram, e a Din‰mica, que estuda o movimento considerando suas causas, em outras palavras, aborda sistemas sob a�‹o de for�as que n‹o se equilibram.[100]
+
+
+Surgiu durante a revolu�‹o cient’fica, juntamente com a consolida�‹o da f’sica como ci�ncia moderna. Galileu Galilei pode ser considerado o marco inicial da mec‰nica cl‡ssica,[94] mas sua consolida�‹o definitiva veio com a publica�‹o dos Philosophiae Naturalis Principia Mathematica, de Isaac Newton, considerada a obra cient’fica mais influente de todos os tempos.[47] Entretanto, em certos sistemas, a mec‰nica de Newton passa a ser pouco eficiente para ser usado na resolu�‹o de problemas. No final do sŽculo XVIII e durante o sŽculo XIX a mec‰nica foi reformulada por Joseph-Louis Lagrange e William Rowan Hamilton, para que abarcasse a resolu�‹o anal’tica de um maior nœmero de problemas com um ferramental matem‡tico mais refinado.[101][102]
+
+
+A mec‰nica n‹o se limita ˆ an‡lise de part’culas discretas, mas estuda tambŽm meios cont’nuos. O momento de inŽrcia de um disco r’gido com centro de rota�‹o coincidente com o seu pr—prio centro Ž diferente de uma part’cula isolada que orbita um centro de rota�‹o qualquer.[103] A mec‰nica de meios cont’nuos Ž a mec‰nica que aborda o estudo dos materiais de massa cont’nua, em oposi�‹o de materiais de part’culas discretas ou isoladas. A mec‰nica dos fluidos e a Din‰mica de corpo r’gido s‹o exemplos de divis›es da mec‰nica de meios cont’nuos.[104]
+
+
+ƒ considerada a divis‹o base da f’sica, pois as outras divis›es s‹o derivadas dela. Seu escopo continua sendo o estudo dos entes fundamentais da f’sica: espa�o, tempo, matŽria e energia. De suas rela�›es e consequ�ncias, surgem outros conceitos, como as leis de Newton, posi�‹o, dimens‹o, invari‰ncia de Galileu, velocidade, acelera�‹o, for�a, torque, momento linear, momento angular, energia mec‰nica, trabalho, pot�ncia, massa, inŽrcia, momento de inŽrcia, referencial, entre outros.[105]
