@@ -180,8 +180,8 @@ void INSERECONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores
 
   if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePagina))
   {
-    fprintf(arquivoLog, "Pagina nao existe ou lista nao inicializada.ERROR\n");
-    printf("Pagina nao existe ou lista nao inicializada.ERROR\n");
+    fprintf(arquivoLog, "Pagina %s nao existe ou lista nao inicializada.ERROR\n", nomePagina);
+    printf("Pagina %s nao existe ou lista nao inicializada.ERROR\n", nomePagina);
     DestroiContribuicao(contribuicao);
     return;
   };
@@ -189,8 +189,8 @@ void INSERECONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores
 
   if (!VerificaEditorExisteListaEditores(listaEditores, nomeEditor))
   {
-    fprintf(arquivoLog, "Editor nao existe ou lista nao inicializada.ERROR\n");
-    printf("Editor nao existe ou lista nao inicializada.ERROR\n");
+    fprintf(arquivoLog, "Editor(a) %s nao existe ou lista nao inicializada.ERROR\n", nomeEditor);
+    printf("Editor(a) %s nao existe ou lista nao inicializada.ERROR\n", nomeEditor);
     DestroiContribuicao(contribuicao);
     return;
   }
@@ -206,15 +206,15 @@ void RETIRACONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores
 
   if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePagina))
   {
-    fprintf(arquivoLog, "Pagina nao existe ou lista nao inicializada.ERROR\n");
-    printf("Pagina nao existe ou lista nao inicializada.ERROR\n");
+    fprintf(arquivoLog, "Pagina %s nao existe ou lista nao inicializada.ERROR\n", nomePagina);
+    printf("Pagina %s nao existe ou lista nao inicializada.ERROR\n", nomePagina);
     return;
   };
 
   if (!VerificaEditorExisteListaEditores(listaEditores, nomeEditor))
   {
-    fprintf(arquivoLog, "Editor nao existe ou lista nao inicializada.ERROR\n");
-    printf("Editor nao existe ou lista nao inicializada.ERROR\n");
+    fprintf(arquivoLog, "Editor %s nao existe ou lista nao inicializada.ERROR\n", nomeEditor);
+    printf("Editor %s nao existe ou lista nao inicializada.ERROR\n", nomeEditor);
     return;
   }
 

@@ -111,10 +111,11 @@ void DestroiListaEditores(ListaEditores *listaEditores)
     t = p->proxima;
     if (p)
     {
-      if (p->editor)
-        DestroiEditor(p->editor);
+
       if (p->listaContribuicoes)
         DestroiNosListaContribuicoes(p->listaContribuicoes);
+      if (p->editor)
+        DestroiEditor(p->editor);
       free(p);
     }
     p = t;

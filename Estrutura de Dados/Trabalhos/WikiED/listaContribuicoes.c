@@ -201,7 +201,8 @@ void DestroiNosListaContribuicoes(ListaContribuicoes *listaContribuicoes)
     t = p->proxima;
     if (p)
     {
-      AlteraEstadoContribuicao(p->contribuicao);
+      //! O programa TODO bugando por conta dessa linha
+      // AlteraEstadoContribuicao(p->contribuicao);
       free(p);
     }
     p = t;

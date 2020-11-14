@@ -175,8 +175,7 @@ void RetiraCelulaPaginaListaPaginas(ListaPaginas *listaPaginas, char *chave)
   }
   DestroiListaLinks(auxiliar->listaLinks); //destruindo as celulas
   AlteraEstadoContribuicoesListaContribuicoes(auxiliar->listaContribuicoes);
-  DestroiNosListaContribuicoes(auxiliar->listaContribuicoes); //destruindo as celulas
-
+  DestroiListaContribuicoes(auxiliar->listaContribuicoes);
   free(auxiliar);
 }
 

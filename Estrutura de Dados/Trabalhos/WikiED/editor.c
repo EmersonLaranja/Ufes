@@ -22,7 +22,8 @@ void ImprimeEditor(Editor *editor)
 
 char *RetornaNomeEditor(Editor *editor)
 {
-  return editor->nome;
+  if (editor->nome)
+    return editor->nome;
 };
 
 void DestroiEditor(Editor *editor)

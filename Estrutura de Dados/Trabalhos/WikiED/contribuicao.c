@@ -89,14 +89,7 @@ char *RetornaNomeArquivoContribuicao(Contribuicao *contribuicao)
 
 void AlteraEstadoContribuicao(Contribuicao *contribuicao)
 {
-  if (contribuicao->foiRetirada == SIM)
-  {
-    contribuicao->foiRetirada = NAO;
-  }
-  else if (contribuicao->foiRetirada == NAO)
-  {
-    contribuicao->foiRetirada = SIM;
-  }
+  contribuicao->foiRetirada = SIM;
 };
 
 int ContribuicaoFoiRetirada(Contribuicao *contribuicao)
@@ -113,7 +106,6 @@ void DestroiContribuicao(Contribuicao *contribuicao)
 {
   if (contribuicao)
   {
-    // free(contribuicao->texto);
     free(contribuicao->nomeArquivo);
     free(contribuicao);
   }
