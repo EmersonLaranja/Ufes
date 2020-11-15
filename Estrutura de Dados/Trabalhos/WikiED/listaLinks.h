@@ -11,9 +11,9 @@ typedef struct celulaLink CelulaLink;
 
 ListaLinks *InicializaListaLinks(void);
 void InserePaginaListaLinks(ListaLinks *listaLinks, Pagina *pagina);
-Pagina *RetornaPaginaListaLinks(ListaLinks *listaLinks, char *chave);
+Pagina *RetornaPaginaListaLinks(ListaLinks *listaLinks, char *nomePagina);
 void ImprimeListaLinks(ListaLinks *listaLinks, FILE *arquivo);
-void RetiraPaginaListaLinks(ListaLinks *listaLinks, char *chave);
+void RetiraPaginaListaLinks(ListaLinks *listaLinks, char *nomePagina);
 void DestroiListaLinks(ListaLinks *lista);
 
 #endif /* LISTALINKS_H */

@@ -36,11 +36,11 @@ void InserePaginaListaLinks(ListaLinks *listaLinks, Pagina *pagina)
   nova->proxima = NULL;
 };
 
-Pagina *RetornaPaginaListaLinks(ListaLinks *listaLinks, char *chave)
+Pagina *RetornaPaginaListaLinks(ListaLinks *listaLinks, char *nomePagina)
 {
   for (CelulaLink *auxiliar = listaLinks->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    if (strcmp(RetornaNomePagina(auxiliar->pagina), chave) == 0)
+    if (strcmp(RetornaNomePagina(auxiliar->pagina), nomePagina) == 0)
     {
       return auxiliar->pagina;
     }
@@ -60,11 +60,11 @@ void ImprimeListaLinks(ListaLinks *listaLinks, FILE *arquivo)
   }
 };
 
-void RetiraPaginaListaLinks(ListaLinks *listaLinks, char *chave)
+void RetiraPaginaListaLinks(ListaLinks *listaLinks, char *nomePagina)
 {
   CelulaLink *auxiliar = listaLinks->primeira, *anterior = NULL;
 
-  while (auxiliar != NULL && strcmp(RetornaNomePagina(auxiliar->pagina), (chave)) != 0)
+  while (auxiliar != NULL && strcmp(RetornaNomePagina(auxiliar->pagina), (nomePagina)) != 0)
   {
     anterior = auxiliar;
     auxiliar = auxiliar->proxima;

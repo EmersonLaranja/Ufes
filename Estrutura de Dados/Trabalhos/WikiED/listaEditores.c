@@ -37,9 +37,9 @@ void InsereEditorListaEditores(ListaEditores *listaEditores, Editor *editor)
   nova->proxima = NULL;
 };
 
-void InsereContribuicaoListaEditores(ListaEditores *listaEditores, Contribuicao *contribuicao, char *chave)
+void InsereContribuicaoListaEditores(ListaEditores *listaEditores, Contribuicao *contribuicao, char *nomeEditor)
 {
-  CelulaEditor *auxiliar = RetornaCelulaEditorListaEditores(listaEditores, chave);
+  CelulaEditor *auxiliar = RetornaCelulaEditorListaEditores(listaEditores, nomeEditor);
   if (auxiliar == NULL)
   {
     // printf("Editor nao exite!\n");
@@ -48,11 +48,11 @@ void InsereContribuicaoListaEditores(ListaEditores *listaEditores, Contribuicao 
   InsereContribuicaoListaContribuicoes(auxiliar->listaContribuicoes, contribuicao, auxiliar->editor);
 };
 
-CelulaEditor *RetornaCelulaEditorListaEditores(ListaEditores *listaEditores, char *chave)
+CelulaEditor *RetornaCelulaEditorListaEditores(ListaEditores *listaEditores, char *nomeEditor)
 {
   for (CelulaEditor *auxiliar = listaEditores->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    if (strcmp(RetornaNomeEditor(auxiliar->editor), chave) == 0)
+    if (strcmp(RetornaNomeEditor(auxiliar->editor), nomeEditor) == 0)
     {
       return auxiliar;
     }
@@ -60,11 +60,11 @@ CelulaEditor *RetornaCelulaEditorListaEditores(ListaEditores *listaEditores, cha
   return NULL;
 };
 
-Editor *RetornaEditorListaEditores(ListaEditores *listaEditores, char *chave)
+Editor *RetornaEditorListaEditores(ListaEditores *listaEditores, char *nomeEditor)
 {
   for (CelulaEditor *auxiliar = listaEditores->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    if (strcmp(RetornaNomeEditor(auxiliar->editor), chave) == 0)
+    if (strcmp(RetornaNomeEditor(auxiliar->editor), nomeEditor) == 0)
     {
       return auxiliar->editor;
     }
@@ -72,9 +72,9 @@ Editor *RetornaEditorListaEditores(ListaEditores *listaEditores, char *chave)
   return NULL;
 };
 
-ListaContribuicoes *RetornaListaContribuicoesListaEditores(ListaEditores *listaEditores, char *chave)
+ListaContribuicoes *RetornaListaContribuicoesListaEditores(ListaEditores *listaEditores, char *nomeEditor)
 {
-  CelulaEditor *auxiliar = RetornaCelulaEditorListaEditores(listaEditores, chave);
+  CelulaEditor *auxiliar = RetornaCelulaEditorListaEditores(listaEditores, nomeEditor);
   return auxiliar->listaContribuicoes;
 };
 

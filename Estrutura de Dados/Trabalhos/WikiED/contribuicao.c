@@ -19,7 +19,6 @@ Contribuicao *InicializaContribuicao(char *nomeArquivo)
 
 void ImprimeContribuicao(Contribuicao *contribuicao, char *nomeArquivo)
 {
-  //TODO Abrir o arquivo e imprimir com o nome dentro da contribuição
   if (contribuicao == NULL)
   {
     printf("Contribuicao invalida\n");

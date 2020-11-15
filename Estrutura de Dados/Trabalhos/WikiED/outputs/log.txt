@@ -1,2 +1,4 @@
 nao existe a pagina Psicologia
-Nao disponivel nesta versao
+Comando <RETIRAEDITOR> disponivel apenas na versao premium
+Essa funcao esta disponivel apenas na versao premium
+Essa funcao esta disponivel apenas na versao premium

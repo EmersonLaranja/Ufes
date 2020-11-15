@@ -1,4 +1,4 @@
-compile: testador.c contribuicao.c editor.c listaContribuicoes.c listaEditores.c listaLinks.c listaPaginas.c
+compile: main.c contribuicao.c editor.c listaContribuicoes.c listaEditores.c listaLinks.c listaPaginas.c
 	gcc -ggdb -Wno-unused-const-variable -o wiked.out *.c
 
 clean:

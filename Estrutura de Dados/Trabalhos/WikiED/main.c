@@ -15,6 +15,7 @@ void INSERECONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores
 void RETIRACONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores, char *nomePagina, char *nomeEditor, char *nomeArquivoContribuicao, FILE *arquivoLog);
 void IMPRIMEPAGINA(ListaPaginas *listaPaginas, char *nomePagina);
 void IMPRIMEWIKED(ListaPaginas *listaPaginas);
+void CAMINHO(FILE *arquivoLog);
 void FIM(ListaPaginas *listaPaginas, ListaEditores *listaEditores);
 
 int main(int argc, char *argv[])
@@ -107,6 +108,7 @@ int main(int argc, char *argv[])
       fscanf(arquivo, "%s", argumento1);
       fscanf(arquivo, "%s", argumento2);
       printf("%s %s %s\n", comando, argumento1, argumento2);
+      CAMINHO(arquivoLog);
       continue;
     }
 
@@ -132,9 +134,9 @@ int main(int argc, char *argv[])
     }
     else
     {
+      printf("Comando <%s> disponivel apenas na versao premium\n", comando);
+      fprintf(arquivoLog, "Comando <%s> disponivel apenas na versao premium\n", comando);
       fscanf(arquivo, "%[^\n]\n", comando);
-      printf("Nao disponivel nesta versao\n");
-      fprintf(arquivoLog, "Nao disponivel nesta versao\n");
     }
   }
   fclose(arquivo);
@@ -259,9 +261,10 @@ void RETIRALINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePa
   RetiraPaginaListaLinks(listaLinkAuxiliar, nomePaginaDestino);
 };
 
-void CAMINHO()
+void CAMINHO(FILE *arquivoLog)
 {
   printf("Essa funcao esta disponivel apenas na versao premium\n");
+  fprintf(arquivoLog, "Essa funcao esta disponivel apenas na versao premium\n");
 };
 
 void IMPRIMEPAGINA(ListaPaginas *listaPaginas, char *nomePagina)

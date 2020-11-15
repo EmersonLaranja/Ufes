@@ -105,11 +105,11 @@ CelulaPagina *RetornaCelulaPaginaListaPaginas(ListaPaginas *listaPaginas, char *
   return NULL;
 };
 
-Pagina *RetornaPaginaListaPaginas(ListaPaginas *listaPaginas, char *chave)
+Pagina *RetornaPaginaListaPaginas(ListaPaginas *listaPaginas, char *nomePagina)
 {
   for (CelulaPagina *auxiliar = listaPaginas->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    if (strcmp(RetornaNomePagina(auxiliar->pagina), chave) == 0)
+    if (strcmp(RetornaNomePagina(auxiliar->pagina), nomePagina) == 0)
     {
       return auxiliar->pagina;
     }
@@ -117,11 +117,11 @@ Pagina *RetornaPaginaListaPaginas(ListaPaginas *listaPaginas, char *chave)
   return NULL;
 };
 
-ListaContribuicoes *RetornaListaContribuicoesListaPaginas(ListaPaginas *listaPaginas, char *chave)
+ListaContribuicoes *RetornaListaContribuicoesListaPaginas(ListaPaginas *listaPaginas, char *nomePagina)
 {
   for (CelulaPagina *auxiliar = listaPaginas->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    if (strcmp(RetornaNomePagina(auxiliar->pagina), chave) == 0)
+    if (strcmp(RetornaNomePagina(auxiliar->pagina), nomePagina) == 0)
     {
       return auxiliar->listaContribuicoes;
     }
@@ -129,11 +129,11 @@ ListaContribuicoes *RetornaListaContribuicoesListaPaginas(ListaPaginas *listaPag
   return NULL;
 };
 
-ListaLinks *RetornaListaLinksListaPaginas(ListaPaginas *listaPaginas, char *chave)
+ListaLinks *RetornaListaLinksListaPaginas(ListaPaginas *listaPaginas, char *nomePagina)
 {
   for (CelulaPagina *auxiliar = listaPaginas->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    if (strcmp(RetornaNomePagina(auxiliar->pagina), chave) == 0)
+    if (strcmp(RetornaNomePagina(auxiliar->pagina), nomePagina) == 0)
     {
       return auxiliar->listaLinks;
     }
@@ -141,11 +141,11 @@ ListaLinks *RetornaListaLinksListaPaginas(ListaPaginas *listaPaginas, char *chav
   return NULL;
 };
 
-void RetiraCelulaPaginaListaPaginas(ListaPaginas *listaPaginas, char *chave)
+void RetiraCelulaPaginaListaPaginas(ListaPaginas *listaPaginas, char *nomePagina)
 {
   CelulaPagina *auxiliar = listaPaginas->primeira, *anterior = NULL;
 
-  while (auxiliar != NULL && strcmp(RetornaNomePagina(auxiliar->pagina), chave) != 0)
+  while (auxiliar != NULL && strcmp(RetornaNomePagina(auxiliar->pagina), nomePagina) != 0)
   {
     anterior = auxiliar;
     auxiliar = auxiliar->proxima;
@@ -179,16 +179,16 @@ void RetiraCelulaPaginaListaPaginas(ListaPaginas *listaPaginas, char *chave)
   free(auxiliar);
 }
 
-// void RetiraPaginaListaPaginas(ListaPaginas *listaPaginas, char *chave){};
+// void RetiraPaginaListaPaginas(ListaPaginas *listaPaginas, char *nomePagina){};
 
-// void RetiraListaContribuicoesListaPaginas(ListaPaginas *listaPaginas, char *chave){};
+// void RetiraListaContribuicoesListaPaginas(ListaPaginas *listaPaginas, char *nomePagina){};
 
-void RetiraLinksListaPaginas(ListaPaginas *listaPaginas, char *chave)
+void RetiraLinksListaPaginas(ListaPaginas *listaPaginas, char *nomePagina)
 {
 
   for (CelulaPagina *auxiliar = listaPaginas->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    RetiraPaginaListaLinks(auxiliar->listaLinks, chave);
+    RetiraPaginaListaLinks(auxiliar->listaLinks, nomePagina);
   }
 };
 

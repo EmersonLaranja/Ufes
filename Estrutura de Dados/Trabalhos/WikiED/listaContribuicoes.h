@@ -15,10 +15,10 @@ void InsereContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes
 void ImprimeListaContribuicoes(ListaContribuicoes *listaContribuicoes, FILE *arq);
 void ImprimeHistoricoContribuicoes(ListaContribuicoes *listaContribuicoes, FILE *arq);
 CelulaContribuicao *RetornaCelulaContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, Contribuicao *contribuicao);
-Contribuicao *RetornaContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *chave);
-Editor *RetornaEditorListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *chave);
+Contribuicao *RetornaContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *nomeArquivo);
+Editor *RetornaEditorListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *nomeEditor);
 void AlteraEstadoContribuicoesListaContribuicoes(ListaContribuicoes *listaContribuicoes);
-void RetiraCelulaContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *chave);
+void RetiraCelulaContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *nomeArquivo);
 void DestroiNosListaContribuicoes(ListaContribuicoes *listaContribuicoes);
 void DestroiListaContribuicoes(ListaContribuicoes *listaContribuicoes);
 

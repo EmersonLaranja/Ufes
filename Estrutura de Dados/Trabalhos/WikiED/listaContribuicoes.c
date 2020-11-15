@@ -125,11 +125,11 @@ CelulaContribuicao *RetornaCelulaContribuicaoListaContribuicoes(ListaContribuico
   return NULL;
 }
 
-Contribuicao *RetornaContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *chave)
+Contribuicao *RetornaContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *nomeArquivo)
 {
   for (CelulaContribuicao *auxiliar = listaContribuicoes->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    if (strcmp(RetornaNomeArquivoContribuicao(auxiliar->contribuicao), chave) == 0)
+    if (strcmp(RetornaNomeArquivoContribuicao(auxiliar->contribuicao), nomeArquivo) == 0)
     {
       return auxiliar->contribuicao;
     }
@@ -137,11 +137,11 @@ Contribuicao *RetornaContribuicaoListaContribuicoes(ListaContribuicoes *listaCon
   return NULL;
 };
 // //
-Editor *RetornaEditorListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *chave)
+Editor *RetornaEditorListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *nomeEditor)
 {
   for (CelulaContribuicao *auxiliar = listaContribuicoes->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    if (strcmp(RetornaNomeEditor(auxiliar->editor), chave) == 0)
+    if (strcmp(RetornaNomeEditor(auxiliar->editor), nomeEditor) == 0)
     {
       return auxiliar->editor;
     }
@@ -149,11 +149,11 @@ Editor *RetornaEditorListaContribuicoes(ListaContribuicoes *listaContribuicoes, 
   return NULL;
 };
 
-void RetiraCelulaContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *chave)
+void RetiraCelulaContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes, char *nomeArquivo)
 {
   CelulaContribuicao *auxiliar = listaContribuicoes->primeira, *anterior = NULL;
 
-  while (auxiliar != NULL && strcmp(RetornaNomeArquivoContribuicao(auxiliar->contribuicao), chave) != 0)
+  while (auxiliar != NULL && strcmp(RetornaNomeArquivoContribuicao(auxiliar->contribuicao), nomeArquivo) != 0)
   {
     anterior = auxiliar;
     auxiliar = auxiliar->proxima;
