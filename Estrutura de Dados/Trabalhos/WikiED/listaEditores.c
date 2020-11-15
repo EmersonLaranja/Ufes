@@ -27,7 +27,7 @@ void InsereEditorListaEditores(ListaEditores *listaEditores, Editor *editor)
   nova->editor = editor;
   nova->listaContribuicoes = InicializaListaContribuicoes();
 
-  if (listaEditores->primeira == NULL)
+  if (listaEditores->primeira == NULL) //verificando se a lista eh vazia
   {
     listaEditores->primeira = nova;
     listaEditores->ultima = nova;
@@ -40,9 +40,8 @@ void InsereEditorListaEditores(ListaEditores *listaEditores, Editor *editor)
 void InsereContribuicaoListaEditores(ListaEditores *listaEditores, Contribuicao *contribuicao, char *nomeEditor)
 {
   CelulaEditor *auxiliar = RetornaCelulaEditorListaEditores(listaEditores, nomeEditor);
-  if (auxiliar == NULL)
+  if (auxiliar == NULL) //editor nao esta na lista de editores
   {
-    // printf("Editor nao exite!\n");
     return;
   }
   InsereContribuicaoListaContribuicoes(auxiliar->listaContribuicoes, contribuicao, auxiliar->editor);
@@ -91,15 +90,6 @@ int VerificaEditorExisteListaEditores(ListaEditores *listaEditores, char *nomeEd
     auxiliar = auxiliar->proxima;
   }
   return 0; //nao existe editor com esse nome
-};
-
-void ImprimeListaEditores(ListaEditores *listaEditores, FILE *arq)
-{
-  for (CelulaEditor *auxiliar = listaEditores->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
-  {
-    ImprimeEditor(auxiliar->editor);
-    ImprimeListaContribuicoes(auxiliar->listaContribuicoes, arq);
-  }
 };
 
 void DestroiListaEditores(ListaEditores *listaEditores)

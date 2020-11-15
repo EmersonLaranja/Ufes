@@ -9,15 +9,8 @@ struct editor
 Editor *InicializaEditor(char *nome)
 {
   Editor *editor = (Editor *)malloc(sizeof(Editor));
-  editor->nome = strdup(nome);
+  editor->nome = strdup(nome); //alocando e enderecando o argumento recebido
   return editor;
-};
-
-void ImprimeEditor(Editor *editor)
-{
-  if (editor)
-
-    printf("%s\n", editor->nome);
 };
 
 char *RetornaNomeEditor(Editor *editor)

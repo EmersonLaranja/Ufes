@@ -1,6 +1,4 @@
-
 #include "pagina.h"
-
 struct pagina
 {
   char *nomePagina;
@@ -10,8 +8,8 @@ struct pagina
 Pagina *InicializaPagina(char *nomePagina, char *nomeArquivo)
 {
   Pagina *pagina = (Pagina *)malloc(sizeof(Pagina));
-  pagina->nomePagina = strdup(nomePagina);
-  pagina->nomeArquivo = strdup(nomeArquivo);
+  pagina->nomePagina = strdup(nomePagina);   //alocando e enderecando o argumento recebido
+  pagina->nomeArquivo = strdup(nomeArquivo); //alocando e enderecando o argumento recebido
   return pagina;
 }
 
@@ -20,7 +18,6 @@ void ImprimePagina(Pagina *pagina, FILE *arquivo)
 
   if (pagina)
   {
-    printf("%s\n", pagina->nomePagina); //! Soh pra eu visualizar, Retirar depois
     fprintf(arquivo, "%s\n", pagina->nomePagina);
   }
 }

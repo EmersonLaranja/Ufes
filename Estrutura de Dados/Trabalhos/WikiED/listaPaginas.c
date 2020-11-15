@@ -1,7 +1,6 @@
 
 #include "listaPaginas.h"
 #define TAM 50
-#define OUTPUT "outputs/"
 struct celulaPagina
 {
   Pagina *pagina;
@@ -46,7 +45,7 @@ void InserePaginaListaPaginas(ListaPaginas *listaPaginas, Pagina *pagina)
   nova->listaContribuicoes = InicializaListaContribuicoes();
   nova->listaLinks = InicializaListaLinks();
 
-  if (listaPaginas->primeira == NULL)
+  if (listaPaginas->primeira == NULL) //verificando se a lista eh vazia
   {
     listaPaginas->primeira = nova;
     listaPaginas->ultima = nova;
@@ -56,18 +55,18 @@ void InserePaginaListaPaginas(ListaPaginas *listaPaginas, Pagina *pagina)
   nova->proxima = NULL;
 };
 
-void ImprimeListaPaginas(ListaPaginas *listaPaginas)
+void ImprimeListaPaginas(ListaPaginas *listaPaginas, FILE *arquivoLog)
 {
   for (CelulaPagina *auxiliar = listaPaginas->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
     if (auxiliar->pagina != NULL)
     {
-      ImprimePaginaListaPaginas(listaPaginas, RetornaNomePagina(auxiliar->pagina));
+      ImprimePaginaListaPaginas(listaPaginas, RetornaNomePagina(auxiliar->pagina), arquivoLog);
     }
   }
 };
 
-void ImprimePaginaListaPaginas(ListaPaginas *listaPaginas, char *nomePagina)
+void ImprimePaginaListaPaginas(ListaPaginas *listaPaginas, char *nomePagina, FILE *arquivoLog)
 {
   Pagina *paginaAuxiliar = RetornaPaginaListaPaginas(listaPaginas, nomePagina);
   ListaContribuicoes *listaContribuicoesAuxiliar = RetornaListaContribuicoesListaPaginas(listaPaginas, nomePagina);
@@ -75,15 +74,11 @@ void ImprimePaginaListaPaginas(ListaPaginas *listaPaginas, char *nomePagina)
 
   if (paginaAuxiliar == NULL)
   {
-    printf("Nao foi possivel imprimir a pagina\n");
-    // fprintf(arquivoLog,"Nao foi possivel imprimir a pagina\n");
+    fprintf(arquivoLog, "Nao foi possivel imprimir a pagina\n");
     return;
   }
 
-  char nomeArquivoSaida[TAM] = OUTPUT;
-  strcat(nomeArquivoSaida, RetornaNomeArquivoPagina(paginaAuxiliar));
-
-  FILE *arquivoSaida = fopen(nomeArquivoSaida, "w");
+  FILE *arquivoSaida = fopen(RetornaNomeArquivoPagina(paginaAuxiliar), "w");
 
   ImprimePagina(paginaAuxiliar, arquivoSaida);
   ImprimeHistoricoContribuicoes(listaContribuicoesAuxiliar, arquivoSaida);

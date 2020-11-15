@@ -2,7 +2,7 @@
 #include "listaEditores.h"
 #include "listaLinks.h"
 #include "listaPaginas.h"
-#define CAMINHO_ARQUIVO_LOG "outputs/log.txt"
+#define CAMINHO_ARQUIVO_LOG "log.txt"
 #define TAM_COMANDO 50
 #define TAM_ARGUMENTO 20
 
@@ -13,8 +13,8 @@ void INSERELINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePa
 void RETIRALINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePaginaDestino, FILE *arquivoLog);
 void INSERECONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores, char *nomePagina, char *nomeEditor, char *nomeArquivoContribuicao, FILE *arquivoLog);
 void RETIRACONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores, char *nomePagina, char *nomeEditor, char *nomeArquivoContribuicao, FILE *arquivoLog);
-void IMPRIMEPAGINA(ListaPaginas *listaPaginas, char *nomePagina);
-void IMPRIMEWIKED(ListaPaginas *listaPaginas);
+void IMPRIMEPAGINA(ListaPaginas *listaPaginas, char *nomePagina, FILE *arquivoLog);
+void IMPRIMEWIKED(ListaPaginas *listaPaginas, FILE *arquivoLog);
 void CAMINHO(FILE *arquivoLog);
 void FIM(ListaPaginas *listaPaginas, ListaEditores *listaEditores);
 
@@ -22,11 +22,11 @@ int main(int argc, char *argv[])
 {
   char comando[TAM_COMANDO], argumento1[TAM_ARGUMENTO], argumento2[TAM_ARGUMENTO], argumento3[TAM_ARGUMENTO];
 
-  FILE *arquivo = fopen(argv[1], "r");
-  FILE *arquivoLog = fopen(CAMINHO_ARQUIVO_LOG, "w");
-  if (arquivo == NULL)
+  FILE *arquivo = fopen(argv[1], "r");                //abrindo arquivo no modo de leitura
+  FILE *arquivoLog = fopen(CAMINHO_ARQUIVO_LOG, "w"); //abrindo arquivo no modo de escrita
+  if (arquivo == NULL)                                //algum problema no arquivo
   {
-    printf("Problema na leitura do arquivo, tente novamente\n");
+    printf("Problema na leitura do arquivo");
     fclose(arquivo);
     fclose(arquivoLog);
     return 0;
@@ -35,13 +35,12 @@ int main(int argc, char *argv[])
   ListaPaginas *listaPaginas = InicializaListaPaginas();
   ListaEditores *listaEditores = InicializaListaEditores();
 
-  while (fscanf(arquivo, "%s", comando) != EOF)
+  while (fscanf(arquivo, "%s", comando) != EOF) // enquanto nao eh o fina do arquivo
   {
     if (strcmp(comando, "INSEREPAGINA") == 0)
     {
       fscanf(arquivo, "%s", argumento1);
       fscanf(arquivo, "%s", argumento2);
-      printf("%s %s %s\n", comando, argumento1, argumento2);
       INSEREPAGINA(listaPaginas, argumento1, argumento2);
       continue;
     }
@@ -49,7 +48,6 @@ int main(int argc, char *argv[])
     if (strcmp(comando, "RETIRAPAGINA") == 0)
     {
       fscanf(arquivo, "%s", argumento1);
-      printf("%s %s\n", comando, argumento1);
       RETIRAPAGINA(listaPaginas, argumento1, arquivoLog);
       continue;
     }
@@ -57,7 +55,6 @@ int main(int argc, char *argv[])
     if (strcmp(comando, "INSEREEDITOR") == 0)
     {
       fscanf(arquivo, "%s", argumento1);
-      printf("%s %s\n", comando, argumento1);
       INSEREEDITOR(listaEditores, argumento1);
 
       continue;
@@ -68,7 +65,6 @@ int main(int argc, char *argv[])
       fscanf(arquivo, "%s", argumento1);
       fscanf(arquivo, "%s", argumento2);
       fscanf(arquivo, "%s", argumento3);
-      printf("%s %s %s %s\n", comando, argumento1, argumento2, argumento3);
       INSERECONTRIBUICAO(listaPaginas, listaEditores, argumento1, argumento2, argumento3, arquivoLog);
 
       continue;
@@ -80,7 +76,6 @@ int main(int argc, char *argv[])
       fscanf(arquivo, "%s", argumento1);
       fscanf(arquivo, "%s", argumento2);
       fscanf(arquivo, "%s", argumento3);
-      printf("%s %s %s %s\n", comando, argumento1, argumento2, argumento3);
       RETIRACONTRIBUICAO(listaPaginas, listaEditores, argumento1, argumento2, argumento3, arquivoLog);
       continue;
     }
@@ -89,7 +84,6 @@ int main(int argc, char *argv[])
     {
       fscanf(arquivo, "%s", argumento1);
       fscanf(arquivo, "%s", argumento2);
-      printf("%s %s %s\n", comando, argumento1, argumento2);
       INSERELINK(listaPaginas, argumento1, argumento2, arquivoLog);
       continue;
     }
@@ -98,7 +92,6 @@ int main(int argc, char *argv[])
     {
       fscanf(arquivo, "%s", argumento1);
       fscanf(arquivo, "%s", argumento2);
-      printf("%s %s %s\n", comando, argumento1, argumento2);
       RETIRALINK(listaPaginas, argumento1, argumento2, arquivoLog);
       continue;
     }
@@ -107,7 +100,6 @@ int main(int argc, char *argv[])
     {
       fscanf(arquivo, "%s", argumento1);
       fscanf(arquivo, "%s", argumento2);
-      printf("%s %s %s\n", comando, argumento1, argumento2);
       CAMINHO(arquivoLog);
       continue;
     }
@@ -115,15 +107,14 @@ int main(int argc, char *argv[])
     if (strcmp(comando, "IMPRIMEPAGINA") == 0)
     {
       fscanf(arquivo, "%s", argumento1);
-      printf("%s %s\n", comando, argumento1);
-      IMPRIMEPAGINA(listaPaginas, argumento1);
+      IMPRIMEPAGINA(listaPaginas, argumento1, arquivoLog);
       continue;
     }
 
     if (strcmp(comando, "IMPRIMEWIKED") == 0)
     {
       // fprintf(arquivoLog, "IMPRIMEWIKED\n");
-      IMPRIMEWIKED(listaPaginas);
+      IMPRIMEWIKED(listaPaginas, arquivoLog);
       continue;
     }
 
@@ -134,7 +125,6 @@ int main(int argc, char *argv[])
     }
     else
     {
-      printf("Comando <%s> disponivel apenas na versao premium\n", comando);
       fprintf(arquivoLog, "Comando <%s> disponivel apenas na versao premium\n", comando);
       fscanf(arquivo, "%[^\n]\n", comando);
     }
@@ -156,7 +146,6 @@ void RETIRAPAGINA(ListaPaginas *listaPaginas, char *nomePagina, FILE *arquivoLog
   Pagina *paginaAuxiliar = RetornaPaginaListaPaginas(listaPaginas, nomePagina);
   if (paginaAuxiliar == NULL)
   {
-    printf("nao existe a pagina %s\n", nomePagina);
     fprintf(arquivoLog, "nao existe a pagina %s\n", nomePagina);
     return;
   }
@@ -169,7 +158,6 @@ void INSEREEDITOR(ListaEditores *listaEditores, char *nomeEditor)
 {
   if (VerificaEditorExisteListaEditores(listaEditores, nomeEditor))
   {
-    printf("Ja exite um editor com o nome %s\n", nomeEditor);
     return;
   }
   Editor *editor = InicializaEditor(nomeEditor);
@@ -183,7 +171,6 @@ void INSERECONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores
   if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePagina))
   {
     fprintf(arquivoLog, "Pagina %s nao existe ou lista nao inicializada.ERROR\n", nomePagina);
-    printf("Pagina %s nao existe ou lista nao inicializada.ERROR\n", nomePagina);
     DestroiContribuicao(contribuicao);
     return;
   };
@@ -192,7 +179,6 @@ void INSERECONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores
   if (!VerificaEditorExisteListaEditores(listaEditores, nomeEditor))
   {
     fprintf(arquivoLog, "Editor(a) %s nao existe ou lista nao inicializada.ERROR\n", nomeEditor);
-    printf("Editor(a) %s nao existe ou lista nao inicializada.ERROR\n", nomeEditor);
     DestroiContribuicao(contribuicao);
     return;
   }
@@ -209,14 +195,12 @@ void RETIRACONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores
   if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePagina))
   {
     fprintf(arquivoLog, "Pagina %s nao existe ou lista nao inicializada.ERROR\n", nomePagina);
-    printf("Pagina %s nao existe ou lista nao inicializada.ERROR\n", nomePagina);
     return;
   };
 
   if (!VerificaEditorExisteListaEditores(listaEditores, nomeEditor))
   {
     fprintf(arquivoLog, "Editor %s nao existe ou lista nao inicializada.ERROR\n", nomeEditor);
-    printf("Editor %s nao existe ou lista nao inicializada.ERROR\n", nomeEditor);
     return;
   }
 
@@ -227,8 +211,7 @@ void RETIRACONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores
 
   if (strcmp(RetornaNomeEditor(editorDaListaContribuicoes), RetornaNomeEditor(editorAuxiliar)) != 0)
   {
-    fprintf(arquivoLog, "ERROR: editor não tem direito de excluir esta contribuição\n");
-    printf("ERROR: editor não tem direito de excluir esta contribuição\n");
+    fprintf(arquivoLog, "ERROR: editor nao tem direito de excluir esta contribuicao\n");
     return;
   }
   else if (strcmp(RetornaNomeEditor(editorDaListaContribuicoes), RetornaNomeEditor(editorAuxiliar)) == 0)
@@ -242,13 +225,11 @@ void INSERELINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePa
   if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePaginaOrigem))
   {
     fprintf(arquivoLog, "A pagina %s nao existe\n", nomePaginaOrigem);
-    printf("A pagina %s nao existe\n", nomePaginaOrigem);
     return;
   }
   if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePaginaDestino))
   {
     fprintf(arquivoLog, "A pagina %s nao existe\n", nomePaginaDestino);
-    printf("A pagina %s nao existe\n", nomePaginaDestino);
     return;
   }
   ListaLinks *listaLinkAuxiliar = RetornaListaLinksListaPaginas(listaPaginas, nomePaginaOrigem);
@@ -263,18 +244,17 @@ void RETIRALINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePa
 
 void CAMINHO(FILE *arquivoLog)
 {
-  printf("Essa funcao esta disponivel apenas na versao premium\n");
   fprintf(arquivoLog, "Essa funcao esta disponivel apenas na versao premium\n");
 };
 
-void IMPRIMEPAGINA(ListaPaginas *listaPaginas, char *nomePagina)
+void IMPRIMEPAGINA(ListaPaginas *listaPaginas, char *nomePagina, FILE *arquivoLog)
 {
-  ImprimePaginaListaPaginas(listaPaginas, nomePagina);
+  ImprimePaginaListaPaginas(listaPaginas, nomePagina, arquivoLog);
 };
 
-void IMPRIMEWIKED(ListaPaginas *listaPaginas)
+void IMPRIMEWIKED(ListaPaginas *listaPaginas, FILE *arquivoLog)
 {
-  ImprimeListaPaginas(listaPaginas);
+  ImprimeListaPaginas(listaPaginas, arquivoLog);
 };
 
 void FIM(ListaPaginas *listaPaginas, ListaEditores *listaEditores)

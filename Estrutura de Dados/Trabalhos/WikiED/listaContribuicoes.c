@@ -1,7 +1,6 @@
 
 #include "listaContribuicoes.h"
-#define TAM 50
-#define INPUT "inputs/"
+#define TAM 50 //tamanho de um vetor comum
 struct celulaContribuicao
 {
   Editor *editor;
@@ -29,7 +28,7 @@ void InsereContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes
   nova->contribuicao = contribuicao;
   nova->editor = editor;
 
-  if (listaContribuicoes->primeira == NULL)
+  if (listaContribuicoes->primeira == NULL) //verificando se a lista eh vazia
   {
     listaContribuicoes->primeira = nova;
     listaContribuicoes->ultima = nova;
@@ -39,18 +38,13 @@ void InsereContribuicaoListaContribuicoes(ListaContribuicoes *listaContribuicoes
   nova->proxima = NULL;
 };
 
-static void GravaArquivo(char *nomeArquivoLido, FILE *arquivoGravacao)
+static void GravaArquivo(char *nomeArquivoLido, FILE *arquivoGravacao) //grava informacoes do arquivo a ser lido no arquivo de gravacao
 {
-  char c;
+  char c; //char auxiliar
 
-  char caminhoArquivo[TAM] = INPUT;
-  strcat(caminhoArquivo, nomeArquivoLido);
+  FILE *arquivo = fopen(nomeArquivoLido, "r"); //abrindo arquivo no modo de leitura
 
-  FILE *arquivo = fopen(caminhoArquivo, "r");
-
-  // FILE *arquivo = fopen(nomeArquivoLido, "r");
-
-  if (arquivo == NULL)
+  if (arquivo == NULL) //se nao consegui abrir o arquivo
 
   {
 
@@ -63,16 +57,16 @@ static void GravaArquivo(char *nomeArquivoLido, FILE *arquivoGravacao)
 
   {
 
-    c = fgetc(arquivo);
+    c = fgetc(arquivo); //recebe um char do arquivo
 
-    if (c == EOF)
+    if (c == EOF) //se chegou no final do arquivo
 
     {
 
-      break;
+      break; //encerra condicao
     }
 
-    fprintf(arquivoGravacao, "%c", c);
+    fprintf(arquivoGravacao, "%c", c); //grava char no arquivo de gravacao
   };
 
   fclose(arquivo);
@@ -81,35 +75,35 @@ static void GravaArquivo(char *nomeArquivoLido, FILE *arquivoGravacao)
 void ImprimeListaContribuicoes(ListaContribuicoes *listaContribuicoes, FILE *arquivo)
 {
   fprintf(arquivo, "\n--> Textos");
-  printf("\n--> Textos");
 
   for (CelulaContribuicao *auxiliar = listaContribuicoes->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    if (RetornaFlagContribuicao(auxiliar->contribuicao))
+    if (RetornaFlagContribuicao(auxiliar->contribuicao)) // se a flag for SIM (se contribuicao foi retirada)
     {
       continue;
     }
+
     fprintf(arquivo, "\n\n-------- %s (%s) --------\n\n", RetornaNomeArquivoContribuicao(auxiliar->contribuicao), RetornaNomeEditor(auxiliar->editor));
-    printf("\n\n-------- %s (%s) --------\n\n", RetornaNomeArquivoContribuicao(auxiliar->contribuicao), RetornaNomeEditor(auxiliar->editor)); //! soh pra eu ver, apagar dps
+
     char *nomeAuxiliar = RetornaNomeArquivoContribuicao(auxiliar->contribuicao);
     GravaArquivo(nomeAuxiliar, arquivo);
   }
 };
+
 void ImprimeHistoricoContribuicoes(ListaContribuicoes *listaContribuicoes, FILE *arquivo)
 {
-  printf("\n-> Historico de contribuicoes\n");
   fprintf(arquivo, "\n-> Historico de contribuicoes\n");
+
   for (CelulaContribuicao *auxiliar = listaContribuicoes->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
     fprintf(arquivo, "%s %s", RetornaNomeEditor(auxiliar->editor), RetornaNomeArquivoContribuicao(auxiliar->contribuicao));
-    printf("%s %s", RetornaNomeEditor(auxiliar->editor), RetornaNomeArquivoContribuicao(auxiliar->contribuicao));
-    if (RetornaFlagContribuicao(auxiliar->contribuicao))
+
+    if (RetornaFlagContribuicao(auxiliar->contribuicao)) // se a flag for SIM (se contribuicao foi retirada)
     {
       fprintf(arquivo, " <<retirada>>");
-      printf(" <<retirada>>");
     }
+
     fprintf(arquivo, "\n");
-    printf("\n");
   }
 };
 
@@ -184,6 +178,7 @@ void RetiraCelulaContribuicaoListaContribuicoes(ListaContribuicoes *listaContrib
   AlteraEstadoContribuicao(auxiliar->contribuicao);
   free(auxiliar);
 };
+
 void AlteraEstadoContribuicoesListaContribuicoes(ListaContribuicoes *listaContribuicoes)
 {
   for (CelulaContribuicao *auxiliar = listaContribuicoes->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
@@ -201,14 +196,13 @@ void DestroiNosListaContribuicoes(ListaContribuicoes *listaContribuicoes)
     t = p->proxima;
     if (p)
     {
-      //! O programa TODO bugando por conta dessa linha
-      // AlteraEstadoContribuicao(p->contribuicao);
       free(p);
     }
     p = t;
   }
   free(listaContribuicoes);
 };
+
 void DestroiListaContribuicoes(ListaContribuicoes *listaContribuicoes)
 {
   CelulaContribuicao *t;

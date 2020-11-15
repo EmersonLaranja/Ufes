@@ -26,7 +26,7 @@ void InserePaginaListaLinks(ListaLinks *listaLinks, Pagina *pagina)
   CelulaLink *nova = (CelulaLink *)malloc(sizeof(CelulaLink));
   nova->pagina = pagina;
 
-  if (listaLinks->primeira == NULL)
+  if (listaLinks->primeira == NULL) //verificando se a lista eh vazia
   {
     listaLinks->primeira = nova;
     listaLinks->ultima = nova;
@@ -50,12 +50,10 @@ Pagina *RetornaPaginaListaLinks(ListaLinks *listaLinks, char *nomePagina)
 
 void ImprimeListaLinks(ListaLinks *listaLinks, FILE *arquivo)
 {
-  printf("\n--> Links\n");
   fprintf(arquivo, "\n--> Links\n");
 
   for (CelulaLink *auxiliar = listaLinks->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    printf("%s %s\n", RetornaNomePagina(auxiliar->pagina), RetornaNomeArquivoPagina(auxiliar->pagina)); //! soh pra eu ver, apagar dps
     fprintf(arquivo, "%s %s\n", RetornaNomePagina(auxiliar->pagina), RetornaNomeArquivoPagina(auxiliar->pagina));
   }
 };
