@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
     {
       fscanf(arquivo, "%s", argumento1);
       fscanf(arquivo, "%s", argumento2);
-      CAMINHO(arquivoLog);
+      CAMINHO(listaPaginas, argumento1, argumento2, arquivoLog);
       continue;
     }
 

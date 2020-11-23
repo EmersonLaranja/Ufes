@@ -1,6 +1,4 @@
-
 #include "listaLinks.h"
-
 struct celulaLink
 {
   Pagina *pagina;
@@ -43,6 +41,18 @@ Pagina *RetornaPaginaListaLinks(ListaLinks *listaLinks, char *nomePagina)
     if (strcmp(RetornaNomePagina(auxiliar->pagina), nomePagina) == 0)
     {
       return auxiliar->pagina;
+    }
+  }
+  return NULL;
+};
+
+CelulaLink *RetornaCelulaLinkListaLinks(ListaLinks *listaLinks, char *nomePagina)
+{
+  for (CelulaLink *auxiliar = listaLinks->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
+  {
+    if (strcmp(RetornaNomePagina(auxiliar->pagina), nomePagina) == 0)
+    {
+      return auxiliar;
     }
   }
   return NULL;
@@ -108,3 +118,19 @@ void DestroiListaLinks(ListaLinks *listaLinks)
   }
   free(listaLinks);
 };
+
+Pagina *PaginaExisteListaLinksVisitadas(ListaLinks *listaLinkPaginaPartida, ListaLinks *listaLinksPaginasVisitadas)
+{
+  //percorre lista de links
+  for (CelulaLink *auxiliar = listaLinkPaginaPartida->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
+  {
+    char *paginaAuxiliar = RetornaNomePagina(auxiliar->pagina); //pagina da lista que devo verificar
+
+    //visitei a pagina? se for NULL significa que eu ainda nao visitei esta pagina
+    if (RetornaPaginaListaLinks(listaLinksPaginasVisitadas, paginaAuxiliar) == NULL)
+    {
+      return auxiliar->pagina; //pagina que sera visitada
+    }
+  }
+  return NULL; //ja visitei todos os caminhos possiveis
+}

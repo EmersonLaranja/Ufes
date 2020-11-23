@@ -3,6 +3,7 @@
   Trabalho de ED1 - WikED!
   Created by Emerson Laranja dos Santos on 11/15/2020.
 */
+
 #ifndef LISTALINKS_H
 #define LISTALINKS_H
 
@@ -16,7 +17,6 @@ typedef struct listaLinks ListaLinks;
 
 /* Define o tipo CelulaLink (tipo opaco)*/
 typedef struct celulaLink CelulaLink;
-
 /*----------------------------------------------------------------------
  * Inicializa a lista de links
  * inputs: -
@@ -43,6 +43,14 @@ void InserePaginaListaLinks(ListaLinks *listaLinks, Pagina *pagina);
 Pagina *RetornaPaginaListaLinks(ListaLinks *listaLinks, char *nomePagina);
 
 /*----------------------------------------------------------------------
+ * Retorna uma celula de link de uma lista de links (procurando um link pelo nome de seu link)
+ * inputs: a lista de links e o nome do link 
+ * output: a celula de link
+ * pre-condicao: lista de links deve ser previamente inicializada
+ * pos-condicao: funcao nao altera o estado do link */
+CelulaLink *RetornaCelulaLinkListaLinks(ListaLinks *listaLinks, char *nomePagina);
+
+/*----------------------------------------------------------------------
 *Imprime uma lista de links
 * inputs: a lista de links e ponteiro do arquivo de saída
 * output: arquivo de saida com links da lista de links
@@ -67,5 +75,13 @@ void RetiraPaginaListaLinks(ListaLinks *listaLinks, char *nomePagina);
  * pre-condicao: lista de links deve ser previamente inicializada
  * pos-condicao: todo o espaco de memoria deve ser liberado, libera os links*/
 void DestroiListaLinks(ListaLinks *lista);
+
+/*----------------------------------------------------------------------
+ * Verifica se uma pagina esta na lista de links das paginas visitadas ao percorrer um caminho
+ * inputs: a lista de link que buscamos caminho e a lista de link com as paginas ja percorridas
+ * output: Pagina, ou NULL caso nao exista mais caminhos a serem percorridos
+ * pre-condicao: listas de links deve ser previamente inicializadas
+ * pos-condicao: lista de links dos caminhos percorridos*/
+Pagina *PaginaExisteListaLinksVisitadas(ListaLinks *listaLinkPaginaPartida, ListaLinks *listaLinksPaginasVisitadas);
 
 #endif /* LISTALINKS_H */

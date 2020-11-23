@@ -18,7 +18,7 @@ void INSERECONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores
 void RETIRACONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores, char *nomePagina, char *nomeEditor, char *nomeArquivoContribuicao, FILE *arquivoLog);
 void IMPRIMEPAGINA(ListaPaginas *listaPaginas, char *nomePagina, FILE *arquivoLog);
 void IMPRIMEWIKED(ListaPaginas *listaPaginas, FILE *arquivoLog);
-void CAMINHO(FILE *arquivoLog);
+void CAMINHO(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePaginaDestino, FILE *arquivoLog);
 void FIM(ListaPaginas *listaPaginas, ListaEditores *listaEditores);
 
 #endif /*COMANDOS_H*/

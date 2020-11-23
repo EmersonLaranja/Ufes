@@ -1,5 +1,6 @@
-//lista ja inicializada na main
+#include "listaLinks.h"
 #include "comandos.h"
+
 void INSEREPAGINA(ListaPaginas *listaPaginas, char *nomePagina, char *nomeArquivo, FILE *arquivoLog)
 {
   if (VerificaPaginaExisteListaPaginas(listaPaginas, nomePagina))
@@ -41,7 +42,7 @@ void INSERECONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores
 
   if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePagina))
   {
-    fprintf(arquivoLog, "Pagina %s nao existe ou lista nao inicializada.ERROR\n", nomePagina);
+    fprintf(arquivoLog, "ERROR: Pagina %s nao existe ou lista nao inicializada.\n", nomePagina);
     DestroiContribuicao(contribuicao);
     return;
   };
@@ -49,10 +50,19 @@ void INSERECONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores
 
   if (!VerificaEditorExisteListaEditores(listaEditores, nomeEditor))
   {
-    fprintf(arquivoLog, "Editor(a) %s nao existe ou lista nao inicializada.ERROR\n", nomeEditor);
+    fprintf(arquivoLog, "ERROR: Editor(a) %s nao existe ou lista nao inicializada.\n", nomeEditor);
     DestroiContribuicao(contribuicao);
     return;
   }
+
+  //Verificar se ja existe esta contribuicao nesta lista
+  if (RetornaContribuicaoListaContribuicoes(listaContribuicoesAuxiliar, nomeArquivoContribuicao) != NULL)
+  {
+    fprintf(arquivoLog, "ERROR: Contribuicao %s ja existe na lista de contribuicao pedida.\n", nomeArquivoContribuicao);
+    DestroiContribuicao(contribuicao);
+    return;
+  }
+
   Editor *editorAuxiliar = RetornaEditorListaEditores(listaEditores, nomeEditor);
 
   // DestroiContribuicao(contribuicao);
@@ -65,27 +75,31 @@ void RETIRACONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores
 
   if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePagina))
   {
-    fprintf(arquivoLog, "Pagina %s nao existe ou lista nao inicializada.ERROR\n", nomePagina);
+    fprintf(arquivoLog, "ERROR: Pagina %s nao existe na lista solicitada.\n", nomePagina);
     return;
   };
 
   if (!VerificaEditorExisteListaEditores(listaEditores, nomeEditor))
   {
-    fprintf(arquivoLog, "Editor %s nao existe ou lista nao inicializada.ERROR\n", nomeEditor);
+    fprintf(arquivoLog, "ERROR: Editor %s nao existe na lista solicitada.\n", nomeEditor);
     return;
   }
 
+  //lista de contribuicoes do editor passado
   ListaContribuicoes *listaContribuicoesAuxiliar = RetornaListaContribuicoesListaEditores(listaEditores, nomeEditor);
+
+  //verificando se existe a contribuicao passada na lista desse(a) editor(a). Se nao existe, nao é dela/dele
+  if (RetornaContribuicaoListaContribuicoes(listaContribuicoesAuxiliar, nomeArquivoContribuicao) == NULL)
+  {
+    fprintf(arquivoLog, "ERROR: editor nao tem direito de excluir a contribuicao %s ou contribuicao nao existe\n", nomeArquivoContribuicao);
+    return;
+  }
 
   Editor *editorDaListaContribuicoes = RetornaEditorListaContribuicoes(listaContribuicoesAuxiliar, nomeEditor);
   Editor *editorAuxiliar = RetornaEditorListaEditores(listaEditores, nomeEditor);
 
-  if (strcmp(RetornaNomeEditor(editorDaListaContribuicoes), RetornaNomeEditor(editorAuxiliar)) != 0)
-  {
-    fprintf(arquivoLog, "ERROR: editor nao tem direito de excluir esta contribuicao\n");
-    return;
-  }
-  else if (strcmp(RetornaNomeEditor(editorDaListaContribuicoes), RetornaNomeEditor(editorAuxiliar)) == 0)
+  //verifica se o editor da lista eh o editor passado. Se for, permite a retirada da contribuicao da lista
+  if (strcmp(RetornaNomeEditor(editorDaListaContribuicoes), RetornaNomeEditor(editorAuxiliar)) == 0)
   {
     RetiraCelulaContribuicaoListaContribuicoes(listaContribuicoesAuxiliar, nomeArquivoContribuicao);
   }
@@ -95,27 +109,89 @@ void INSERELINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePa
 {
   if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePaginaOrigem))
   {
-    fprintf(arquivoLog, "A pagina %s nao existe\n", nomePaginaOrigem);
+    fprintf(arquivoLog, "A pagina de origem %s nao existe\n", nomePaginaOrigem);
     return;
   }
   if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePaginaDestino))
   {
-    fprintf(arquivoLog, "A pagina %s nao existe\n", nomePaginaDestino);
+    fprintf(arquivoLog, "A pagina de destino %s nao existe\n", nomePaginaDestino);
     return;
   }
   ListaLinks *listaLinkAuxiliar = RetornaListaLinksListaPaginas(listaPaginas, nomePaginaOrigem);
+
+  //verificando se o link a ser inserido na lista de links ja existe
+  if (RetornaPaginaListaLinks(listaLinkAuxiliar, nomePaginaDestino) != NULL)
+  {
+    fprintf(arquivoLog, "O link %s ja existe na lista de links da pagina %s\n", nomePaginaDestino, nomePaginaOrigem);
+    return;
+  }
+
   InserePaginaListaLinks(listaLinkAuxiliar, RetornaPaginaListaPaginas(listaPaginas, nomePaginaDestino));
 };
 
 void RETIRALINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePaginaDestino, FILE *arquivoLog)
 {
+  if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePaginaOrigem))
+  {
+    fprintf(arquivoLog, "A pagina de origem %s nao existe\n", nomePaginaOrigem);
+    return;
+  }
+  if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePaginaDestino))
+  {
+    fprintf(arquivoLog, "A pagina de destino %s nao existe\n", nomePaginaDestino);
+    return;
+  }
   ListaLinks *listaLinkAuxiliar = RetornaListaLinksListaPaginas(listaPaginas, nomePaginaOrigem);
   RetiraPaginaListaLinks(listaLinkAuxiliar, nomePaginaDestino);
 };
 
-void CAMINHO(FILE *arquivoLog)
+static void VisitaPaginas(ListaPaginas *listaPaginas, Pagina *paginaPartida, ListaLinks *listaLinksPaginasVisitadas)
 {
-  fprintf(arquivoLog, "Essa funcao esta disponivel apenas na versao premium\n");
+  //insiro a pagina de onde eu partir
+  InserePaginaListaLinks(listaLinksPaginasVisitadas, paginaPartida);
+
+  //retornando a lista de links da pagina que quero percorrer
+  ListaLinks *listaLinkPaginaPartida = RetornaListaLinksListaPaginas(listaPaginas, RetornaNomePagina(paginaPartida));
+
+  Pagina *paginaAuxiliar = PaginaExisteListaLinksVisitadas(listaLinkPaginaPartida, listaLinksPaginasVisitadas);
+
+  if (paginaAuxiliar != NULL) //existe pagina para ser visitada ainda e eh a pagina retornada
+  {
+    VisitaPaginas(listaPaginas, paginaAuxiliar, listaLinksPaginasVisitadas);
+  }
+}
+
+void CAMINHO(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePaginaDestino, FILE *arquivoLog)
+{
+  if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePaginaOrigem))
+  {
+    fprintf(arquivoLog, "A pagina de origem %s nao existe\n", nomePaginaOrigem);
+    return;
+  }
+
+  if (!VerificaPaginaExisteListaPaginas(listaPaginas, nomePaginaDestino))
+  {
+    fprintf(arquivoLog, "A pagina de destino %s nao existe\n", nomePaginaDestino);
+    return;
+  }
+
+  Pagina *paginaOrigemAuxiliar = RetornaPaginaListaPaginas(listaPaginas, nomePaginaOrigem);
+  Pagina *paginaDestinoAuxiliar = RetornaPaginaListaPaginas(listaPaginas, nomePaginaDestino);
+  ListaLinks *paginasVisitadas = InicializaListaLinks(); //lista que armazena paginas que ja percorri
+
+  VisitaPaginas(listaPaginas, paginaOrigemAuxiliar, paginasVisitadas); //percorre possiveis links, armazenando as paginas visitadas
+
+  // Se ao percorrer os possiveis links eu nao passei na pagina de destino, significa que nao achei link para pagina de destino
+  if (RetornaPaginaListaLinks(paginasVisitadas, RetornaNomePagina(paginaDestinoAuxiliar)) == NULL)
+  {
+    fprintf(arquivoLog, "NAO HA CAMINHO DA PAGINA %s PARA %s\n", nomePaginaOrigem, nomePaginaDestino);
+  }
+  else
+  {
+    fprintf(arquivoLog, "HA CAMINHO DA PAGINA %s PARA %s\n", nomePaginaOrigem, nomePaginaDestino);
+  }
+
+  DestroiListaLinks(paginasVisitadas);
 };
 
 void IMPRIMEPAGINA(ListaPaginas *listaPaginas, char *nomePagina, FILE *arquivoLog)

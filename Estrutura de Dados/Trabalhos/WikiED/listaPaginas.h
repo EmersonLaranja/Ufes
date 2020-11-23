@@ -11,8 +11,8 @@
 #include "stdlib.h"
 #include "string.h"
 #include "pagina.h"
-#include "listaLinks.h"
 #include "listaContribuicoes.h"
+#include "listaLinks.h"
 
 /* Define o tipo ListaPaginas (tipo opaco)*/
 typedef struct listaPaginas ListaPaginas;
