@@ -6,16 +6,14 @@
 int main(int argc, char *argv[])
 {
   char consomeLixo = '0', comando[TAM_COMANDO], argumento1[TAM_ARGUMENTO], argumento2[TAM_ARGUMENTO], argumento3[TAM_ARGUMENTO];
-  FILE *arquivo = fopen(argv[1], "r");                //abrindo arquivo no modo de leitura
-  FILE *arquivoLog = fopen(CAMINHO_ARQUIVO_LOG, "w"); //abrindo arquivo no modo de escrita
-  if (arquivo == NULL)                                //algum problema no arquivo
+  FILE *arquivo = fopen(argv[1], "r"); //abrindo arquivo no modo de leitura
+  if (arquivo == NULL)                 //algum problema no arquivo
   {
     printf("Problema na leitura do arquivo");
-    fclose(arquivo);
-    fclose(arquivoLog);
     return 0;
   }
 
+  FILE *arquivoLog = fopen(CAMINHO_ARQUIVO_LOG, "w"); //abrindo arquivo no modo de escrita
   ListaPaginas *listaPaginas = InicializaListaPaginas();
   ListaEditores *listaEditores = InicializaListaEditores();
 
