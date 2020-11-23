@@ -92,7 +92,7 @@ void ImprimeListaContribuicoes(ListaContribuicoes *listaContribuicoes, FILE *arq
 
 void ImprimeHistoricoContribuicoes(ListaContribuicoes *listaContribuicoes, FILE *arquivo)
 {
-  fprintf(arquivo, "\n-> Historico de contribuicoes\n");
+  fprintf(arquivo, "\n--> Historico de contribuicoes\n");
 
   for (CelulaContribuicao *auxiliar = listaContribuicoes->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {

@@ -5,8 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-  char comando[TAM_COMANDO], argumento1[TAM_ARGUMENTO], argumento2[TAM_ARGUMENTO], argumento3[TAM_ARGUMENTO];
-
+  char consomeLixo = '0', comando[TAM_COMANDO], argumento1[TAM_ARGUMENTO], argumento2[TAM_ARGUMENTO], argumento3[TAM_ARGUMENTO];
   FILE *arquivo = fopen(argv[1], "r");                //abrindo arquivo no modo de leitura
   FILE *arquivoLog = fopen(CAMINHO_ARQUIVO_LOG, "w"); //abrindo arquivo no modo de escrita
   if (arquivo == NULL)                                //algum problema no arquivo
@@ -20,8 +19,29 @@ int main(int argc, char *argv[])
   ListaPaginas *listaPaginas = InicializaListaPaginas();
   ListaEditores *listaEditores = InicializaListaEditores();
 
-  while (fscanf(arquivo, "%s", comando) != EOF) // enquanto nao eh o fina do arquivo
+  //consumindo todo lixo do inicio do arquivo
+  while (!(consomeLixo >= 'a' && consomeLixo <= 'z') && !(consomeLixo >= 'A' && consomeLixo <= 'Z'))
   {
+    fscanf(arquivo, "%c", &consomeLixo);
+  }
+
+  comando[0] = consomeLixo;
+  for (int i = 1; consomeLixo != ' '; i++)
+  {
+    fscanf(arquivo, "%c", &consomeLixo);
+    if (consomeLixo != ' ')
+    {
+      comando[i] = consomeLixo;
+    }
+    else
+    {
+      comando[i] = '\0';
+    }
+  }
+
+  do
+  {
+
     if (strcmp(comando, "INSEREPAGINA") == 0)
     {
       fscanf(arquivo, "%s", argumento1);
@@ -108,12 +128,15 @@ int main(int argc, char *argv[])
       FIM(listaPaginas, listaEditores);
       break;
     }
+
     else
     {
       fprintf(arquivoLog, "Comando <%s> disponivel apenas na versao premium\n", comando);
       fscanf(arquivo, "%[^\n]\n", comando);
     }
-  }
+
+  } while (fscanf(arquivo, "%s", comando) != EOF); // enquanto nao eh o final do arquivo
+
   fclose(arquivo);
   fclose(arquivoLog);
   return 0;

@@ -1,7 +1,10 @@
 INSEREPAGINA Fisica fisica.txt
 INSEREPAGINA Artes artes.txt
 INSEREPAGINA UFES ufes.txt
-RETIRAPAGINA Psicologia
+INSEREPAGINA Psicologia psicologia.txt
+INSEREPAGINA Engenharia engenharia.txt
+INSEREPAGINA Pedagogia pedagogia.txt
+INSEREPAGINA Matematica matematica.txt
 INSEREEDITOR Pedro
 INSEREEDITOR Maria
 INSEREEDITOR Joao
@@ -20,11 +23,27 @@ INSERELINK Artes Fisica
 INSERECONTRIBUICAO UFES Joao c6.txt
 INSERECONTRIBUICAO UFES Joao c7.txt
 INSERECONTRIBUICAO UFES Ana c8.txt
+INSERECONTRIBUICAO Engenharia Ana c9.txt
+INSERECONTRIBUICAO Psicologia Ana c10.txt
+INSERECONTRIBUICAO Pedagogia Joao c11.txt
+INSERECONTRIBUICAO Matematica Maria c12.txt
 INSERELINK UFES Fisica
 INSERELINK UFES Artes
-CAMINHO UFES Fisica
-CAMINHO Artes UFES
-CAMINHO UFES Artes
+INSERELINK Fisica UFES
+INSERELINK Fisica Engenharia
+INSERELINK Artes Psicologia
+INSERELINK Artes Matematica
+INSERELINK Psicologia Artes
+INSERELINK Engenharia Fisica
+INSERELINK Engenharia UFES
+INSERELINK Engenharia Psicologia
+INSERELINK Pedagogia Artes
+INSERELINK Matematica Artes
 CAMINHO Fisica UFES
+CAMINHO UFES Matematica
+CAMINHO UFES Fisica
+CAMINHO Artes Pedagogia
+RETIRAPAGINA Psicologia
+RETIRAPAGINA Historia
 IMPRIMEWIKED
 FIM

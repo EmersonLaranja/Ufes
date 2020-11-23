@@ -17,7 +17,7 @@ void RETIRAPAGINA(ListaPaginas *listaPaginas, char *nomePagina, FILE *arquivoLog
   Pagina *paginaAuxiliar = RetornaPaginaListaPaginas(listaPaginas, nomePagina);
   if (paginaAuxiliar == NULL)
   {
-    fprintf(arquivoLog, "nao existe a pagina %s\n", nomePagina);
+    fprintf(arquivoLog, "ERROR: Nao existe a pagina %s\n", nomePagina);
     return;
   }
   RetiraCelulaPaginaListaPaginas(listaPaginas, nomePagina); //*! Lembre-se que aqui nao apaga as contribuicoes
@@ -145,7 +145,17 @@ void RETIRALINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePa
   RetiraPaginaListaLinks(listaLinkAuxiliar, nomePaginaDestino);
 };
 
-static void VisitaPaginas(ListaPaginas *listaPaginas, Pagina *paginaPartida, ListaLinks *listaLinksPaginasVisitadas)
+static int VerificaExisteCaminhoDireto(ListaPaginas *listaPaginas, char *paginaOrigem, char *paginaDestino)
+{
+  ListaLinks *listaLinkPaginaOrigem = RetornaListaLinksListaPaginas(listaPaginas, paginaOrigem);
+  if (RetornaPaginaListaLinks(listaLinkPaginaOrigem, paginaDestino) != NULL)
+  {
+    return 1;
+  }
+  return 0;
+};
+
+static void VisitaPaginas(ListaPaginas *listaPaginas, Pagina *paginaPartida, Pagina *paginaDestino, ListaLinks *listaLinksPaginasVisitadas)
 {
   //insiro a pagina de onde eu partir
   InserePaginaListaLinks(listaLinksPaginasVisitadas, paginaPartida);
@@ -153,11 +163,18 @@ static void VisitaPaginas(ListaPaginas *listaPaginas, Pagina *paginaPartida, Lis
   //retornando a lista de links da pagina que quero percorrer
   ListaLinks *listaLinkPaginaPartida = RetornaListaLinksListaPaginas(listaPaginas, RetornaNomePagina(paginaPartida));
 
+  //verificando se existe link direto com a pagina de destino
+  if (VerificaExisteCaminhoDireto(listaPaginas, RetornaNomePagina(paginaPartida), RetornaNomePagina(paginaDestino)))
+  {
+    InserePaginaListaLinks(listaLinksPaginasVisitadas, paginaDestino);
+    return;
+  }
+
   Pagina *paginaAuxiliar = PaginaExisteListaLinksVisitadas(listaLinkPaginaPartida, listaLinksPaginasVisitadas);
 
   if (paginaAuxiliar != NULL) //existe pagina para ser visitada ainda e eh a pagina retornada
   {
-    VisitaPaginas(listaPaginas, paginaAuxiliar, listaLinksPaginasVisitadas);
+    VisitaPaginas(listaPaginas, paginaAuxiliar, paginaDestino, listaLinksPaginasVisitadas);
   }
 }
 
@@ -179,7 +196,7 @@ void CAMINHO(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePagin
   Pagina *paginaDestinoAuxiliar = RetornaPaginaListaPaginas(listaPaginas, nomePaginaDestino);
   ListaLinks *paginasVisitadas = InicializaListaLinks(); //lista que armazena paginas que ja percorri
 
-  VisitaPaginas(listaPaginas, paginaOrigemAuxiliar, paginasVisitadas); //percorre possiveis links, armazenando as paginas visitadas
+  VisitaPaginas(listaPaginas, paginaOrigemAuxiliar, paginaDestinoAuxiliar, paginasVisitadas); //percorre possiveis links, armazenando as paginas visitadas
 
   // Se ao percorrer os possiveis links eu nao passei na pagina de destino, significa que nao achei link para pagina de destino
   if (RetornaPaginaListaLinks(paginasVisitadas, RetornaNomePagina(paginaDestinoAuxiliar)) == NULL)
