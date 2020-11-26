@@ -1,6 +1,0 @@
-Comando <RETIRAEDITOR> disponivel apenas na versao premium
-HA CAMINHO DA PAGINA Fisica PARA UFES
-HA CAMINHO DA PAGINA UFES PARA Matematica
-HA CAMINHO DA PAGINA UFES PARA Fisica
-NAO HA CAMINHO DA PAGINA Artes PARA Pedagogia
-ERROR: Nao existe a pagina Historia

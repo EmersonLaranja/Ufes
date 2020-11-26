@@ -27,8 +27,11 @@ INSERECONTRIBUICAO Engenharia Ana c9.txt
 INSERECONTRIBUICAO Psicologia Ana c10.txt
 INSERECONTRIBUICAO Pedagogia Joao c11.txt
 INSERECONTRIBUICAO Matematica Maria c12.txt
+INSERECONTRIBUICAO Pedagogia Maria c12.txt
+RETIRACONTRIBUICAO Pedagogia Maria c12.txt
+RETIRACONTRIBUICAO Matematica Maria c12.txt
 INSERELINK UFES Fisica
-INSERELINK UFES Artes
+INSERELINK Artes UFES
 INSERELINK Fisica UFES
 INSERELINK Fisica Engenharia
 INSERELINK Artes Psicologia
@@ -37,10 +40,10 @@ INSERELINK Psicologia Artes
 INSERELINK Engenharia Fisica
 INSERELINK Engenharia UFES
 INSERELINK Engenharia Psicologia
-INSERELINK Pedagogia Artes
+RETIRALINK  Artes Pedagogia
+INSERELINK Matematica Pedagogia
 INSERELINK Matematica Artes
-CAMINHO Fisica UFES
-CAMINHO UFES Matematica
+CAMINHO Matematica UFES
 CAMINHO UFES Fisica
 CAMINHO Artes Pedagogia
 RETIRAPAGINA Psicologia

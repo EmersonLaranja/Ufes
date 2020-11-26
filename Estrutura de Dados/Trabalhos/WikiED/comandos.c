@@ -141,42 +141,15 @@ void RETIRALINK(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePa
     fprintf(arquivoLog, "A pagina de destino %s nao existe\n", nomePaginaDestino);
     return;
   }
+
   ListaLinks *listaLinkAuxiliar = RetornaListaLinksListaPaginas(listaPaginas, nomePaginaOrigem);
+
+  if (RetornaPaginaListaLinks(listaLinkAuxiliar, nomePaginaDestino) == NULL)
+  {
+    fprintf(arquivoLog, "O link %s nao esta na lista de links da pagina %s\n", nomePaginaDestino, nomePaginaOrigem);
+  }
   RetiraPaginaListaLinks(listaLinkAuxiliar, nomePaginaDestino);
 };
-
-static int VerificaExisteCaminhoDireto(ListaPaginas *listaPaginas, char *paginaOrigem, char *paginaDestino)
-{
-  ListaLinks *listaLinkPaginaOrigem = RetornaListaLinksListaPaginas(listaPaginas, paginaOrigem);
-  if (RetornaPaginaListaLinks(listaLinkPaginaOrigem, paginaDestino) != NULL)
-  {
-    return 1;
-  }
-  return 0;
-};
-
-static void VisitaPaginas(ListaPaginas *listaPaginas, Pagina *paginaPartida, Pagina *paginaDestino, ListaLinks *listaLinksPaginasVisitadas)
-{
-  //insiro a pagina de onde eu partir
-  InserePaginaListaLinks(listaLinksPaginasVisitadas, paginaPartida);
-
-  //retornando a lista de links da pagina que quero percorrer
-  ListaLinks *listaLinkPaginaPartida = RetornaListaLinksListaPaginas(listaPaginas, RetornaNomePagina(paginaPartida));
-
-  //verificando se existe link direto com a pagina de destino
-  if (VerificaExisteCaminhoDireto(listaPaginas, RetornaNomePagina(paginaPartida), RetornaNomePagina(paginaDestino)))
-  {
-    InserePaginaListaLinks(listaLinksPaginasVisitadas, paginaDestino);
-    return;
-  }
-
-  Pagina *paginaAuxiliar = PaginaExisteListaLinksVisitadas(listaLinkPaginaPartida, listaLinksPaginasVisitadas);
-
-  if (paginaAuxiliar != NULL) //existe pagina para ser visitada ainda e eh a pagina retornada
-  {
-    VisitaPaginas(listaPaginas, paginaAuxiliar, paginaDestino, listaLinksPaginasVisitadas);
-  }
-}
 
 void CAMINHO(ListaPaginas *listaPaginas, char *nomePaginaOrigem, char *nomePaginaDestino, FILE *arquivoLog)
 {

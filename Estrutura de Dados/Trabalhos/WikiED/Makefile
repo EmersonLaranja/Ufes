@@ -1,8 +1,15 @@
+# comando para compilar o sistema
 compile: main.c comandos.c contribuicao.c editor.c listaContribuicoes.c listaEditores.c listaLinks.c listaPaginas.c
-	gcc -ggdb -Wno-unused-const-variable -o wiked.out *.c
+	gcc -ggdb -o wiked.out *.c
 
+# comando para limpar executaveis
 clean:
-	rm -f *.o a.out wiked.out ufes.txt artes.txt fisica.txt log.txt
+	rm -f *.o a.out wiked.out
 
+# comando para executar o programa
 run:
-	valgrind --leak-check=full -s ./wiked.out entrada.txt
+	./wiked.out entrada.txt
+
+# comando para compilar,limpar e executar
+all:
+	make clean compile run

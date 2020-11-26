@@ -17,6 +17,7 @@ typedef struct listaLinks ListaLinks;
 
 /* Define o tipo CelulaLink (tipo opaco)*/
 typedef struct celulaLink CelulaLink;
+#include "listaPaginas.h"
 /*----------------------------------------------------------------------
  * Inicializa a lista de links
  * inputs: -
@@ -33,7 +34,6 @@ ListaLinks *InicializaListaLinks(void);
 * pos-condicao: lista contém o link inserido na ultima posição
 */
 void InserePaginaListaLinks(ListaLinks *listaLinks, Pagina *pagina);
-
 /*----------------------------------------------------------------------
  * Retorna um link de uma lista de links (procurando um link pelo nome de seu link)
  * inputs: a lista de links e o nome do link 
@@ -76,12 +76,6 @@ void RetiraPaginaListaLinks(ListaLinks *listaLinks, char *nomePagina);
  * pos-condicao: todo o espaco de memoria deve ser liberado, libera os links*/
 void DestroiListaLinks(ListaLinks *lista);
 
-/*----------------------------------------------------------------------
- * Verifica se uma pagina esta na lista de links das paginas visitadas ao percorrer um caminho
- * inputs: a lista de link que buscamos caminho e a lista de link com as paginas ja percorridas
- * output: Pagina, ou NULL caso nao exista mais caminhos a serem percorridos
- * pre-condicao: listas de links deve ser previamente inicializadas
- * pos-condicao: lista de links dos caminhos percorridos*/
-Pagina *PaginaExisteListaLinksVisitadas(ListaLinks *listaLinkPaginaPartida, ListaLinks *listaLinksPaginasVisitadas);
-
+//todo
+void VisitaPaginas(ListaPaginas *listaPaginas, Pagina *paginaPartida, Pagina *paginaDestino, ListaLinks *listaLinksPaginasVisitadas);
 #endif /* LISTALINKS_H */

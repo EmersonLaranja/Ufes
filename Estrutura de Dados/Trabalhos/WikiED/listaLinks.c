@@ -119,18 +119,34 @@ void DestroiListaLinks(ListaLinks *listaLinks)
   free(listaLinks);
 };
 
-Pagina *PaginaExisteListaLinksVisitadas(ListaLinks *listaLinkPaginaPartida, ListaLinks *listaLinksPaginasVisitadas)
+static int VerificaExisteCaminhoDireto(ListaPaginas *listaPaginas, char *paginaOrigem, char *paginaDestino)
 {
-  //percorre lista de links
+  ListaLinks *listaLinkPaginaOrigem = RetornaListaLinksListaPaginas(listaPaginas, paginaOrigem);
+  if (RetornaPaginaListaLinks(listaLinkPaginaOrigem, paginaDestino) != NULL)
+  {
+    return 1;
+  }
+  return 0;
+};
+
+void VisitaPaginas(ListaPaginas *listaPaginas, Pagina *paginaPartida, Pagina *paginaDestino, ListaLinks *listaLinksPaginasVisitadas)
+{
+  //insiro a pagina de onde eu partir
+  InserePaginaListaLinks(listaLinksPaginasVisitadas, paginaPartida);
+
+  //retornando a lista de links da pagina que quero percorrer
+  ListaLinks *listaLinkPaginaPartida = RetornaListaLinksListaPaginas(listaPaginas, RetornaNomePagina(paginaPartida));
+
+  //busca caminho dentro de cada celula da lista de link passada
   for (CelulaLink *auxiliar = listaLinkPaginaPartida->primeira; auxiliar != NULL; auxiliar = auxiliar->proxima)
   {
-    char *paginaAuxiliar = RetornaNomePagina(auxiliar->pagina); //pagina da lista que devo verificar
+    char *nomePaginaAuxiliar = RetornaNomePagina(auxiliar->pagina);
 
-    //visitei a pagina? se for NULL significa que eu ainda nao visitei esta pagina
-    if (RetornaPaginaListaLinks(listaLinksPaginasVisitadas, paginaAuxiliar) == NULL)
+    //se nao encontrei na lista das paginas que visitei
+    if (RetornaCelulaLinkListaLinks(listaLinksPaginasVisitadas, nomePaginaAuxiliar) == NULL)
     {
-      return auxiliar->pagina; //pagina que sera visitada
+      //faco a visita para verificar se existe caminho
+      VisitaPaginas(listaPaginas, auxiliar->pagina, paginaDestino, listaLinksPaginasVisitadas);
     }
   }
-  return NULL; //ja visitei todos os caminhos possiveis
 }

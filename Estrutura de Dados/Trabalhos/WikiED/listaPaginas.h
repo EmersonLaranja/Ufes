@@ -10,15 +10,16 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
-#include "pagina.h"
-#include "listaContribuicoes.h"
-#include "listaLinks.h"
 
 /* Define o tipo ListaPaginas (tipo opaco)*/
 typedef struct listaPaginas ListaPaginas;
 
 /* Define o tipo CelulaPagina (tipo opaco)*/
 typedef struct celulaPagina CelulaPagina;
+
+#include "pagina.h"
+#include "listaContribuicoes.h"
+#include "listaLinks.h"
 
 /*----------------------------------------------------------------------
  * Inicializa a lista de paginas
