@@ -119,16 +119,6 @@ void DestroiListaLinks(ListaLinks *listaLinks)
   free(listaLinks);
 };
 
-static int VerificaExisteCaminhoDireto(ListaPaginas *listaPaginas, char *paginaOrigem, char *paginaDestino)
-{
-  ListaLinks *listaLinkPaginaOrigem = RetornaListaLinksListaPaginas(listaPaginas, paginaOrigem);
-  if (RetornaPaginaListaLinks(listaLinkPaginaOrigem, paginaDestino) != NULL)
-  {
-    return 1;
-  }
-  return 0;
-};
-
 void VisitaPaginas(ListaPaginas *listaPaginas, Pagina *paginaPartida, Pagina *paginaDestino, ListaLinks *listaLinksPaginasVisitadas)
 {
   //insiro a pagina de onde eu partir
@@ -142,10 +132,10 @@ void VisitaPaginas(ListaPaginas *listaPaginas, Pagina *paginaPartida, Pagina *pa
   {
     char *nomePaginaAuxiliar = RetornaNomePagina(auxiliar->pagina);
 
-    //se nao encontrei na lista das paginas que visitei
+    //se nao encontrei na a pagina lista das paginas que visitei
     if (RetornaCelulaLinkListaLinks(listaLinksPaginasVisitadas, nomePaginaAuxiliar) == NULL)
     {
-      //faco a visita para verificar se existe caminho
+      //faco a visita para verificar se existe caminho na pagina em questao
       VisitaPaginas(listaPaginas, auxiliar->pagina, paginaDestino, listaLinksPaginasVisitadas);
     }
   }

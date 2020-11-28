@@ -76,6 +76,12 @@ void RetiraPaginaListaLinks(ListaLinks *listaLinks, char *nomePagina);
  * pos-condicao: todo o espaco de memoria deve ser liberado, libera os links*/
 void DestroiListaLinks(ListaLinks *lista);
 
-//todo
+/*----------------------------------------------------------------------
+ * Verifica se existe caminho em uma lista de links, visitando cada pagina da lista recursivamente
+ * inputs: a lista de paginas principal, pagina de origem, pagina de destino, lista de links das paginas ja visitadas
+ * output: -
+ * pre-condicao: as listas e paginas deve ser previamente inicializadas
+ * pos-condicao: todo caminho possivel deve ser inserido na lista de links das paginas ja visitadas*/
 void VisitaPaginas(ListaPaginas *listaPaginas, Pagina *paginaPartida, Pagina *paginaDestino, ListaLinks *listaLinksPaginasVisitadas);
+
 #endif /* LISTALINKS_H */

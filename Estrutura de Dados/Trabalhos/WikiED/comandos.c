@@ -20,7 +20,7 @@ void RETIRAPAGINA(ListaPaginas *listaPaginas, char *nomePagina, FILE *arquivoLog
     fprintf(arquivoLog, "ERROR: Nao existe a pagina %s\n", nomePagina);
     return;
   }
-  RetiraCelulaPaginaListaPaginas(listaPaginas, nomePagina); //*! Lembre-se que aqui nao apaga as contribuicoes
+  RetiraCelulaPaginaListaPaginas(listaPaginas, nomePagina); //*! aqui nao apaga as contribuicoes
   RetiraLinksListaPaginas(listaPaginas, nomePagina);
   DestroiPagina(paginaAuxiliar);
 }
@@ -98,7 +98,7 @@ void RETIRACONTRIBUICAO(ListaPaginas *listaPaginas, ListaEditores *listaEditores
   Editor *editorDaListaContribuicoes = RetornaEditorListaContribuicoes(listaContribuicoesAuxiliar, nomeEditor);
   Editor *editorAuxiliar = RetornaEditorListaEditores(listaEditores, nomeEditor);
 
-  //verifica se o editor da lista eh o editor passado. Se for, permite a retirada da contribuicao da lista
+  //verifica se o editor da lista eh o editor passado. Se for, permite a retirada da celula de contribuicao da lista
   if (strcmp(RetornaNomeEditor(editorDaListaContribuicoes), RetornaNomeEditor(editorAuxiliar)) == 0)
   {
     RetiraCelulaContribuicaoListaContribuicoes(listaContribuicoesAuxiliar, nomeArquivoContribuicao);

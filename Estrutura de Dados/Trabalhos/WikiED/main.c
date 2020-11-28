@@ -1,7 +1,8 @@
 #include "comandos.h"
+
 #define CAMINHO_ARQUIVO_LOG "log.txt"
 #define TAM_COMANDO 50
-#define TAM_ARGUMENTO 20
+#define TAM_ARGUMENTO 25
 
 int main(int argc, char *argv[])
 {
@@ -14,6 +15,7 @@ int main(int argc, char *argv[])
   }
 
   FILE *arquivoLog = fopen(CAMINHO_ARQUIVO_LOG, "w"); //abrindo arquivo no modo de escrita
+
   ListaPaginas *listaPaginas = InicializaListaPaginas();
   ListaEditores *listaEditores = InicializaListaEditores();
 
@@ -23,6 +25,7 @@ int main(int argc, char *argv[])
     fscanf(arquivo, "%c", &consomeLixo);
   }
 
+  //concatenando o comando ate formar uma palavra, processo eh feito 1 vez para evitar qualquer lixo no comeco do codigo
   comando[0] = consomeLixo;
   for (int i = 1; consomeLixo != ' '; i++)
   {
