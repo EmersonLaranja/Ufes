@@ -1,9 +1,0 @@
-﻿Classical mechanics
-
-Classical mechanics is used for describing the motion of macroscopic objects, from projectiles to parts of machinery, as well as astronomical objects, such as spacecraft, planets, stars, and galaxies. It produces very accurate results within these domains, and is one of the oldest and largest subjects in science, engineering and technology.
-
-
-Besides this, many related specialties exist, dealing with gases, liquids, and solids, and so on. Classical mechanics is enhanced by special relativity for objects moving with high velocity, approaching the speed of light; general relativity is employed to handle gravitation at a deeper level; and quantum mechanics handles the wave-particle duality of atoms and molecules.
-
-
-In physics, classical mechanics is one of the two major sub-fields of study in the science of mechanics, which is concerned with the set of physical laws governing and mathematically describing the motions of bodies and aggregates of bodies. The other sub-field is quantum mechanics.
