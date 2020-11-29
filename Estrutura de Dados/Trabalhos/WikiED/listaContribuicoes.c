@@ -162,19 +162,23 @@ void RetiraCelulaContribuicaoListaContribuicoes(ListaContribuicoes *listaContrib
   {
     listaContribuicoes->primeira = listaContribuicoes->ultima = NULL;
   }
+
   else if (auxiliar == listaContribuicoes->primeira)
   {
     listaContribuicoes->primeira = auxiliar->proxima;
   }
+
   else if (auxiliar == listaContribuicoes->ultima)
   {
     listaContribuicoes->ultima = anterior;
     anterior->proxima = NULL;
   }
+
   else
   {
     anterior->proxima = auxiliar->proxima;
   }
+
   AlteraEstadoContribuicao(auxiliar->contribuicao);
   free(auxiliar);
 };

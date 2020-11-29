@@ -174,10 +174,6 @@ void RetiraCelulaPaginaListaPaginas(ListaPaginas *listaPaginas, char *nomePagina
   free(auxiliar);
 }
 
-// void RetiraPaginaListaPaginas(ListaPaginas *listaPaginas, char *nomePagina){};
-
-// void RetiraListaContribuicoesListaPaginas(ListaPaginas *listaPaginas, char *nomePagina){};
-
 void RetiraLinksListaPaginas(ListaPaginas *listaPaginas, char *nomePagina)
 {
 

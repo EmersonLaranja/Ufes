@@ -10,6 +10,10 @@ clean:
 run:
 	./wiked.out entrada.txt
 
+# comando para executar o programa usando valgrind
+test:
+	valgrind --leak-check=full -s ./wiked.out entrada.txt
+
 # comando para limpar, compilar e executar
 all:
 	make clean compile run

@@ -6,7 +6,11 @@
 
 int main(int argc, char *argv[])
 {
-  char consomeLixo = '0', comando[TAM_COMANDO], argumento1[TAM_ARGUMENTO], argumento2[TAM_ARGUMENTO], argumento3[TAM_ARGUMENTO];
+  char consomeLixo = '0', comando[TAM_COMANDO],
+       argumento1[TAM_ARGUMENTO],
+       argumento2[TAM_ARGUMENTO],
+       argumento3[TAM_ARGUMENTO];
+
   FILE *arquivo = fopen(argv[1], "r"); //abrindo arquivo no modo de leitura
   if (arquivo == NULL)                 //algum problema no arquivo
   {

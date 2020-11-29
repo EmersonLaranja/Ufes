@@ -196,6 +196,6 @@ void IMPRIMEWIKED(ListaPaginas *listaPaginas, FILE *arquivoLog)
 
 void FIM(ListaPaginas *listaPaginas, ListaEditores *listaEditores)
 {
-  DestroiListaPaginas(listaPaginas);
-  DestroiListaEditores(listaEditores);
+  DestroiListaPaginas(listaPaginas);   //destroi contribuicoes
+  DestroiListaEditores(listaEditores); //destroi apenas os nos da contribuicoes
 };
