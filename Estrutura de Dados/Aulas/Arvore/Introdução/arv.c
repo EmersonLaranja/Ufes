@@ -30,6 +30,7 @@ Arv *arv_libera(Arv *a)
   {
     arv_libera(a->esq);
     arv_libera(a->dir);
+    // DestroiAluno(a->al);
     free(a);
   }
 
@@ -41,7 +42,7 @@ int arv_vazia(Arv *a)
   return a == NULL ? 1 : 0;
 };
 
-int arv_pertence(Arv *a, Aluno *al)
+int arv_pertence(Arv *a, char *chave)
 {
   if (arv_vazia(a))
   {
@@ -49,9 +50,9 @@ int arv_pertence(Arv *a, Aluno *al)
   }
   else
   {
-    return a->info == c ||
-           arv_pertence(a->esq, c) ||
-           arv_pertence(a->dir, c);
+    return strcmp(RetornaNome(a->al), chave) == 0 ||
+           arv_pertence(a->esq, chave) ||
+           arv_pertence(a->dir, chave);
   }
 };
 
@@ -60,7 +61,8 @@ void *arv_imprime(Arv *a)
   printf("<");
   if (!arv_vazia(a))
   {
-    printf("%c", a->info);
+    ImprimeNomeAluno(a->al);
+    // ImprimeAluno(a->al);
     arv_imprime(a->esq);
     arv_imprime(a->dir);
   }
@@ -85,13 +87,14 @@ Arv *arv_pai(Arv *a, Aluno *al)
   if (arv_vazia(a))
     return NULL;
 
-  if (((!arv_vazia(a->esq)) && (a->esq->info == c)) || ((!arv_vazia(a->dir)) && (a->dir->info == c)))
+  if (((!arv_vazia(a->esq)) && (strcmp(RetornaNome(a->esq->al), RetornaNome(al))) == 0) ||
+      ((!arv_vazia(a->dir)) && (strcmp(RetornaNome(a->dir->al), RetornaNome(al))) == 0))
     return a;
 
-  Arv *aux = arv_pai(a->esq, c);
+  Arv *aux = arv_pai(a->esq, al);
 
-  if (aux = NULL)
-    aux = arv_pai(a->dir, c);
+  if (aux == NULL)
+    aux = arv_pai(a->dir, al);
 
   return aux;
 };
@@ -116,15 +119,15 @@ int ocorrencias(Arv *a, Aluno *al)
   if (arv_vazia(a))
     return 0;
 
-  if (a->info == c)
-    return (1 + ocorrencias(a->esq, c) + ocorrencias(a->dir, c));
+  if (strcmp(RetornaNome(a->al), RetornaNome(al)) == 0)
+    return (1 + ocorrencias(a->esq, al) + ocorrencias(a->dir, al));
 
-  return (ocorrencias(a->esq, c) + ocorrencias(a->dir, c));
+  return (ocorrencias(a->esq, al) + ocorrencias(a->dir, al));
 };
 
-int info(Arv *a)
+Aluno *RetornaAlunoArvore(Arv *a)
 {
   if (!arv_vazia(a))
-    return a->info;
+    return a->al;
   return 0;
 };

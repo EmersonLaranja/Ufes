@@ -16,7 +16,7 @@ Arv *arv_libera(Arv *a);
 
 int arv_vazia(Arv *a);
 
-int arv_pertence(Arv *a, Aluno *al);
+int arv_pertence(Arv *a, char *chave);
 
 void *arv_imprime(Arv *a);
 
@@ -28,6 +28,6 @@ int folhas(Arv *a);
 
 int ocorrencias(Arv *a, Aluno *al);
 
-int info(Arv *a);
+Aluno *RetornaAlunoArvore(Arv *a);
 
 #endif /*ARV_H*/
