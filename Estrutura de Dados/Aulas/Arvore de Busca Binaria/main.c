@@ -26,26 +26,25 @@ int main()
 
   abb_imprime(arv);
 
-  printf("\nBusca 1:\n");
-  /* Faz a busca e imprime a partir das chaves */
-  Arv *busca = abb_busca(arv, 3); //maria
+  printf("\nPrimeira Busca:\n");
+  Arv *busca = abb_busca(arv, 3); //buscando maria
   abb_imprime(busca);
 
-  printf("\nBusca 2:\n");
-  busca = abb_busca(arv, 2); //emerson
+  printf("\nSegunda Busca:\n");
+  busca = abb_busca(arv, 2); //buscando emerson
   abb_imprime(busca);
 
-  printf("\nBusca 3:\n");
-  busca = abb_busca(arv, 457); //valor que nao tem na arvore
+  printf("\nTerceira Busca:\n");
+  busca = abb_busca(arv, 9); //buscando valor nao existente na arvore
   abb_imprime(busca);
 
-  arv = abb_retira(arv, 7); //retira a wendel
+  arv = abb_retira(arv, 7); //retira o wendel
   arv = abb_retira(arv, 1); //retira a amelie
   arv = abb_retira(arv, 6); //retira a gabriela
-  printf("\narv modificada:\n");
+  printf("\n Arvore alterada:\n");
   abb_imprime(arv);
 
-  printf("\narv modificada 2:\n");
+  printf("\n Arvore alterada:\n");
   arv = abb_retira(arv, 999); //tenta retirar valor fora da arvore (nao altera a arvore)
   abb_imprime(arv);
   printf("\n");

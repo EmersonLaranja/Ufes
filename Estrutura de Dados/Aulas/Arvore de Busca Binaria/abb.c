@@ -14,19 +14,17 @@ Arv *abb_cria(void)
 
 void *abb_imprime(Arv *a)
 {
-  printf("<");
   if (a != NULL)
   {
     abb_imprime(a->esq);
     ImprimeAluno(a->info);
     abb_imprime(a->dir);
   }
-  printf(">");
 }
 
 Arv *abb_busca(Arv *a, int chave)
 {
-  if (a = NULL)
+  if (a == NULL)
     return NULL;
 
   else if (RetornaMatricula(a->info) > chave)
