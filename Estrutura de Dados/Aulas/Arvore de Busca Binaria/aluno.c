@@ -22,7 +22,7 @@ Aluno *InicializaAluno(int matricula, char *nome, float cr)
 
 void ImprimeAluno(Aluno *aluno)
 {
-    printf(" Matricula: %d, nome: %s, CR: %.f\n", aluno->matricula, aluno->nome, aluno->cr);
+    printf(" Matricula: %d, nome: %s, CR: %.2f\n", aluno->matricula, aluno->nome, aluno->cr);
 }
 
 int RetornaMatricula(Aluno *aluno)

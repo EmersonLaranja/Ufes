@@ -15,14 +15,14 @@ int main()
   // criando a arvore
   Arv *arv = abb_cria();
 
-  arv = abb_insere(arv, amelie);
-  arv = abb_insere(arv, emerson);
-  arv = abb_insere(arv, maria);
-  arv = abb_insere(arv, julia);
   arv = abb_insere(arv, diego);
-  arv = abb_insere(arv, gabriela);
   arv = abb_insere(arv, wendel);
+  arv = abb_insere(arv, emerson);
+  arv = abb_insere(arv, julia);
+  arv = abb_insere(arv, amelie);
+  arv = abb_insere(arv, maria);
   arv = abb_insere(arv, beatriz);
+  arv = abb_insere(arv, gabriela);
 
   abb_imprime(arv);
 
@@ -45,11 +45,10 @@ int main()
   abb_imprime(arv);
 
   printf("\n Arvore alterada:\n");
-  arv = abb_retira(arv, 999); //tenta retirar valor fora da arvore (nao altera a arvore)
+  arv = abb_retira(arv, 123); //tentando retirar valor que nao existe na arvore
   abb_imprime(arv);
   printf("\n");
 
-  /* Libera a memoria alocada */
   abb_libera(arv);
   abb_libera(busca);
   DestroiAluno(amelie);
