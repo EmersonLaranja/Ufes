@@ -30,7 +30,7 @@ extern "C"
   float RetornaCR(Aluno *aluno);
 
   void DestroiAluno(Aluno *aluno);
-
+  void ImprimeNomeAluno(Aluno *aluno);
 #ifdef __cplusplus
 }
 #endif

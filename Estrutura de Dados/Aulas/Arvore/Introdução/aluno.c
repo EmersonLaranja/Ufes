@@ -24,20 +24,27 @@ void ImprimeAluno(Aluno *aluno)
 {
     printf(" Matricula: %d, nome: %s, CR: %.f\n", aluno->matricula, aluno->nome, aluno->cr);
 }
+void ImprimeNomeAluno(Aluno *aluno)
+{
+    printf("%s ", aluno->nome);
+}
 
 int RetornaMatricula(Aluno *aluno)
 {
-    return aluno->matricula;
+    if (aluno->matricula)
+        return aluno->matricula;
 }
 
 char *RetornaNome(Aluno *aluno)
 {
-    return aluno->nome;
+    if (aluno->nome)
+        return aluno->nome;
 }
 
 float RetornaCR(Aluno *aluno)
 {
-    return aluno->cr;
+    if (aluno->cr)
+        return aluno->cr;
 }
 
 void DestroiAluno(Aluno *aluno)
