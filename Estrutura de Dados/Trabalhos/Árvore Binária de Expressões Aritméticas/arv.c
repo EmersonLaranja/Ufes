@@ -18,7 +18,7 @@ Arvore *ArvoreCria(int operando, char operador, Arvore *sae, Arvore *sad)
   Arvore *p = (Arvore *)malloc(sizeof(Arvore));
   //pensei em usar union para ter alocado operador ou operando, mas o fim de semestre não permitiu
   p->operador = '\0';
-  p->operando = 0;
+  p->operando = -1;
   p->esq = sae;
   p->dir = sad;
   return p;
@@ -88,17 +88,31 @@ Arvore *MontaArvore(Arvore *arvore, char *expressao, Pilha *caminhos, int posica
       //defina o valor do no atual com o operador
       arvore->operador = expressao[posicao];
       printf("%c", expressao[posicao]);
+      posicao++;
     }
 
     if (expressao[posicao] == '(')
     {
       //se for null, cria um nó à esquerda
-      if (arvore->operador == '\0' || arvore->operando == 0)
-        //diferentemente, cria um nó à direita
-
-        //adiciona nó na pilha
+      if (arvore->operador == '\0' || arvore->operando == -1)
+      {
+        arvore->esq = ArvoreCria(-1, 0, NULL, NULL);
+        Push(caminhos, arvore->esq);
         //vai para o nó filho criado
-        printf("%c", expressao[posicao]);
+        posicao++;
+        MontaArvore(arvore->esq, expressao, caminhos, posicao);
+      }
+      //diferentemente, cria um nó à direita
+      else
+      {
+        arvore->dir = ArvoreCria(-1, 0, NULL, NULL);
+        Push(caminhos, arvore->dir);
+        //vai para o nó filho criado
+        posicao++;
+        MontaArvore(arvore->dir, expressao, caminhos, posicao);
+      }
+
+      printf("%c", expressao[posicao]);
     }
 
     if (expressao[posicao] == ')')
@@ -112,10 +126,9 @@ Arvore *MontaArvore(Arvore *arvore, char *expressao, Pilha *caminhos, int posica
       printf("%c", expressao[posicao]);
       //volta para o nó raiz
       //! acho que aqui tem que rolar um posicao++, depura pra ver
+      posicao++;
       return arvore;
     }
-
-    posicao++;
   }
   return arvore;
 };
