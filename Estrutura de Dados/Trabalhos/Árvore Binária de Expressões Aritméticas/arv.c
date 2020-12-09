@@ -1,136 +1,123 @@
-// #include "arv.h"
+#include "arv.h"
 
-// union elemento
-// {
-//   float operando;
-//   char operador;
-// };
+struct arvore
+{
+  char operador;
+  int operando;
+  Arvore *esq;
+  Arvore *dir;
+};
 
-// struct arv
-// {
-//   Elemento elemento;
-//   Arv *esq;
-//   Arv *dir;
-// };
+Arvore *ArvoreCriaVazia(void)
+{
+  return NULL;
+};
 
-// Arv *arv_criavazia(void)
-// {
-//   return NULL;
-// };
+Arvore *ArvoreCria(int operando, char operador, Arvore *sae, Arvore *sad)
+{
+  Arvore *p = (Arvore *)malloc(sizeof(Arvore));
+  //pensei em usar union para ter alocado operador ou operando, mas o fim de semestre não permitiu
+  p->operador = '\0';
+  p->operando = 0;
+  p->esq = sae;
+  p->dir = sad;
+  return p;
+};
 
-// Arv *arv_cria(void *item, Arv *sae, Arv *sad)
-// {
-//   Arv *p = (Arv *)malloc(sizeof(Arv));
+Arvore *ArvoreLibera(Arvore *a)
+{
 
-//   p->esq = sae;
-//   p->dir = sad;
+  if (!ArvoreVazia(a))
+  {
+    ArvoreLibera(a->esq);
+    ArvoreLibera(a->dir);
+    free(a);
+  }
 
-//   return p;
-// };
+  return NULL;
+};
 
-// Arv *arv_libera(Arv *a)
-// {
+int ArvoreVazia(Arvore *a)
+{
+  return a == NULL ? 1 : 0;
+};
 
-//   if (!arv_vazia(a))
-//   {
-//     arv_libera(a->esq);
-//     arv_libera(a->dir);
-//     // DestroiAluno(a->al);
-//     free(a);
-//   }
+static int EhNumero(char c)
+{
+  if (c >= '0' && c <= '9')
+  {
+    return 1;
+  };
+  return 0;
+};
 
-//   return NULL;
-// };
+static int EhOperador(char c)
+{
+  return c == '+' ||
+         c == '-' ||
+         c == '/' ||
+         c == '*';
+};
 
-// int arv_vazia(Arv *a)
-// {
-//   return a == NULL ? 1 : 0;
-// };
+Arvore *MontaArvore(Arvore *arvore, char *expressao, Pilha *caminhos, int posicao)
+{
 
-// int arv_pertence(Arv *a, char *chave)
-// {
-//   if (arv_vazia(a))
-//   {
-//     return 0;
-//   }
-//   else
-//   {
-//     return strcmp(RetornaNome(a->al), chave) == 0 ||
-//            arv_pertence(a->esq, chave) ||
-//            arv_pertence(a->dir, chave);
-//   }
-// };
+  while (expressao[posicao] != '\n')
+  {
 
-// void *arv_imprime(Arv *a)
-// {
-//   printf("<");
-//   if (!arv_vazia(a))
-//   {
-//     ImprimeNomeAluno(a->al);
-//     // ImprimeAluno(a->al);
-//     arv_imprime(a->esq);
-//     arv_imprime(a->dir);
-//   }
-//   printf(">");
-// };
+    if (EhNumero(expressao[posicao]))
+    {
+      int i = 1;
+      char vetorAuxiliar[30];
+      vetorAuxiliar[0] = expressao[posicao];
+      posicao++;
 
-// static int max2(int a, int b)
-// {
-//   return (a > b) ? a : b;
-// }
+      while (expressao[posicao] != ')')
+      {
+        vetorAuxiliar[i] = expressao[posicao];
+        i++;
+        posicao++;
+      }
+      vetorAuxiliar[i] = '\n';
+      sscanf(vetorAuxiliar, "%d", &arvore->operando);
+      printf("%d", arvore->operando);
+    }
 
-// int arv_altura(Arv *a)
-// {
-//   if (arv_vazia(a))
-//     return -1;
-//   else
-//     return 1 + max2(arv_altura(a->esq), arv_altura(a->dir));
-// };
+    if (EhOperador(expressao[posicao]))
+    {
+      //defina o valor do no atual com o operador
+      arvore->operador = expressao[posicao];
+      printf("%c", expressao[posicao]);
+    }
 
-// Arv *arv_pai(Arv *a, void *item)
-// {
-//   if (arv_vazia(a))
-//     return NULL;
+    if (expressao[posicao] == '(')
+    {
+      //se for null, cria um nó à esquerda
+      if (arvore->operador == '\0' || arvore->operando == 0)
+        //diferentemente, cria um nó à direita
 
-//   if (((!arv_vazia(a->esq)) && (strcmp(RetornaNome(a->esq->al), RetornaNome(al))) == 0) ||
-//       ((!arv_vazia(a->dir)) && (strcmp(RetornaNome(a->dir->al), RetornaNome(al))) == 0))
-//     return a;
+        //adiciona nó na pilha
+        //vai para o nó filho criado
+        printf("%c", expressao[posicao]);
+    }
 
-//   Arv *aux = arv_pai(a->esq, al);
+    if (expressao[posicao] == ')')
+    {
+      //retira o elemento do topo da pilha
+      Pop(caminhos);
+      //se a pilha ficar vazia, quebre o laço
+      if (RetornaValorTopo(caminhos) == 0)
+        break;
 
-//   if (aux == NULL)
-//     aux = arv_pai(a->dir, al);
+      printf("%c", expressao[posicao]);
+      //volta para o nó raiz
+      //! acho que aqui tem que rolar um posicao++, depura pra ver
+      return arvore;
+    }
 
-//   return aux;
-// };
+    posicao++;
+  }
+  return arvore;
+};
 
-// int folhas(Arv *a)
-// {
-//   if (arv_vazia(a->esq) && arv_vazia(a->dir))
-//     return 1;
-
-//   else if (!arv_vazia(a->esq) && arv_vazia(a->dir))
-//     return folhas(a->esq);
-
-//   else if (!arv_vazia(a->dir) && arv_vazia(a->esq))
-//     return folhas(a->dir);
-
-//   return folhas(a->esq) + folhas(a->dir);
-// };
-
-// int ocorrencias(Arv *a, void *item)
-// {
-
-//   if (arv_vazia(a))
-//     return 0;
-
-//   if (strcmp(RetornaNome(a->al), RetornaNome(al)) == 0)
-//     return (1 + ocorrencias(a->esq, al) + ocorrencias(a->dir, al));
-
-//   return (ocorrencias(a->esq, al) + ocorrencias(a->dir, al));
-// };
-
-// int VerificaElemento(Elemento *elemento)
-// {
-//   return elemento == OPERADOR ? OPERADOR : OPERANDO;
-// };
+float CalculaArvore(Arvore *arvore){};

@@ -7,22 +7,22 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "arv.h"
 
 #ifndef PILHA_H
 #define PILHA_H
 
 typedef struct pilha Pilha;
+#include "arv.h"
 
 //inicializa a estrutura da pilha
 Pilha *InicializaPilha(void);
 
 //inclui no topo
-void Push(Pilha *pilha, Arv *arv);
+void Push(Pilha *pilha, Arvore *arvore);
 //retira do topo
-Arv *Pop(Pilha *pilha);
+Arvore *Pop(Pilha *pilha);
 
-void ImprimePilha(Pilha *pilha);
+int RetornaValorTopo(Pilha *pilha);
 
 void DestroiPilha(Pilha *pilha);
 

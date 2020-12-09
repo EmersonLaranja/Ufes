@@ -1,26 +1,12 @@
 #include "arv.h"
+#include "pilha.h"
 
-int EhNumero(char c)
-{
-  if (c >= '0' && c <= '9')
-  {
-    return 1;
-  };
-  return 0;
-}
-
-int EhOperador(char c)
-{
-  return c == '+' ||
-         c == '-' ||
-         c == '/' ||
-         c == '*';
-}
+#define TAM 100
 
 int main(int argc, char *argv[])
 {
   FILE *entrada;
-  char caracter;
+  char expressao[TAM];
   entrada = fopen(argv[1], "r");
 
   if (entrada == NULL)
@@ -37,71 +23,24 @@ int main(int argc, char *argv[])
     return 0;
   }
 
-  //! Criar uma arvore nula
-  // Crie uma pilha e insira a arvore
-
-  while (fscanf(entrada, "%c", &caracter) != EOF)
+  while (fscanf(entrada, "%s", expressao) != EOF)
   {
-    if (caracter == '\n')
-    {
-      //Calcula o resultado
-      printf("\n");
-      fprintf(saida, "\n");
-      continue;
-    }
+    Arvore *arvore = ArvoreCria(0, 0, NULL, NULL); //nó raiz
+    Pilha *caminhos = InicializaPilha();
+    Push(caminhos, arvore);
 
-    if (EhNumero(caracter))
-    {
-      int i = 1;
-      char vetorAuxiliar[30];
-      vetorAuxiliar[0] = caracter;
+    Arvore *arvoreAuxiliar = MontaArvore(arvore, expressao, caminhos, 1); //começa do 1 pois consideramos a criação da arvore como  o primeiro '('
 
-      while (fscanf(entrada, "%c", &caracter) == 1)
-      {
-        if (caracter == ')')
-        {
-          break;
-        }
+    float resultado = CalculaArvore(arvoreAuxiliar);
+    printf("%.2f\n", resultado);
 
-        vetorAuxiliar[i] = caracter;
-        i++;
-      }
-      vetorAuxiliar[i] = '\n';
-      sscanf(vetorAuxiliar, "%d", &i);
-      // adiciona o numero ao item da arvore
-      printf("%d", i);
-      fprintf(saida, "%d", i);
-    }
-
-    if (EhOperador(caracter))
-    {
-      //defina o valor do no atual com o operador
-      printf("%c", caracter);
-      fprintf(saida, "%c", caracter);
-    }
-
-    if (caracter == '(')
-    {
-      //if da pilha na posicao topo-2 (item anterior)
-      //se for null, cria um nó à esquerda
-      //diferentemente, cria um nó à direita
-
-      //adiciona nó na pilha
-      //vai para o nó filho criado
-      printf("%c", caracter);
-      fprintf(saida, "%c", caracter);
-    }
-    if (caracter == ')')
-    {
-      //retira o elemento do topo da pilha
-      //volta para o nó raiz
-      //se a pilha ficar vazia, quebre o laço
-      printf("%c", caracter);
-      fprintf(saida, "%c", caracter);
-    }
+    ArvoreLibera(arvoreAuxiliar);
+    ArvoreLibera(arvore);
+    DestroiPilha(caminhos);
   }
 
   printf("\n");
+
   fclose(entrada);
   fclose(saida);
 
