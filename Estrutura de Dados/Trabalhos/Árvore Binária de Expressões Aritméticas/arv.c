@@ -1,136 +1,249 @@
+#define _GNU_SOURCE
 #include "arv.h"
+#include <string.h>
+
+#define INICIAL -1 //visto que 0 eh valido como operador, colocarei um negativo para inicializar as variaveis
 
 struct arvore
 {
-  char operador;
-  int operando;
-  Arvore *esq;
-  Arvore *dir;
+    char operador;
+    float operando;
+    struct arvore *esquerda;
+    struct arvore *direita;
 };
 
-Arvore *ArvoreCriaVazia(void)
+Arvore *CriaArvoreVazia(void)
 {
-  return NULL;
-};
+    return NULL;
+}
 
-Arvore *ArvoreCria(int operando, char operador, Arvore *sae, Arvore *sad)
+Arvore *CriaArvore(void)
 {
-  Arvore *p = (Arvore *)malloc(sizeof(Arvore));
-  //pensei em usar union para ter alocado operador ou operando, mas o fim de semestre não permitiu
-  p->operador = '\0';
-  p->operando = -1;
-  p->esq = sae;
-  p->dir = sad;
-  return p;
-};
+    Arvore *arvore = (Arvore *)malloc(sizeof(Arvore));
 
-Arvore *ArvoreLibera(Arvore *a)
-{
+    arvore->operador = '\0';
+    arvore->operando = INICIAL;
+    arvore->esquerda = arvore->direita = NULL;
 
-  if (!ArvoreVazia(a))
-  {
-    ArvoreLibera(a->esq);
-    ArvoreLibera(a->dir);
-    free(a);
-  }
+    return arvore;
+}
 
-  return NULL;
-};
-
-int ArvoreVazia(Arvore *a)
-{
-  return a == NULL ? 1 : 0;
-};
-
-static int EhNumero(char c)
-{
-  if (c >= '0' && c <= '9')
-  {
-    return 1;
-  };
-  return 0;
-};
-
-static int EhOperador(char c)
-{
-  return c == '+' ||
-         c == '-' ||
-         c == '/' ||
-         c == '*';
-};
-
-Arvore *MontaArvore(Arvore *arvore, char *expressao, Pilha *caminhos, int posicao)
+/*Verifica se o elemento eh um operador;
+ *inputs: elemento (tipo char)
+ *outputs: booleano (tipo int);
+ *pré-condição: elemento existe;
+ *pós-condição: 1 se for operador, caso contrario, 0;
+*/
+static int EhOperador(char elemento)
 {
 
-  while (expressao[posicao] != '\n')
-  {
+    return elemento == '*' ||
+           elemento == '+' ||
+           elemento == '-' ||
+           elemento == '/';
+}
 
-    if (EhNumero(expressao[posicao]))
+/*Verifica se o elemento eh um operando;
+ *inputs: elemento (tipo char)
+ *outputs: booleano (tipo int);
+ *pré-condição: elemento existe;
+ *pós-condição: 1 se for operando, caso contrario, 0;
+*/
+static int EhOperando(char elemento)
+{
+    if (elemento >= '0' && elemento <= '9')
     {
-      int i = 1;
-      char vetorAuxiliar[30];
-      vetorAuxiliar[0] = expressao[posicao];
-      posicao++;
+        return 1;
+    }
+    return 0;
+}
 
-      while (expressao[posicao] != ')')
-      {
-        vetorAuxiliar[i] = expressao[posicao];
-        i++;
-        posicao++;
-      }
-      vetorAuxiliar[i] = '\n';
-      sscanf(vetorAuxiliar, "%d", &arvore->operando);
-      printf("%d", arvore->operando);
+int RetornaOperando(Arvore *arvore)
+{
+    return arvore->operando;
+}
+
+char RetornaOperador(Arvore *arvore)
+{
+    return arvore->operador;
+}
+
+int ArvoreEhVazia(Arvore *arvore)
+{
+    return arvore == NULL;
+}
+
+Arvore *LiberaArvore(Arvore *arvore)
+{
+    if (!ArvoreEhVazia(arvore))
+    {
+        LiberaArvore(arvore->esquerda);
+        LiberaArvore(arvore->direita);
+        free(arvore);
+    }
+    return NULL;
+}
+
+Arvore *InsereOperandoArvore(Arvore *arvore, int operando)
+{
+    arvore->operando = operando;
+    return arvore;
+}
+
+Arvore *InsereOperadorArvore(Arvore *arvore, char operador)
+{
+    arvore->operador = operador;
+    return arvore;
+}
+
+Arvore *MontaArvore(Arvore *arvore, char *expressao, int *posicao)
+{
+    int ehOperando = 0;
+
+    if (expressao[*posicao] == '(')
+    {
+        // Parenteses envolta de um numero, exemplo: (59)
+        if ((EhOperando(expressao[*posicao + 1] == 1))) //proximo elemento eh o operando (um numero)
+        {
+            ehOperando = 1;
+            *posicao = *posicao + 1;
+        }
+
+        //Se for inicio da expressão "(":
+        else if (expressao[*posicao] == '(')
+        {
+            *posicao = *posicao + 1;
+
+            // Se a arvore for vazia, inicializo um no filho a esquerda
+            if (ArvoreEhVazia(arvore->esquerda))
+            {
+                arvore->esquerda = CriaArvore();
+            }
+
+            //entro no filho a esquerda e monto seus nós
+            arvore->esquerda = MontaArvore(arvore->esquerda, expressao, posicao);
+        }
     }
 
-    if (EhOperador(expressao[posicao]))
+    if (expressao[*posicao] == ')')
     {
-      //defina o valor do no atual com o operador
-      arvore->operador = expressao[posicao];
-      printf("%c", expressao[posicao]);
-      posicao++;
+        *posicao = *posicao + 1;
+        return arvore;
     }
 
-    if (expressao[posicao] == '(')
+    if (EhOperando(expressao[*posicao]) || ehOperando)
     {
-      //se for null, cria um nó à esquerda
-      if (arvore->operador == '\0' || arvore->operando == -1)
-      {
-        arvore->esq = ArvoreCria(-1, 0, NULL, NULL);
-        Push(caminhos, arvore->esq);
-        //vai para o nó filho criado
-        posicao++;
-        MontaArvore(arvore->esq, expressao, caminhos, posicao);
-      }
-      //diferentemente, cria um nó à direita
-      else
-      {
-        arvore->dir = ArvoreCria(-1, 0, NULL, NULL);
-        Push(caminhos, arvore->dir);
-        //vai para o nó filho criado
-        posicao++;
-        MontaArvore(arvore->dir, expressao, caminhos, posicao);
-      }
+        ehOperando = 0;
+        char *num = NULL;
 
-      printf("%c", expressao[posicao]);
+        //Le tudo ate o ')';
+        num = strtok((expressao + *posicao), ")");
+
+        //transforma valor para float e atribui ao no
+        arvore = InsereOperandoArvore(arvore, atof(num));
+
+        //atualizando a posicao da leitura do valor da expressao
+        int tamanho = strlen(num) + 1;
+        *posicao = *posicao + tamanho;
+
+        return arvore;
     }
 
-    if (expressao[posicao] == ')')
+    //Se for operador;
+    else if (EhOperador(expressao[*posicao]))
     {
-      //retira o elemento do topo da pilha
-      Pop(caminhos);
-      //se a pilha ficar vazia, quebre o laço
-      if (RetornaValorTopo(caminhos) == 0)
-        break;
+        arvore = InsereOperadorArvore(arvore, expressao[*posicao]);
+        *posicao = *posicao + 1;
 
-      printf("%c", expressao[posicao]);
-      //volta para o nó raiz
-      //! acho que aqui tem que rolar um posicao++, depura pra ver
-      posicao++;
-      return arvore;
+        //Se a arvore for vazia, inicializo um no filho a direita
+        if (ArvoreEhVazia(arvore->direita))
+        {
+            arvore->direita = CriaArvore();
+        }
+
+        //entro no filho a direita e monto seus nós
+        arvore->direita = MontaArvore(arvore->direita, expressao, posicao);
     }
-  }
-  return arvore;
-};
+    return arvore;
+}
 
-float CalculaArvore(Arvore *arvore){};
+float CalculaEquacao(Arvore *arvore)
+{
+    float esquerda = 0.0F, direita = 0.0F;
+
+    if (ArvoreEhVazia(arvore))
+    {
+        return 0;
+    }
+
+    //Se for um número;
+    if (ArvoreEhVazia(arvore->esquerda) && ArvoreEhVazia(arvore->direita))
+    {
+        return arvore->operando;
+    }
+
+    esquerda = CalculaEquacao(arvore->esquerda);
+    direita = CalculaEquacao(arvore->direita);
+
+    if (arvore->operador == '+')
+    {
+        esquerda += direita;
+        return esquerda;
+    }
+    if (arvore->operador == '-')
+    {
+        esquerda = esquerda - direita;
+        return esquerda;
+    }
+    if (arvore->operador == '*')
+    {
+        esquerda *= direita;
+        return esquerda;
+    }
+
+    if (arvore->operador == '/')
+    {
+        esquerda = esquerda / direita;
+        return esquerda;
+    }
+
+    return esquerda;
+}
+
+float ResultadoExpressao(Arvore *arvore)
+{
+    float resultado = 0.0F;
+
+    resultado = CalculaEquacao(arvore);
+
+    return resultado;
+}
+
+Arvore *PreencheArvore(Arvore *arvore, char *expressao)
+{
+    int posicao = 0;
+
+    if (ArvoreEhVazia(arvore))
+    {
+        arvore = CriaArvore();
+    }
+    arvore = MontaArvore(arvore, expressao, &posicao);
+    return arvore;
+}
+
+void ImprimeResultado(FILE *arquivoSaida, float resultado)
+{
+    float auxiliarFloat;
+    int auxiliarInteiro;
+
+    auxiliarFloat = resultado;
+    auxiliarInteiro = resultado;
+
+    if (auxiliarFloat - auxiliarInteiro == 0.0) //saber se eh preciso imprimir os numeros depois da virgula
+    {
+        fprintf(arquivoSaida, "%d\n", auxiliarInteiro);
+        return;
+    }
+    fprintf(arquivoSaida, "%.2f\n", auxiliarFloat);
+    return;
+}
