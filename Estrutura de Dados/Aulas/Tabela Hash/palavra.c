@@ -22,7 +22,7 @@ char *RetornaString(Palavra *palavra)
 
 void AtualizaOcorrencias(Palavra *palavra)
 {
-  palavra++;
+  palavra->numeroOcorrencias++;
 };
 
 int RetornaOcorrencias(Palavra *palavra)
