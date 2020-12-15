@@ -3,14 +3,17 @@
   "tasks": [
     {
       "type": "shell",
-      "label": "C/C++: gcc build active file",
-      "command": "/usr/bin/gcc",
-      "args": ["-g", "*.c", "-o", "${workspaceFolder}/a.out"],
+      "label": "C/C++: gcc.exe build active file",
+      "command": "C:\\MinGW\\bin\\gcc.exe",
+      "args": ["-g", "*.c", "-o", "${workspaceFolder}\\main"],
       "options": {
         "cwd": "${workspaceFolder}"
       },
       "problemMatcher": ["$gcc"],
-      "group": "build"
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
     }
   ]
 }
