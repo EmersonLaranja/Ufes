@@ -1,5 +1,10 @@
-#include "hash.h"
+#define _GNU_SOURCE
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <ctype.h>
+#include "hash.h"
 
 #define NPAL 64
 #define NTAB 127
@@ -9,23 +14,33 @@ int LePalavra(FILE *fp, char *s)
   int i = 0;
   int c;
 
-  while ((c = fgetc(fp) != EOF))
+  while ((c = fgetc(fp)) != EOF)
   {
     if (isalpha(c))
+    {
       break;
+    }
   }
-  if (c == EOF)
-    return 0;
 
-  s[i++] = c;
+  if (c == EOF)
+  {
+    return 0;
+  }
+
+  else
+    s[i++] = c;
+
   while ((i < NPAL - 1) && (c = fgetc(fp)) != EOF && isalpha(c))
   {
     s[i++] = c;
   }
+
+  s[i] = '\0';
+
   return i;
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
   FILE *fp;
   Hash *tab;
@@ -33,7 +48,7 @@ int main(int argc, char *argv[])
 
   if (argc != 2)
   {
-    printf("Arquivo nao encontrado!\n");
+    printf(" Arquivo nao encontrado!\n");
     return 0;
   }
 
@@ -41,7 +56,7 @@ int main(int argc, char *argv[])
 
   if (fp == NULL)
   {
-    printf("Erro na abertura do arquivo!\n");
+    printf(" Erro na abertura do Arquivo!\n");
     return 0;
   }
 
@@ -52,8 +67,10 @@ int main(int argc, char *argv[])
     Palavra *p = Acessa(tab, s);
     AtualizaOcorrencias(p);
   }
-  ImprimeHash(tab);
 
+  ImprimeHash(tab);
   LiberaHash(tab);
-  return 0;
+  fclose(fp);
+
+  return (EXIT_SUCCESS);
 }

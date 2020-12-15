@@ -1,3 +1,8 @@
+#define _GNU_SOURCE
+
+#include "palavra.h"
+#include <stdlib.h>
+#include <string.h>
 #include "hash.h"
 
 struct hash
@@ -6,72 +11,68 @@ struct hash
   int tamanho;
 };
 
+static int hash(char *s, int tamanho)
+{
+  int total = 0;
+
+  for (int i = 0; s[i] != '\0'; i++)
+  {
+    total += s[i];
+  }
+
+  return (total % tamanho);
+}
+
 Hash *InicializaHash(int tamanho)
 {
-  Hash *h = (Hash *)malloc(sizeof(Hash));
 
+  Hash *h = (Hash *)malloc(sizeof(Hash));
   h->tamanho = tamanho;
-  h->vetor = (Palavra **)malloc(sizeof(Palavra *));
+  h->vetor = (Palavra **)malloc(tamanho * sizeof(Palavra *));
 
   for (int i = 0; i < tamanho; i++)
   {
     h->vetor[i] = NULL;
   }
+
   return h;
-};
-
-static int FazHash(char *s, int tamanho)
-{
-  int total = 0, i;
-
-  for (i = 0; s[i] != '\0'; i++)
-  {
-    total += s[i];
-  }
-  return total % tamanho;
 }
 
-Palavra *Acessa(Hash *hash, char *string)
+Palavra *Acessa(Hash *h, char *string)
 {
-  int indice = FazHash(string, hash->tamanho);
-  Palavra *palavra = BuscaPalavra(hash->vetor[indice], string);
+  Palavra *p;
 
-  if (palavra)
-    return palavra;
+  int indice = hash(string, h->tamanho);
+  p = BuscaPalavra(h->vetor[indice], string);
 
-  palavra = InicializaPalavra(string);
-
-  hash->vetor[indice] = InserePalavraLista(hash->vetor[indice], palavra);
-
-  return palavra;
-};
-
-int contaPalavras(Hash *hash)
-{
-  int soma = 0;
-
-  for (int i = 0; i < hash->tamanho; i++)
+  if (p)
   {
-    soma += ContaPalavrasLista(hash->vetor[i]);
+    return p;
   }
 
-  return soma;
-};
+  p = InicializaPalavra(string);
+  h->vetor[indice] = InserePalavraLista(h->vetor[indice], p);
 
-void ImprimeHash(Hash *hash)
+  return p;
+}
+
+void ImprimeHash(Hash *h)
 {
-  for (int i = 0; i < hash->tamanho; i++)
+
+  for (int i = 0; i < h->tamanho; i++)
   {
-    printf("\nPosicao vet[%d]: \n", i);
-    ImprimeLista(hash->vetor[i]);
+    printf("\nPosição vetor[%d]: \n ", i);
+    ImprimeLista(h->vetor[i]);
   }
-};
+}
 
-void LiberaHash(Hash *hash)
+void LiberaHash(Hash *h)
 {
 
-  for (int i = 0; i < hash->tamanho; i++)
-    LiberaListaPalavras(hash->vetor[i]);
-  free(hash->vetor);
-  free(hash);
-};
+  for (int i = 0; i < h->tamanho; i++)
+  {
+    LiberaListaPalavras(h->vetor[i]);
+  }
+  free(h->vetor);
+  free(h);
+}
