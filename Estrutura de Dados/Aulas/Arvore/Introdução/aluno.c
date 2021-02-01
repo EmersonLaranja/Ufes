@@ -37,7 +37,7 @@ int RetornaMatricula(Aluno *aluno)
 
 char *RetornaNome(Aluno *aluno)
 {
-    if (aluno->nome)
+    if (aluno && aluno->nome)
         return aluno->nome;
 }
 
