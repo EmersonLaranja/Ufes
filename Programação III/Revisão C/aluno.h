@@ -4,8 +4,12 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
-
-typedef struct aluno Aluno;
+#define TAM_NOME 20
+typedef struct aluno //that could be in the aluno.c (Only testing)
+{
+  char nome[TAM_NOME];
+  int nota;
+} Aluno;
 
 Aluno *InicializaAluno(char *nome, float nota);
 char *RetornaNome(Aluno *aluno);

@@ -1,27 +1,10 @@
 #include "aluno.h"
-#define TAM 50
-
-static void LiberaVetorAlunos(Aluno **vetor, int tamanhoVetor)
-{
-  for (int i = 0; i < tamanhoVetor; i++)
-  {
-    LiberaAluno(vetor[i]);
-  }
-}
+#define MEDIA 7
+//
 
 int ComparaNomes(const void *a, const void *b)
 {
-  int r = strcmp(RetornaNome((Aluno *)a), RetornaNome((Aluno *)b));
-
-  if (r == 0)
-    return 0;
-  else
-  {
-    if (r < 0)
-      return -1;
-    else
-      return 1;
-  }
+  return strcmp(((Aluno *)a)->nome, ((Aluno *)b)->nome);
 }
 
 int main(int argc, char const *argv[])
@@ -34,37 +17,29 @@ int main(int argc, char const *argv[])
     return 0;
   }
 
-  Aluno *vetorAlunos[TAM];
-  char nomeAuxiliar[TAM];
-  float notaAuxiliar;
-  int i = 0;
+  char *nomeAuxiliar;
+  int tamVetor, notaAuxiliar;
+  fscanf(entrada, "%d", &tamVetor);
 
-  while (fscanf(entrada, "%s %f", nomeAuxiliar, &notaAuxiliar) != EOF)
+  Aluno vetorAlunos[tamVetor];
+
+  for (int i = tamVetor - 1; i >= 0; i--)
   {
-
-    vetorAlunos[i] = InicializaAluno(nomeAuxiliar, notaAuxiliar);
-    i++;
+    fscanf(entrada, "%d %s", &vetorAlunos[i].nota, vetorAlunos[i].nome);
   }
+
   fclose(entrada);
 
   FILE *saida = fopen("saida.csv", "w");
 
-  qsort(vetorAlunos, i, sizeof(Aluno **), ComparaNomes);
+  qsort(vetorAlunos, tamVetor, sizeof(Aluno), ComparaNomes);
 
-  for (int j = 0; j < i; j++)
+  for (int i = 0; i < tamVetor; i++)
   {
-    float nota = RetornaNota(vetorAlunos[j]);
-
-    if (nota < 7)
-    {
-      fprintf(saida, "%s,%.2f,Prova Final\n", RetornaNome(vetorAlunos[j]), nota);
-    }
-    else
-    {
-      fprintf(saida, "%s,%.2f,Aprovado\n", RetornaNome(vetorAlunos[j]), nota);
-    }
+    if (vetorAlunos[i].nota >= MEDIA)
+      printf("%s: %d\n", vetorAlunos[i].nome, vetorAlunos[i].nota);
   }
 
-  LiberaVetorAlunos(vetorAlunos, i);
-  return 0;
+  fclose(saida);
+  return (0);
 }

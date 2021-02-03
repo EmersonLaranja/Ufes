@@ -1,8 +1,11 @@
-Antonio 7.5
-Marcos 8
-Emerson 8
-Leticia 9
-Sabrina 10
-Juliana 7.6
-Carlos 4.76
-Jonas 10
+10
+0 Fulano
+10 Ciclano
+3 Beltrano
+5 Anonimo
+7 Geronimo
+8 Sozia
+4 TripaSeca
+5 QuasiNada
+8 Chapolin
+6 Chaves
