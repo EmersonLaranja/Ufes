@@ -4,16 +4,13 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
-#define TAM_NOME 20
-typedef struct aluno //that could be in the aluno.c (Only testing)
-{
-  char nome[TAM_NOME];
-  int nota;
-} Aluno;
+typedef struct aluno Aluno; //that could be in the aluno.c (Only testing)
 
-Aluno *InicializaAluno(char *nome, float nota);
+Aluno *InicializaAluno(char *nome, int nota);
 char *RetornaNome(Aluno *aluno);
-float RetornaNota(Aluno *aluno);
+int RetornaNota(Aluno *aluno);
+void ImprimeAluno(Aluno *aluno);
 void LiberaAluno(Aluno *aluno);
+void OrdenaNomeAlunos(Aluno **vetor, int tamanho);
 
 #endif /*ALUNO_H*/
