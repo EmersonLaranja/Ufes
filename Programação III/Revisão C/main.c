@@ -12,9 +12,11 @@ int main(int argc, char const *argv[])
     return 0;
   }
 
-  char nomeAuxiliar[TAM_NOME];
-  int tamVetor, notaAuxiliar;
+  int tamVetor;
   fscanf(entrada, "%d", &tamVetor);
+
+  int notaAuxiliar;
+  char nomeAuxiliar[TAM_NOME];
 
   Aluno **vetorAlunos = (Aluno **)malloc(sizeof(Aluno *) * tamVetor);
 
@@ -34,7 +36,13 @@ int main(int argc, char const *argv[])
     if (RetornaNota(vetorAlunos[i]) >= MEDIA)
       ImprimeAluno(vetorAlunos[i]);
   }
-
   fclose(saida);
+
+  for (int i = 0; i < tamVetor; i++)
+  {
+    LiberaAluno(vetorAlunos[i]);
+  }
+  free(vetorAlunos);
+
   return (0);
 }
