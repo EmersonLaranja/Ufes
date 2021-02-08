@@ -55,7 +55,6 @@ int main(int argc, char const *argv[])
   LeArquivoEPreencheAluno(entrada, vetorAlunos, tamVetor); //Preenche o vetor
 
   fclose(entrada);
-
   OrdenaNomeAlunos(vetorAlunos, tamVetor);
 
   FILE *saida = fopen("saida.csv", "w");
