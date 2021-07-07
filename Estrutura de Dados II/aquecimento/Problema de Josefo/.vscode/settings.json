@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    ".env": "dotenv",
+    "crivo_de_eratostenes.h": "c",
+    "josefo.h": "c"
+  }
+}
