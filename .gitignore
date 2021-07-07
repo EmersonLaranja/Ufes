@@ -10,6 +10,7 @@
 !*.h*
 !*.json*
 !*Makefile*
+!*asm*
 !*.sh*
 !*.md*
 !*.pdf*
