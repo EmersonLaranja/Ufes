@@ -1,0 +1,374 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API de Tags",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/contest/{contestId}/tags": {
+      "post": {
+        "summary": "Cria uma nova tag",
+        "parameters": [
+          {
+            "name": "contestId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "ID da competição"
+          },
+          {
+            "name": "entityTag",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "entityType": {
+                  "type": "string",
+                  "description": "Tipo da entidade"
+                },
+                "entityId": {
+                  "type": "string",
+                  "description": "ID da entidade"
+                },
+                "tag": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "description": "ID da tag"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Nome da tag"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "Valor da tag"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Sucesso: tag(s) atualizad(s)."
+          },
+          "400": {
+            "description": "Erro de requisição"
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza uma tag existente",
+        "parameters": [
+          {
+            "name": "contestId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "ID da competição"
+          },
+          {
+            "name": "entityTag",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "entityType": {
+                  "type": "string",
+                  "description": "Tipo da entidade"
+                },
+                "entityId": {
+                  "type": "string",
+                  "description": "ID da entidade"
+                },
+                "tag": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "ID da tag"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Novo nome da tag"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "Novo valor da tag"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Sucesso: tag(s) atualizad(s)."
+          },
+          "400": {
+            "description": "Bad Request: erro de requisição"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Exclui uma tag existente",
+        "parameters": [
+          {
+            "name": "contestId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "ID da competição"
+          },
+          {
+            "name": "entityTag",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "entityType": {
+                  "type": "string",
+                  "description": "Tipo da entidade"
+                },
+                "entityId": {
+                  "type": "string",
+                  "description": "ID da entidade"
+                },
+                "tag": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "ID da tag"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "Nome da tag"
+                      },
+                      "value": {
+                        "type": "string",
+                        "description": "Valor da tag"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Sucesso: tag(s) excluída(s)."
+          },
+          "400": {
+            "description": "Erro de requisição"
+          }
+        }
+      }
+    },
+    "/api/contest/{contestId}/tags/site/user/{siteId}/{userId}/{tagId}/{tagName}/{tagValue}": {
+      "get": {
+        "summary": "Obtém as tags de uma entidade, especificamente do tipo site/user",
+        "parameters": [
+          {
+            "name": "contestId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "ID da competição"
+          },
+          {
+            "name": "siteId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "ID do site"
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "ID do usuário"
+          },
+          {
+            "name": "tagId",
+            "in": "path",
+            "type": "string",
+            "description": "ID da tag (opcional)"
+          },
+          {
+            "name": "tagName",
+            "in": "path",
+            "type": "string",
+            "description": "Nome da tag (opcional)"
+          },
+          {
+            "name": "tagValue",
+            "in": "path",
+            "type": "string",
+            "description": "Valor da tag (opcional)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "entityType": {
+                  "type": "string",
+                  "description": "Tipo da entidade"
+                },
+                "entityTag": {
+                  "type": "array",
+                  "items": {
+                    "properties": {
+                      "entityId": {
+                        "type": "string",
+                        "description": "ID da entidade"
+                      },
+                      "tag": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "ID da tag"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Nome da tag"
+                          },
+                          "value": {
+                            "type": "string",
+                            "description": "Valor da tag"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro de requisição"
+          },
+          "404": {
+            "description": "Não encontrado"
+          }
+        }
+      }
+    },
+    "/api/contest/{contestId}/tags/{entityType}/{entityId}/{tagId}/{tagName}/{tagValue}": {
+      "get": {
+        "summary": "Obtém as tags de uma entidade",
+        "parameters": [
+          {
+            "name": "contestId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "ID da competição"
+          },
+          {
+            "name": "entityType",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "Tipo da entidade"
+          },
+          {
+            "name": "entityId",
+            "in": "path",
+            "type": "string",
+            "required": true,
+            "description": "ID da entidade"
+          },
+          {
+            "name": "tagId",
+            "in": "path",
+            "type": "string",
+            "description": "ID da tag (opcional)"
+          },
+          {
+            "name": "tagName",
+            "in": "path",
+            "type": "string",
+            "description": "Nome da tag (opcional)"
+          },
+          {
+            "name": "tagValue",
+            "in": "path",
+            "type": "string",
+            "description": "Valor da tag (opcional)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "entityType": {
+                  "type": "string",
+                  "description": "Tipo da entidade"
+                },
+                "entityTag": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "entityId": {
+                        "type": "string",
+                        "description": "ID da entidade"
+                      },
+                      "tag": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "ID da tag"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Nome da tag"
+                          },
+                          "value": {
+                            "type": "string",
+                            "description": "Valor da tag"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Erro de requisição"
+          },
+          "404": {
+            "description": "Não encontrado"
+          }
+        }
+      }
+    }
+  }
+}
